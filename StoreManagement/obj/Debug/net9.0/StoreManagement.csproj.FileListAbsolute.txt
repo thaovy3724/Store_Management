@@ -1,228 +1,231 @@
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.AssemblyReference.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.GeneratedMSBuildEditorConfig.editorconfig
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfoInputs.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfo.cs
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.CoreCompileInputs.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.MvcApplicationPartsAssemblyInfo.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cs
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\appsettings.Development.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\appsettings.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.staticwebassets.runtime.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.staticwebassets.endpoints.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.exe
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.deps.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.runtimeconfig.json
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\StoreManagement.pdb
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Azure.Core.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Azure.Identity.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Humanizer.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Identity.Client.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\Mono.TextTemplating.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.ClientModel.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.CodeDom.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Composition.Convention.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Composition.Hosting.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Composition.Runtime.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Composition.TypedParts.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Drawing.Common.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Formats.Asn1.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Memory.Data.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Runtime.Caching.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Security.Permissions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Text.Json.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\System.Windows.Extensions.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\bundle\StoreManagement.styles.css
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\projectbundle\StoreManagement.bundle.scp.css
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\64ruo2c28t-o5r0f1fjzx.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\xay7e4300w-61n19gt1b8.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\y61xzmtfck-sb9ibxeo8w.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\qytw2xjyzb-bqjiyaj88i.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\5liokxt3hr-c2jlpeoesf.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\v0cq1m1sbw-erw9l3u2r3.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\yz6ri74n7v-aexeepp0ev.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\fxv7ayob4d-d7shbmvgxk.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\40fhobwkgj-ausgxo2sd3.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\v84jh654by-k8d9w2qqmf.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\axlzajx35l-cosvhxvwiu.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\lgojpcajy1-ub07r2b239.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\jyzfm9z8sp-fvhpjtyr6v.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\84wn25o349-b7pk76d08c.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\mv5dvje2g7-fsbi9cje9m.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\6lnisi0x6b-rzd6atqjts.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\ykz8q3vgvd-ee0r1s7dh0.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\e0ejef1rs6-dxx9fxp4il.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\tujcvq7yu5-jd9uben2k1.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\wkvvtzybp7-khv3u5hwcm.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\7e65k13boo-r4e9w2rdcm.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\71d67g98vx-lcd1t2u6c8.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\rza38tjyhx-c2oey78nd0.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\ctj6f16emc-tdbxkamptv.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\jdxm7227cl-j5mq2jizvt.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\8b2x8fc1jy-06098lyss8.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\limi8267bv-nvvlpmu67g.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\5puxzlx7me-s35ty4nyc5.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\npb9vx9014-pj5nd1wqec.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\nnve1d7o96-46ein0sx1k.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\7usx5hu7ax-v0zj4ognzu.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\htduzggpzg-37tfw0ft22.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\lo45no0pli-hrwsygsryq.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\0cdkjv9wt9-pk9g2wxc8p.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\j0pydm5upm-ft3s53vfgj.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\techwkornm-6cfz1n2cew.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\8ytforbu88-6pdc2jztkx.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\hnfzdwjrhw-493y06b0oq.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\vwpgtc6dll-iovd86k7lj.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\b252a6cjfd-vr1egmr9el.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\tijwj4tus6-kbrnm935zg.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\9yenxrxz3c-jj8uyg4cgr.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\lrseqvl7o1-y7v9cxd14o.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\hlgmdil7x1-notf2xhcfb.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\k5q1zj113g-h1s4sie4z3.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\upvxsw28ke-63fj8s7r0e.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\km25rkimhq-0j3bgjxly4.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\efbsfg8ykk-47otxtyo56.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\xyqxc6iqkw-4v8eqarkd7.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\8lglhl7vxo-356vix0kms.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\53jgv60uf8-83jwlth58m.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\qrai5mdbw4-mrlpezrjn3.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\20juv3vnjo-lzl9nlhx6b.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\k54v7fyd8t-ag7o75518u.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\3a8nh19rg4-x0q3zqp4vz.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\13f2kry0z6-0i3buxo5is.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\lyqzvdswus-o1o13a6vjx.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\e6nde6npfn-ttgo8qnofa.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\bx3xksor6d-2z0ns9nrw6.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\rtqssidatr-muycvpuwrr.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\m62kisbxae-87fc7y1x7t.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\b7mcfycxyt-mlv21k5csn.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\yn835j70bh-ne1fkwe5jz.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\23yde9cwtr-uw2ojql0uh.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\cdhsmkgmwd-uw2ojql0uh.gz
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\staticwebassets.build.json
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\staticwebassets.build.json.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\staticwebassets.development.json
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreMan.B2A7598D.Up2Date
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.dll
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\refint\StoreManagement.dll
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\appsettings.Development.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\appsettings.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.staticwebassets.runtime.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.staticwebassets.endpoints.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.exe
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.deps.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.runtimeconfig.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\StoreManagement.pdb
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Azure.Core.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Azure.Identity.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Humanizer.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\Mono.TextTemplating.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.ClientModel.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.CodeDom.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Composition.Convention.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Composition.Hosting.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Composition.Runtime.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Composition.TypedParts.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Drawing.Common.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Memory.Data.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Runtime.Caching.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Security.Permissions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\System.Windows.Extensions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.AssemblyReference.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\rpswa.dswa.cache.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.GeneratedMSBuildEditorConfig.editorconfig
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfoInputs.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfo.cs
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.CoreCompileInputs.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.MvcApplicationPartsAssemblyInfo.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cs
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\rjimswa.dswa.cache.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\scopedcss\bundle\StoreManagement.styles.css
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\scopedcss\projectbundle\StoreManagement.bundle.scp.css
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\4t1wm0pz9p-rxmmx26xpl.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\y3af6hv9xj-b9sayid5wm.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\xay7e4300w-61n19gt1b8.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\qra7fq6o3e-3r8b2a0bt1.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\rp5zxccm95-ftq99t9pb7.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\yn835j70bh-j6qiqobnkb.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\qytw2xjyzb-t1cqhe9u97.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\5liokxt3hr-c2jlpeoesf.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\v0cq1m1sbw-sejl45xvog.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\yz6ri74n7v-aexeepp0ev.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\fxv7ayob4d-xvp3kq03qx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\40fhobwkgj-ausgxo2sd3.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\v84jh654by-22vffe00uq.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\axlzajx35l-cosvhxvwiu.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\lgojpcajy1-qesaa3a1fm.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\jyzfm9z8sp-fvhpjtyr6v.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\84wn25o349-tmc1g35s3z.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\mv5dvje2g7-fsbi9cje9m.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\6lnisi0x6b-rxsg74s51o.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\ykz8q3vgvd-ee0r1s7dh0.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\e0ejef1rs6-q9ht133ko3.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\tujcvq7yu5-jd9uben2k1.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\wkvvtzybp7-gye83jo8yx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\7e65k13boo-r4e9w2rdcm.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\71d67g98vx-wl58j5mj3v.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\rza38tjyhx-c2oey78nd0.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\ctj6f16emc-d4r6k3f320.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\jdxm7227cl-j5mq2jizvt.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\8b2x8fc1jy-keugtjm085.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\limi8267bv-nvvlpmu67g.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\5puxzlx7me-zub09dkrxp.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\npb9vx9014-pj5nd1wqec.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\nnve1d7o96-43atpzeawx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\7usx5hu7ax-v0zj4ognzu.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\htduzggpzg-ynyaa8k90p.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\lo45no0pli-hrwsygsryq.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\0cdkjv9wt9-c63t5i9ira.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\j0pydm5upm-ft3s53vfgj.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\techwkornm-4094rpi4f9.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\8ytforbu88-6pdc2jztkx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\hnfzdwjrhw-hd3gran6i8.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\vwpgtc6dll-iovd86k7lj.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\b252a6cjfd-ltid2c489k.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\tijwj4tus6-kbrnm935zg.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\9yenxrxz3c-8vyfqsqgz1.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\lrseqvl7o1-y7v9cxd14o.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\hlgmdil7x1-u9q1upor1n.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\k5q1zj113g-h1s4sie4z3.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\upvxsw28ke-4d85u1mtcx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\km25rkimhq-0j3bgjxly4.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\efbsfg8ykk-03hjc8e09r.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\xyqxc6iqkw-48y08845bh.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\8lglhl7vxo-356vix0kms.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\53jgv60uf8-83jwlth58m.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\qrai5mdbw4-mrlpezrjn3.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\20juv3vnjo-worgj0nhwm.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\k54v7fyd8t-gk0pw8i4co.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\3a8nh19rg4-x0q3zqp4vz.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\13f2kry0z6-d6nrnj6jjx.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\lyqzvdswus-m9qm4tazc0.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\e6nde6npfn-ttgo8qnofa.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\bx3xksor6d-jjsuc0puko.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\rtqssidatr-9vr69e8ynj.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\m62kisbxae-87fc7y1x7t.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\b7mcfycxyt-mlv21k5csn.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\23yde9cwtr-tydur2cvk8.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\compressed\cdhsmkgmwd-tydur2cvk8.gz
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\staticwebassets.build.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\staticwebassets.build.json.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\staticwebassets.development.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreMan.B2A7598D.Up2Date
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\refint\StoreManagement.dll
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
+B:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
