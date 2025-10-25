@@ -1,0 +1,255 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C#_.NET\\Store_Management\\store_management\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\models\\createviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\models\\createviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\models\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\models\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|d:\\c#_.net\\store_management\\store_management\\store_management\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7BF366B-8B15-49D2-B982-273019D43250}|store_management\\store_management.csproj|solutionrelative:store_management\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Delete.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\Delete.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Delete.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T18:10:22.706Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "store_management\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "store_management\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAUwJ8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:56:24.046Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Program.cs",
+              "RelativeDocumentMoniker": "store_management\\Program.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Program.cs",
+              "RelativeToolTip": "store_management\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:32:28.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Edit.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\Edit.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Edit.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T17:42:01.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "store_management\\Models\\RegisterViewModel.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\RegisterViewModel.cs",
+              "RelativeToolTip": "store_management\\Models\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T12:42:30.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "store_management\\Models\\LoginViewModel.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "store_management\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:35:48.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "All.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\All.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\All.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\All.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\All.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T17:32:05.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Create.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\Create.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Create.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T17:42:07.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateViewModel.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\CreateViewModel.cs",
+              "RelativeDocumentMoniker": "store_management\\Models\\CreateViewModel.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\CreateViewModel.cs",
+              "RelativeToolTip": "store_management\\Models\\CreateViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:06:54.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\Entities\\Account.cs",
+              "RelativeDocumentMoniker": "store_management\\Models\\Entities\\Account.cs",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Models\\Entities\\Account.cs",
+              "RelativeToolTip": "store_management\\Models\\Entities\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:04:26.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T11:45:54.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-25T12:49:48.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA8AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T11:48:31.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "store_management\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "D:\\C#_.NET\\Store_Management\\store_management\\store_management\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "store_management\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T11:48:30.449Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+﻿@model store_management.Models.CreateViewModel
+@* 🟢 Quan trọng: Sử dụng CreateAccountViewModel *@
+
+@{
+    ViewData["Title"] = "Thêm Tài Khoản Mới";
+}
+
+<h2>Thêm Tài Khoản Mới</h2>
+
+<form asp-action="Create" asp-controller="Account" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mt-3">
+        <label asp-for="username" class="form-label">Tên đăng nhập</label>
+        <input type="text" class="form-control" asp-for="username" />
+        <span asp-validation-for="username" class="text-danger"></span>
+    </div>
+
+    <div class="mt-3">
+        <label asp-for="password" class="form-label">Mật khẩu</label>
+        <input type="password" class="form-control" asp-for="password" />
+        <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+
+    <div class="mt-3">
+        <label asp-for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="email" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+
+    <div class="mt-3">
+        <label asp-for="role" class="form-label">Vai trò</label>
+        <select asp-for="role" class="form-control">
+            <option value="">-- Chọn vai trò --</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select>
+        <span asp-validation-for="role" class="text-danger"></span>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a asp-action="All" class="btn btn-secondary">Hủy bỏ</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        // 🟢 Quan trọng: Kích hoạt Client-side validation
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
