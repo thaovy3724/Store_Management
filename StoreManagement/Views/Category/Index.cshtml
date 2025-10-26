@@ -1,0 +1,408 @@
+﻿@model IEnumerable<StoreManagement.Models.Entities.Category>
+    @{
+    ViewData["Title"] = "Quản lý Loại sản phẩm";
+    }
+
+    <!doctype html>
+    <html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin CRUD - Demo</title>
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="~/css/admin.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+
+
+    <body>
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="brand">Admin Panel</div>
+            <div class="d-flex align-items-center">
+                <span class="user-info me-2">Xin chào, <a href="@Url.Action("Index", "PersonalInfo")" class="fw-bold text-decoration-none" style="color:#0d6efd">Admin</a></span>
+                <span class="text-muted mx-2">|</span>
+                <button class="btn btn-link btn-sm p-0 text-decoration-none" style="color:#0d6efd">Đăng xuất</button>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar d-flex flex-column pt-3">
+            <nav class="nav flex-column mt-2">
+                <a class="nav-link" href="@Url.Action("Index", "User")">
+                    <i class="bi bi-people-fill text-primary"></i>
+                    <span>Quản lý tài khoản</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Index", "Customer")">
+                    <i class="bi bi-person-lines-fill text-primary"></i>
+                    <span>Quản lý khách hàng</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Index", "Product")">
+                    <i class="bi bi-box-seam text-primary"></i>
+                    <span>Quản lý sản phẩm</span>
+                </a>
+
+                <a class="nav-link active" href="@Url.Action("Index", "Category")">
+                    <i class="bi bi-tags-fill text-primary"></i>
+                    <span>Quản lý loại sản phẩm</span>
+                </a>
+
+                <a class="nav-link" href="@Url.Action("Index", "Supplier")">
+                    <i class="bi bi-truck text-primary"></i>
+                    <span>Quản lý nhà cung cấp</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Index", "Promotion")">
+                    <i class="bi bi-gift-fill text-primary"></i>
+                    <span>Quản lý khuyến mãi</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Index", "Order")">
+                    <i class="bi bi-receipt-cutoff text-primary"></i>
+                    <span>Quản lý đơn hàng</span>
+                </a>
+                <a class="nav-link" href="#">
+                    <i class="bi bi-journal-plus text-primary"></i>
+                    <span>Quản lý phiếu nhập</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Index", "Statistic")">
+                    <i class="bi bi-bar-chart-line-fill text-primary"></i>
+                    <span>Thống kê</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="content">
+            <div class="container-fluid p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="fw-bold">Quản lý Loại sản phẩm</h3>
+                </div>
+
+                <!-- Thanh lọc -->
+                <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                    <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+                        <div class="input-group input-group-sm" style="width: 300px;">
+                            <input type="text" class="form-control" placeholder="Nhập tên loại sản phẩm" id="searchInput">
+                            <button class="btn btn-primary btn-search" type="button" id="searchBtn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                        <i class="bi bi-plus-circle"></i> Thêm mới
+                    </button>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-middle">
+                                <thead class="table-light thead-separator">
+                                    <tr class="text-center">
+                                        <th style="width:100px;">ID</th>
+                                        <th>Loại sản phẩm</th>
+                                        <th style="width:150px;">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="categoryTableBody">
+                                    @if (Model != null && Model.Any())
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr class="text-center" data-id="@item.CategoryId">
+                                        <td>@($"LSP{item.CategoryId}")</td>
+                                        <td class="category-name">@item.CategoryName</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light border me-1 btn-edit"
+                                                    title="Sửa"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#categoryModal"
+                                                    data-id="@item.CategoryId">
+                                                <i class="bi bi-pencil text-success"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-light border btn-delete"
+                                                    title="Xóa"
+                                                    data-id="@item.CategoryId">
+                                                <i class="bi bi-trash text-danger"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                    <tr>
+                                        <td colspan="3" class="text-center">Chưa có dữ liệu</td>
+                                    </tr>
+                            }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Phân trang đặt ngay dưới bảng, trong card-body -->
+                        <nav class="mt-2">
+                            <ul class="pagination modern-pagination-light justify-content-center mb-0">
+                                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                @for (int i = 1; i <= (int)ViewBag.TotalPages; i++)
+                        {
+                                <li class="page-item @(i == (int)ViewBag.CurrentPage ? "active" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                                </li>
+                        }
+                                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal dùng chung -->
+        <div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form id="categoryForm">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="categoryId" name="categoryId" value="0" />
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="categoryModalTitle">Quản lý loại sản phẩm</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Tên loại</label>
+                                <input type="text" class="form-control" id="typename" name="categoryName" required>
+                                <div class="invalid-feedback" id="typename-msg"></div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" id="categoryModalSaveBtn" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const modalTitle = document.getElementById("categoryModalTitle");
+                const saveBtn = document.getElementById("categoryModalSaveBtn");
+                const categoryForm = document.getElementById("categoryForm");
+                const categoryId = document.getElementById("categoryId");
+                const typename = document.getElementById("typename");
+                const tableBody = document.getElementById("categoryTableBody");
+                const searchInput = document.getElementById("searchInput");
+                const searchBtn = document.getElementById("searchBtn");
+
+                // Reset modal
+                const resetModal = () => {
+                    categoryId.value = "0";
+                    typename.value = "";
+                    typename.classList.remove("is-invalid");
+                    document.getElementById("typename-msg").textContent = "";
+                };
+
+                // Thêm mới
+                document.querySelectorAll(".btn-add").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        resetModal();
+                        modalTitle.innerText = "Thêm loại sản phẩm mới";
+                        saveBtn.innerText = "Thêm";
+                    });
+                });
+
+                // Chỉnh sửa
+                document.addEventListener("click", async function (e) {
+                    if (e.target.closest(".btn-edit")) {
+                        const id = e.target.closest(".btn-edit").getAttribute("data-id");
+
+                        try {
+                            const response = await fetch(`/Category/GetCategory/${id}`);
+                            const result = await response.json();
+
+                            if (result.success) {
+                                categoryId.value = result.data.id;
+                                typename.value = result.data.name;
+                                modalTitle.innerText = "Chỉnh sửa loại sản phẩm";
+                                saveBtn.innerText = "Cập nhật";
+                            } else {
+                                Swal.fire('Lỗi!', result.message, 'error');
+                            }
+                        } catch (error) {
+                            Swal.fire('Lỗi!', 'Không thể tải dữ liệu', 'error');
+                        }
+                    }
+                });
+
+                // Submit form
+                categoryForm.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const id = categoryId.value;
+                    const name = typename.value.trim();
+
+                    if (!name) {
+                        typename.classList.add("is-invalid");
+                        document.getElementById("typename-msg").textContent = "Tên loại không được để trống";
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('categoryName', name);
+                    formData.append('__RequestVerificationToken',
+                        document.querySelector('input[name="__RequestVerificationToken"]').value);
+
+                    try {
+                        const url = id === "0" ? "/Category/Create" : `/Category/Edit/${id}`;
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            // Đóng modal
+                            const modal = bootstrap.Modal.getInstance(document.getElementById('categoryModal'));
+                            modal.hide();
+
+                            // Hiển thị thông báo
+                            Swal.fire('Thành công!', result.message, 'success');
+
+                            // Cập nhật bảng
+                            if (id === "0") {
+                                // Thêm mới - reload trang
+                                location.reload();
+                            } else {
+                                // Cập nhật - sửa dòng hiện tại
+                                const row = document.querySelector(`tr[data-id="${id}"]`);
+                                if (row) {
+                                    row.querySelector('.category-name').textContent = result.data.name;
+                                }
+                            }
+                        } else {
+                            typename.classList.add("is-invalid");
+                            document.getElementById("typename-msg").textContent = result.message;
+                        }
+                    } catch (error) {
+                        Swal.fire('Lỗi!', 'Có lỗi xảy ra', 'error');
+                    }
+                });
+
+                // Xóa
+                document.addEventListener("click", function (e) {
+                    if (e.target.closest(".btn-delete")) {
+                        const id = e.target.closest(".btn-delete").getAttribute("data-id");
+
+                        Swal.fire({
+                            title: 'Bạn có chắc muốn xóa?',
+                            text: "Hành động này sẽ không thể hoàn tác!",
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#6c757d',
+                            confirmButtonText: 'Xóa',
+                            cancelButtonText: 'Hủy'
+                        }).then(async (result) => {
+                            if (result.isConfirmed) {
+                                try {
+                                    const formData = new FormData();
+                                    formData.append('__RequestVerificationToken',
+                                        document.querySelector('input[name="__RequestVerificationToken"]').value);
+
+                                    const response = await fetch(`/Category/Delete/${id}`, {
+                                        method: 'POST',
+                                        body: formData
+                                    });
+
+                                    const data = await response.json();
+
+                                    if (data.success) {
+                                        e.target.closest("tr").remove();
+                                        Swal.fire('Đã xóa!', data.message, 'success');
+                                    } else {
+                                        Swal.fire('Lỗi!', data.message, 'error');
+                                    }
+                                } catch (error) {
+                                    Swal.fire('Lỗi!', 'Có lỗi xảy ra khi xóa dữ liệu!', 'error');
+                                }
+                            }
+                        });
+                    }
+                });
+
+                // Tìm kiếm
+                const performSearch = async () => {
+                    const searchTerm = searchInput.value.trim();
+                    try {
+                        const response = await fetch(`/Category/Search?searchTerm=${encodeURIComponent(searchTerm)}`);
+                        const result = await response.json();
+
+                        if (result.success) {
+                            // Cập nhật bảng với kết quả tìm kiếm
+                            updateTable(result.data);
+                        }
+                    } catch (error) {
+                        console.error('Search error:', error);
+                    }
+                };
+
+                searchBtn.addEventListener("click", performSearch);
+                searchInput.addEventListener("keypress", function (e) {
+                    if (e.key === "Enter") {
+                        performSearch();
+                    }
+                });
+
+                // Cập nhật bảng
+                const updateTable = (categories) => {
+                    tableBody.innerHTML = "";
+                    if (categories && categories.length > 0) {
+                        categories.forEach(item => {
+                            const row = `
+                                                        <tr class="text-center" data-id="${item.categoryId}">
+                                                            <td>LSP${item.categoryId}</td>
+                                                            <td class="category-name">${item.categoryName}</td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-light border me-1 btn-edit"
+                                                                        title="Sửa"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#categoryModal"
+                                                                        data-id="${item.categoryId}">
+                                                                    <i class="bi bi-pencil text-success"></i>
+                                                                </button>
+                                                                <button class="btn btn-sm btn-light border btn-delete"
+                                                                        title="Xóa"
+                                                                        data-id="${item.categoryId}">
+                                                                    <i class="bi bi-trash text-danger"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                            tableBody.innerHTML += row;
+                        });
+                    } else {
+                        tableBody.innerHTML = '<tr><td colspan="3" class="text-center">Không tìm thấy dữ liệu</td></tr>';
+                    }
+                };
+            });</script>
+
+    </body>
+    </html>
