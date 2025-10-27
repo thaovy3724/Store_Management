@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin CRUD - Demo</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="brand">Admin Panel</div>
+    <div class="d-flex align-items-center">
+    <span class="user-info me-2">Xin chào, <a href="#" class="fw-bold text-decoration-none" style="color:#0d6efd">Ngô Đức Trọng</a></span>
+    <span class="text-muted mx-2">|</span>
+    <button class="btn btn-link btn-sm p-0 text-decoration-none" style="color:#0d6efd">Đăng xuất</button>
+  </div>
+</div>
+
+<!-- Sidebar bên trái -->
+<div class="sidebar d-flex flex-column pt-3">
+  <nav class="nav flex-column mt-2">
+    <a class="nav-link " href="./Account.html">
+        <i class="bi bi-people-fill text-primary"></i> 
+        <span>Quản lý tài khoản</span>
+    </a>
+    <a class="nav-link" href="./Customer.html">
+        <i class="bi bi-person-lines-fill text-primary"></i> 
+        <span>Quản lý khách hàng</span>
+    </a>
+    <a class="nav-link" href="./Product.html">
+        <i class="bi bi-box-seam text-primary"></i> 
+        <span>Quản lý sản phẩm</span>
+    </a>
+    <a class="nav-link" href="./Category.html">
+        <i class="bi bi-tags-fill text-primary"></i> 
+        <span>Quản lý loại sản phẩm</span>
+    </a>
+    <a class="nav-link" href="./Supplier.html">
+        <i class="bi bi-truck text-primary"></i> 
+        <span>Quản lý nhà cung cấp</span>
+    </a>
+    <a class="nav-link active" href="./Promotion.html">
+        <i class="bi bi-gift-fill text-primary"></i> 
+        <span>Quản lý khuyến mãi</span>
+    </a>
+    <a class="nav-link" href="./OrderManager.html">
+        <i class="bi bi-receipt-cutoff text-primary"></i> 
+        <span>Quản lý đơn hàng</span>
+    </a>
+    <a class="nav-link" href="#">
+      <i class="bi bi-journal-plus text-primary"></i>
+      <span>Quản lý phiếu nhập</span>
+    </a>
+    <a class="nav-link" href="./Statistic.html">
+        <i class="bi bi-bar-chart-line-fill text-primary"></i> 
+        <span>Thống kê</span>
+    </a>
+  </nav>
+</div>
+
+<!-- Nội dung chính -->
+<div class="content">
+  <div class="container-fluid p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="fw-bold">Quản lý khuyến mãi</h3>   
+    </div>
+    <!-- Thanh lọc -->
+    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+        <!-- Thanh lọc bên trái -->
+        <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+            <select class="form-select form-select-sm" style="width: 180px;">
+                <option value="">Tất cả trạng thái</option>
+                <option value="">Hoạt động</option>
+                <option value="">Đã khóa</option>
+            </select>
+            <!-- Ô tìm kiếm -->
+            <div class="input-group input-group-sm" style="width: 300px;">
+                <input type="text" class="form-control" placeholder="Nhập mã khuyến mãi">
+                <button class="btn btn-primary btn-search" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nút Thêm mới bên phải -->
+        <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#promotionModal">
+            <i class="bi bi-plus-circle"></i> Thêm mới
+        </button>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light thead-separator ">
+                <tr class="text-center align-middle">
+                    <th style="width:120px;">Mã</th>
+                    <th>Giá trị đơn hàng tối thiểu</th>
+                    <th>Giới hạn lần sử dụng</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Trạng thái</th>
+                    <th style="width:150px;">Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td class="align-middle">PROMO10</td>
+                        <td class="align-middle">500,000 đ</td>
+                        <td class="align-middle">100</td>
+                        <td class="align-middle">2025-10-01</td>
+                        <td class="align-middle">2025-10-31</td>
+                        <td>
+                            <span class="badge rounded-pill px-3 py-2 fw-semibold"style="background-color:#0d6efd1a; color:#0d6efd; border:1px solid #0d6efd;">
+                                Hoạt động
+                            </span>                   
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                                <i class="bi bi-eye text-primary"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                                <i class="bi bi-pencil text-success"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light border me-1 btn-lock" title="Khóa/ Mở khóa">
+                                <i class="bi bi-unlock text-primary"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="align-middle">PROMO10</td>
+                        <td class="align-middle">500,000 đ</td>
+                        <td class="align-middle">100</td>
+                        <td class="align-middle">2025-10-01</td>
+                        <td class="align-middle">2025-10-31</td>
+                        <td>
+                            <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background-color:#ffc1071a; color:#b8860b; border:1px solid #ffc107;">
+                                Bị khóa
+                            </span>                
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                                <i class="bi bi-eye text-primary"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                                <i class="bi bi-pencil text-success"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light border me-1 btn-lock" title="Khóa/ Mở khóa">
+                                <i class="bi bi-unlock text-primary"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Phân trang-->
+        <nav class="mt-3">
+            <ul class="pagination justify-content-center modern-pagination-light">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">&laquo;</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal dùng chung -->
+<div class="modal fade" id="promotionModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="promotionModalTitle">Quản lý khuyến mãi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Body -->
+      <div class="modal-body">
+        <form id="promotionForm">
+            <!-- Loại khuyến mãi -->
+            <div class="mb-3">
+                <label class="form-label">Loại khuyến mãi</label>
+                <select class="form-select" id="discountType">
+                <option value="percent">Percent</option>
+                <option value="fixed">Fixed</option>
+                </select>
+                <small id="discountType-msg" class="form-text text-danger">Vui lòng chọn loại khuyến mãi</small>
+            </div>
+
+            <!-- Giá trị khuyến mãi -->
+            <div class="mb-3">
+                <label class="form-label">Giá trị khuyến mãi</label>
+                <input type="number" class="form-control" id="discountValue" min="0">
+                <small id="discountValue-msg" class="form-text text-danger">Vui lòng nhập giá trị khuyến mãi</small>
+            </div>
+
+            <!-- Giá trị đơn hàng tối thiểu -->
+            <div class="mb-3">
+                <label class="form-label">Giá trị đơn hàng tối thiểu</label>
+                <input type="number" class="form-control" id="minOrderAmount" min="0">
+                <small id="minOrderAmount-msg" class="form-text text-danger">Vui lòng nhập giá trị đơn hàng tối thiểu</small>
+            </div>
+
+            <!-- Giới hạn lần sử dụng -->
+            <div class="mb-3">
+                <label class="form-label">Giới hạn lần sử dụng</label>
+                <input type="number" class="form-control" id="usageLimit" min="0">
+                <small id="usageLimit-msg" class="form-text text-danger">Vui lòng nhập giới hạn số lần sử dụng</small>
+            </div>
+
+            <!-- Ngày bắt đầu -->
+            <div class="mb-3">
+                <label class="form-label">Ngày bắt đầu</label>
+                <input type="date" class="form-control" id="startDate">
+                <small id="startDate-msg" class="form-text text-danger">Vui lòng chọn ngày bắt đầu</small>
+            </div>
+
+            <!-- Ngày kết thúc -->
+            <div class="mb-3">
+                <label class="form-label">Ngày kết thúc</label>
+                <input type="date" class="form-control" id="endDate">
+                <small id="endDate-msg" class="form-text text-danger">Vui lòng chọn ngày kết thúc</small>
+            </div>
+        </form>
+      </div>
+      
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="submit" form="promotionForm" id="promotionModalSaveBtn" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script src="../js/Toast.js"></script>
+<script src="../js/Promotion.js"></script>
