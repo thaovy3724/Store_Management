@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj": {}
+    "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\StoreManagement.csproj": {}
   },
   "projects": {
-    "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj": {
+    "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\StoreManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\StoreManagement.csproj",
         "projectName": "StoreManagement",
-        "projectPath": "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\StoreManagement\\StoreManagement\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\StoreManagement.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

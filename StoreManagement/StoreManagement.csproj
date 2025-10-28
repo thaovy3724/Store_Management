@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Pages\Promotion\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
