@@ -150,7 +150,6 @@ D:\StoreManagement\StoreManagement\bin\Debug\net9.0\runtimes\win\lib\net6.0\Syst
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\bundle\StoreManagement.styles.css
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\projectbundle\StoreManagement.bundle.scp.css
-D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\64ruo2c28t-o5r0f1fjzx.gz
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\xay7e4300w-61n19gt1b8.gz
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\y61xzmtfck-sb9ibxeo8w.gz
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\qytw2xjyzb-bqjiyaj88i.gz
@@ -226,3 +225,5 @@ D:\StoreManagement\StoreManagement\obj\Debug\net9.0\refint\StoreManagement.dll
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
+D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.sourcelink.json
+D:\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\64ruo2c28t-y5yejz932b.gz

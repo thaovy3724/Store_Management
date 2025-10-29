@@ -3,7 +3,6 @@
 *@
 @{
 }
-
 @model StoreManagement.Models.Pages.Product.ProductPageViewModel
 
 @{
@@ -22,10 +21,12 @@
             <!-- Lọc theo loại sản phẩm -->
               <!-- Lọc theo vai trò -->
             <select class="form-select form-select-sm" style="width: 150px;">
-                <option value="">Tất cả loại</option>
-                <option value="">L1</option>
-                <option value="">L2</option>
-            </select>
+                <option value="-1">Tất cả loại</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
             <!-- Lọc theo khoảng giá -->
             <div class="input-group input-group-sm" style="width: 250px;">
                 <span class="input-group-text">Giá từ</span>
@@ -126,7 +127,8 @@
                 <div id="image-preview" class="mb-3">
                     <span>Click để tải ảnh</span>
                 </div>
-                <input type="file" id="product-image" class="hidden-input" accept="image/*">
+                <input type="file" name="ImageFile" id="product-image" class="hidden-input" accept="image/*">
+                <small id="product-image-error" class="form-text text-danger d-none"></small>
                 <button type="button" class="btn btn-primary w-100" id="upload-btn">
                     <i class="bi bi-upload"></i> Tải ảnh lên
                 </button>
@@ -136,47 +138,55 @@
                 <div class="col-md-9">
                 <div class="mb-3">
                     <label class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" id="product-name" placeholder="Nhập tên sản phẩm">
-                    <small id="product-name-msg" class="form-text text-danger d-none">Tên sản phẩm không được để trống</small>
+                    <input type="text" class="form-control" name="ProductName" id="product-name" placeholder="Nhập tên sản phẩm">
+                    <small id="product-name-error" class="form-text text-danger d-none"></small>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Loại sản phẩm</label>
-                    <select class="form-select" id="product-category">
-                    <option value="">Chọn loại sản phẩm</option>
-                    <option value="ao">Áo</option>
-                    <option value="quan">Quần</option>
-                    <option value="giay">Giày</option>
+                    <select class="form-select" name="CategoryId" id="product-category">
+                    <option value="-1">Chọn loại sản phẩm</option>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
                     </select>
-                    <small id="product-category-msg" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                    <small id="product-category-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Giá</label>
-                    <input type="number" class="form-control" id="product-price" placeholder="Nhập giá">
+                    <input type="number" class="form-control" name="Price" id="product-price" placeholder="Nhập giá">
+                    <small id="product-price-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Đơn vị</label>
-                    <input type="text" class="form-control" id="product-unit" placeholder="Nhập đơn vị">
+                    <input type="text" class="form-control" name="Unit" id="product-unit" placeholder="Nhập đơn vị">
+                    <small id="product-unit-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Barcode</label>
-                    <input type="text" class="form-control" id="product-barcode" placeholder="Nhập barcode">
+                    <input type="text" class="form-control" name="Barcode" id="product-barcode" placeholder="Nhập barcode">
+                    <small id="product-barcode-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tồn kho</label>
-                    <input type="number" class="form-control" id="product-inventory" placeholder="Nhập tồn kho">
+                    <input type="number" class="form-control" name="InventoryQuantity" id="product-inventory" placeholder="Nhập tồn kho">
+                    <small id="product-inventory-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Nhà cung cấp</label>
-                    <select class="form-select" id="product-supplier">
-                    <option value="">Chọn nhà cung cấp</option>
-                    <option value="ncc1">Nhà cung cấp 1</option>
-                    <option value="ncc2">Nhà cung cấp 2</option>
+                    <select class="form-select" name="SupplierId" id="product-supplier">
+                    <option value="-1">Chọn nhà cung cấp</option>
+                    @foreach (var supplier in Model.Suppliers)
+                    {
+                        <option value="@supplier.SupplierId">@supplier.SupplierId</option>
+                    }
                     </select>
+                    <small id="product-supplier-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
                 </div>
                 </div>
             </div>
@@ -195,4 +205,3 @@
 @section Scripts {
     <script src="~/js/Product.js"></script>
 }
-

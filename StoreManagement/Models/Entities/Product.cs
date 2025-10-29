@@ -1,15 +1,44 @@
-﻿namespace StoreManagement.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace StoreManagement.Models.Entities
 {
+    [Table("products")]
     public class Product
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // auto increment
+        [Column("product_id")]
         public int ProductId { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        [Column("product_name")]
         public string ProductName { get; set; }
+
+        [Column("product_image")]
         public string ProductImage { get; set; }
-        public string CategoryId { get; set; }
-        public string SupplierId { get; set; }
+
+        [Column("category_id")]
+        public int CategoryId { get; set; }
+
+        [Column("supplier_id")]
+        public int SupplierId { get; set; }
+
+        [Required]
+        [Column("price")]
         public decimal Price { get; set; }
+
+        [Column("unit")]
+        [MaxLength(20)]
         public string Unit { get; set; }
+
+        [Column("barcode")]
+        [MaxLength(50)]
         public string Barcode { get; set; }
+
+        [Column("created_at")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedAt { get; set; }
 
         // bidrectional navigation properties

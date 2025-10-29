@@ -1,6 +1,6 @@
-wwwroot\js\Product.js
-wwwroot\favicon.ico
 wwwroot\css\Admin.css
+wwwroot\favicon.ico
+wwwroot\js\Toast.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -61,10 +61,10 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\js\Toast.js
-D:\StoreManagement\StoreManagement\wwwroot\js\Product.js
-D:\StoreManagement\StoreManagement\wwwroot\favicon.ico
+wwwroot\js\Product.js
 D:\StoreManagement\StoreManagement\wwwroot\css\Admin.css
+D:\StoreManagement\StoreManagement\wwwroot\favicon.ico
+D:\StoreManagement\StoreManagement\wwwroot\js\Toast.js
 D:\StoreManagement\StoreManagement\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\StoreManagement\StoreManagement\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 D:\StoreManagement\StoreManagement\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -124,4 +124,4 @@ D:\StoreManagement\StoreManagement\wwwroot\lib\jquery\dist\jquery.slim.js
 D:\StoreManagement\StoreManagement\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\StoreManagement\StoreManagement\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\StoreManagement\StoreManagement\wwwroot\lib\jquery\LICENSE.txt
-D:\StoreManagement\StoreManagement\wwwroot\js\Toast.js
+D:\StoreManagement\StoreManagement\wwwroot\js\Product.js

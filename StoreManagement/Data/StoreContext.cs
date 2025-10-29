@@ -10,5 +10,19 @@ namespace StoreManagement.Data
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }  
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Product ↔ Inventory : 1-1
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Inventory)
+                .WithOne(i => i.Product)
+                .HasForeignKey<Inventory>(i => i.ProductId);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
