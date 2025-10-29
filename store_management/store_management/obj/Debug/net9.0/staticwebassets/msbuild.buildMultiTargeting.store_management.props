@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\store_management.props" />
-</Project>
