@@ -226,3 +226,15 @@ D:\StoreManagement\StoreManagement\obj\Debug\net9.0\refint\StoreManagement.dll
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
 D:\StoreManagement\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.AssemblyReference.cache
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfoInputs.cache
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.AssemblyInfo.cs
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.csproj.CoreCompileInputs.cache
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cache
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.RazorAssemblyInfo.cs
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.sourcelink.json
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.dll
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\refint\StoreManagement.dll
+D:\C#_.NET\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb

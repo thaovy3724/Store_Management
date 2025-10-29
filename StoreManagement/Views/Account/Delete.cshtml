@@ -1,0 +1,18 @@
+﻿﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StoreManagement.Models.Entities.Account
+
+<h2>Xóa tài khoản</h2>
+<p>Bạn có chắc chắn muốn xóa tài khoản <b>@Model.username</b> không?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="accountId" value="@Model.accountId" />
+    <button type="submit" class="btn btn-sm btn-danger"
+            onclick="return confirm('Bạn có chắc muốn xóa tài khoản này không?');">
+        Xóa
+    </button>
+    <a asp-action="All" class="btn btn-secondary">Hủy</a>
+</form>
