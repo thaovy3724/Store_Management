@@ -4717,11 +4717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Huynh Thu\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Huynh Thu\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
       "projectName": "StoreManagement",
-      "projectPath": "C:\\Users\\Huynh Thu\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
+      "projectPath": "C:\\Users\\Huynh Thu\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
       "packagesPath": "C:\\Users\\Huynh Thu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Huynh Thu\\QuanLyBanLe\\StoreManagement\\obj\\",
+      "outputPath": "C:\\Users\\Huynh Thu\\StoreManagement\\StoreManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

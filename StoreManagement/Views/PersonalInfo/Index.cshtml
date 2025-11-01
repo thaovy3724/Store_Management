@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin CRUD - Demo</title>
     <!-- Bootstrap 5 -->
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -146,67 +145,6 @@
             </div>
         </div>
     </div>
+    <script src="~/js/PersonalInfo.js"></script>
 </body>
-
-@section Scripts {
-    <script>
-        document.getElementById("profileForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            var userId = document.getElementById("userId").value;
-            var fullname = document.getElementById("fullname").value.trim();
-            if (!fullname) {
-                Swal.fire('Lỗi!', 'Họ tên không được để trống!', 'error');
-                return;
-            }
-            var formData = new FormData();
-            formData.append("userId", userId);
-            formData.append("fullName", fullname);
-            formData.append("__RequestVerificationToken", document.querySelector('input[name="__RequestVerificationToken"]').value);
-            fetch('/PersonalInfo/UpdateFullName', {
-                method: 'POST',
-                body: formData
-            }).then(res => res.json()).then(data => {
-                if (data.success) {
-                    Swal.fire('Thành công!', data.message, 'success');
-                } else {
-                    Swal.fire('Lỗi!', data.message, 'error');
-                }
-            });
-        });
-
-        document.getElementById("passwordForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            var userId = document.getElementById("userIdPwd").value;
-            var newPassword = document.getElementById("newPassword").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            if (!newPassword || !confirmPassword) {
-                Swal.fire('Lỗi!', 'Mật khẩu không được để trống!', 'error');
-                return;
-            }
-            if (newPassword !== confirmPassword) {
-                Swal.fire('Lỗi!', 'Mật khẩu xác nhận không khớp!', 'error');
-                return;
-            }
-            if (newPassword.length < 6) {
-                Swal.fire('Lỗi!', 'Mật khẩu phải từ 6 ký tự trở lên!', 'error');
-                return;
-            }
-            var formData = new FormData();
-            formData.append("userId", userId);
-            formData.append("newPassword", newPassword);
-            formData.append("confirmPassword", confirmPassword);
-            formData.append("__RequestVerificationToken", document.querySelector('input[name="__RequestVerificationToken"]').value);
-            fetch('/PersonalInfo/ChangePassword', {
-                method: 'POST',
-                body: formData
-            }).then(res => res.json()).then(data => {
-                if (data.success) {
-                    Swal.fire('Thành công!', data.message, 'success');
-                    document.getElementById("newPassword").value = "";
-                    document.getElementById("confirmPassword").value = "";
-                } else {
-                    Swal.fire('Lỗi!', data.message, 'error');
-                }
-            });
-        });</script>
-}
+</html>

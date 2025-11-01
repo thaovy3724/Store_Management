@@ -33,26 +33,16 @@ namespace StoreManagement.Controllers
             return View(categories);
         }
 
-
-        private bool IsValidCategoryName(string name)
-        {
-            // Chỉ cho phép chữ cái và khoảng trắng
-            return System.Text.RegularExpressions.Regex.IsMatch(name, @"^[\p{L}\s]+$");
-        }
-
-        // POST: Category/Create - Thêm mới category (AJAX)
+        // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] string categoryName)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(categoryName))
-                {
-                    return Json(new { success = false, message = "Tên loại sản phẩm không được để trống!" });
-                }
+                categoryName = categoryName?.Trim();
 
-                // Kiểm tra trùng tên
+                //Kiểm tra trùng tên 
                 var existingCategory = await _context.Categories
                     .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == categoryName.ToLower());
 
@@ -61,15 +51,9 @@ namespace StoreManagement.Controllers
                     return Json(new { success = false, message = "Tên loại sản phẩm đã tồn tại!" });
                 }
 
-                if (string.IsNullOrWhiteSpace(categoryName))
-                    return Json(new { success = false, message = "Tên loại sản phẩm không được để trống!" });
-
-                if (!IsValidCategoryName(categoryName))
-                    return Json(new { success = false, message = "Tên loại sản phẩm chỉ được chứa chữ cái và khoảng trắng!" });
-
                 var category = new Category
                 {
-                    CategoryName = categoryName.Trim()
+                    CategoryName = categoryName
                 };
 
                 _context.Categories.Add(category);
@@ -92,7 +76,7 @@ namespace StoreManagement.Controllers
             }
         }
 
-        // GET: Category/GetCategory/5 - Lấy thông tin category để edit (AJAX)
+        // GET: Category
         [HttpGet]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -120,25 +104,22 @@ namespace StoreManagement.Controllers
             }
         }
 
-        // POST: Category/Edit/5 - Cập nhật category (AJAX)
+        // POST: Category/Edit - Cập nhật category (AJAX)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [FromForm] string categoryName)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(categoryName))
-                {
-                    return Json(new { success = false, message = "Tên loại sản phẩm không được để trống!" });
-                }
-
                 var category = await _context.Categories.FindAsync(id);
                 if (category == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy loại sản phẩm!" });
                 }
 
-                // Kiểm tra trùng tên (trừ chính nó)
+                categoryName = categoryName?.Trim();
+
+                //Kiểm tra trùng tên
                 var existingCategory = await _context.Categories
                     .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == categoryName.ToLower() && c.CategoryId != id);
 
@@ -147,14 +128,7 @@ namespace StoreManagement.Controllers
                     return Json(new { success = false, message = "Tên loại sản phẩm đã tồn tại!" });
                 }
 
-                if (string.IsNullOrWhiteSpace(categoryName))
-                    return Json(new { success = false, message = "Tên loại sản phẩm không được để trống!" });
-
-                if (!IsValidCategoryName(categoryName))
-                    return Json(new { success = false, message = "Tên loại sản phẩm chỉ được chứa chữ cái và khoảng trắng!" });
-
-
-                category.CategoryName = categoryName.Trim();
+                category.CategoryName = categoryName;
                 _context.Update(category);
                 await _context.SaveChangesAsync();
 
@@ -175,7 +149,7 @@ namespace StoreManagement.Controllers
             }
         }
 
-        // POST: Category/Delete/5 - Xóa category (AJAX)
+        // POST: Category/Delete - Xóa category
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
@@ -199,7 +173,7 @@ namespace StoreManagement.Controllers
             }
         }
 
-        // GET: Category/Search - Tìm kiếm category (AJAX)
+        // GET: Category/Search - Tìm kiếm category
         [HttpGet]
         public async Task<IActionResult> Search(string searchTerm)
         {

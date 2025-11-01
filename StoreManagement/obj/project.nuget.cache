@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Uh54gza86VY=",
+  "dgSpecHash": "TBQp+3r4+WQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Huynh Thu\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
+  "projectFilePath": "C:\\Users\\Huynh Thu\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Huynh Thu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Huynh Thu\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

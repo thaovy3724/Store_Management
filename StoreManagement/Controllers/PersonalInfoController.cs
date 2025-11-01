@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
-using StoreManagement.Models;
 using System.Threading.Tasks;
 
 namespace StoreManagement.Controllers
@@ -34,24 +33,29 @@ namespace StoreManagement.Controllers
             return View(user);
         }
 
-
-
         // POST: PersonalInfo/UpdateFullName
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateFullName(int userId, string fullName)
         {
-            if (string.IsNullOrWhiteSpace(fullName))
-                return Json(new { success = false, message = "Họ tên không được để trống!" });
+            try
+            {
+                var user = await _context.Users.FindAsync(userId);
+                if (user == null)
+                    return Json(new { success = false, message = "Không tìm thấy người dùng!" });
 
-            var user = await _context.Users.FindAsync(userId);
-            if (user == null)
-                return Json(new { success = false, message = "Không tìm thấy người dùng!" });
+                fullName = fullName?.Trim();
 
-            user.FullName = fullName.Trim();
-            _context.Update(user);
-            await _context.SaveChangesAsync();
-            return Json(new { success = true, message = "Cập nhật họ tên thành công!" });
+                user.FullName = fullName;
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Cập nhật họ tên thành công!" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+            }
         }
 
         // POST: PersonalInfo/ChangePassword
@@ -59,23 +63,25 @@ namespace StoreManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(int userId, string newPassword, string confirmPassword)
         {
-            if (string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(confirmPassword))
-                return Json(new { success = false, message = "Mật khẩu không được để trống!" });
+            try
+            {
+                var user = await _context.Users.FindAsync(userId);
+                if (user == null)
+                    return Json(new { success = false, message = "Không tìm thấy người dùng!" });
 
-            if (newPassword != confirmPassword)
-                return Json(new { success = false, message = "Mật khẩu xác nhận không khớp!" });
+                // Validation 
+                if (newPassword != confirmPassword)
+                    return Json(new { success = false, message = "Mật khẩu xác nhận không khớp!" });
+                user.Password = newPassword;
+                _context.Update(user);
+                await _context.SaveChangesAsync();
 
-            if (newPassword.Length < 6)
-                return Json(new { success = false, message = "Mật khẩu phải từ 6 ký tự trở lên!" });
-
-            var user = await _context.Users.FindAsync(userId);
-            if (user == null)
-                return Json(new { success = false, message = "Không tìm thấy người dùng!" });
-
-            user.Password = newPassword; // Trong thực tế nên hash mật khẩu
-            _context.Update(user);
-            await _context.SaveChangesAsync();
-            return Json(new { success = true, message = "Đổi mật khẩu thành công!" });
+                return Json(new { success = true, message = "Đổi mật khẩu thành công!" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+            }
         }
     }
 }
