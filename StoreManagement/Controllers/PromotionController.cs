@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Store_Management.Controllers; // đổi lại theo namespace project của bạn
 using StoreManagement.Data;
+using StoreManagement.Models.Entities;
 using System;
 using System.Linq;
 //using System.Web.Mvc;
@@ -9,7 +9,7 @@ namespace Store_Management.Controllers
 {
     public class PromotionController : Controller
     {
-        private readonly StoreContext dbContext;
+        private readonly StoreContext db;
 
         // GET: Promotion/GetAll
         [HttpGet]
@@ -29,7 +29,7 @@ namespace Store_Management.Controllers
                 })
                 .ToList();
 
-            return Json(list, JsonRequestBehavior.AllowGet);
+            return Json(list);
         }
 
         // GET: Promotion/Get/5
@@ -40,7 +40,7 @@ namespace Store_Management.Controllers
             if (p == null)
                 return Json(new { success = false, message = "Không tìm thấy mã giảm giá." }, JsonRequestBehavior.AllowGet);
 
-            return Json(new { success = true, data = p }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, data = p });
         }
 
         // POST: Promotion/Create

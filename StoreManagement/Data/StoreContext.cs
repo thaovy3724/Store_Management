@@ -10,5 +10,6 @@ namespace StoreManagement.Data
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
     }
 }
