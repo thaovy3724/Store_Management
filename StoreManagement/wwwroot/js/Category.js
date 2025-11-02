@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     saveBtn.innerText = "Cập nhật";
                     clearValidationError();
                 } else {
-                    Swal.fire('Lỗi!', result.message, 'error');
+                    showAlert(result.message, "error");
                 }
             } catch (error) {
-                Swal.fire('Lỗi!', 'Không thể tải dữ liệu', 'error');
+                showAlert('Không thể tải dữ liệu', "error");
             }
         }
     });
@@ -132,13 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 modal.hide();
 
                 // Hiển thị thông báo thành công
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Thành công!',
-                    text: result.message,
-                    timer: 2000,
-                    showConfirmButton: false
-                });
+                showAlert(result.message, "success");
 
                 // Cập nhật bảng
                 if (id === "0") {
@@ -156,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showValidationError(result.message);
             }
         } catch (error) {
-            Swal.fire('Lỗi!', 'Có lỗi xảy ra khi gửi dữ liệu', 'error');
+            showAlert('Có lỗi xảy ra khi gửi dữ liệu', "error");
             console.error('Submit error:', error);
         } finally {
             // Reset nút submit
@@ -194,19 +188,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         const data = await response.json();
 
                         if (data.success) {
-                            e.target.closest("tr").remove();
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Đã xóa!',
-                                text: data.message,
-                                timer: 2000,
-                                showConfirmButton: false
-                            });
+                            showAlert(data.message, "success");
+                            performSearch();
                         } else {
-                            Swal.fire('Lỗi!', data.message, 'error');
+                            showAlert(data.message, "error");
                         }
                     } catch (error) {
-                        Swal.fire('Lỗi!', 'Có lỗi xảy ra khi xóa dữ liệu!', 'error');
+                        showAlert(error, "error");
                     }
                 }
             });

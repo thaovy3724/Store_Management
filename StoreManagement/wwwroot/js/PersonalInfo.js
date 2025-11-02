@@ -4,6 +4,7 @@
     const fullnameInput = document.getElementById("fullname");
     const newPasswordInput = document.getElementById("newPassword");
     const confirmPasswordInput = document.getElementById("confirmPassword");
+    const usernameInput = document.getElementById("username");
 
     //validation functions
     const validateFullName = (fullName) => {
@@ -29,6 +30,28 @@
         // Không được có nhiều khoảng trắng liên tiếp
         if (/\s{2,}/.test(trimmedName)) {
             return { isValid: false, message: "Không được có nhiều khoảng trắng liên tiếp!" };
+        }
+
+        return { isValid: true, message: "" };
+    };
+
+    const validateUsername = (username) => {
+        const trimmedUsername = username.trim();
+
+        if (!trimmedUsername) {
+            return { isValid: false, message: "Tên đăng nhập không được để trống!" };
+        }
+
+        if (trimmedUsername.length < 4) {
+            return { isValid: false, message: "Tên đăng nhập phải có ít nhất 4 ký tự!" };
+        }
+
+        if (trimmedUsername.length > 50) {
+            return { isValid: false, message: "Tên đăng nhập không được vượt quá 50 ký tự!" };
+        }
+
+        if (!/^[a-zA-Z0-9_ ]+$/.test(trimmedUsername)) {
+            return { isValid: false, message: "Tên đăng nhập không được chứa kí tự đặc biệt!" };
         }
 
         return { isValid: true, message: "" };
@@ -65,16 +88,25 @@
 
         const userId = document.getElementById("userId").value;
         const fullName = fullnameInput.value;
+        const username = usernameInput.value;
 
-        // Client-side validation
-        const validation = validateFullName(fullName);
-        if (!validation.isValid) {
-            showError('Lỗi!', validation.message);
+        // Validate username
+        const usernameValidation = validateUsername(username);
+        if (!usernameValidation.isValid) {
+            showError('Lỗi!', usernameValidation.message.message);
+            return;
+        }
+
+        // Validate fullname
+        const fullnameValidation = validateFullName(fullName);
+        if (!fullnameValidation.isValid) {
+            showError('Lỗi!', fullnameValidation.message);
             return;
         }
 
         const formData = new FormData();
         formData.append("userId", userId);
+        formData.append("username", username.trim());
         formData.append("fullName", fullName.trim());
         formData.append("__RequestVerificationToken",
             document.querySelector('input[name="__RequestVerificationToken"]').value);
@@ -82,7 +114,7 @@
         try {
             setLoadingState(profileForm, true);
 
-            const response = await fetch('/PersonalInfo/UpdateFullName', {
+            const response = await fetch('/PersonalInfo/UpdatePersonalInfo', {
                 method: 'POST',
                 body: formData
             });
@@ -96,11 +128,11 @@
             }
         } catch (error) {
             showError('Lỗi!', 'Có lỗi xảy ra khi cập nhật thông tin!');
-            console.error('Update profile error:', error);
         } finally {
             setLoadingState(profileForm, false);
         }
     });
+
 
     // Đổi mật khẩu
     passwordForm.addEventListener("submit", async function (e) {
@@ -207,22 +239,11 @@
     };
 
     const showSuccess = (title, message) => {
-        Swal.fire({
-            icon: 'success',
-            title: title,
-            text: message,
-            timer: 3000,
-            showConfirmButton: false
-        });
+        showAlert(`${title} ${message}`, "success");
     };
 
     const showError = (title, message) => {
-        Swal.fire({
-            icon: 'error',
-            title: title,
-            text: message,
-            confirmButtonText: 'OK'
-        });
+        showAlert(`${title} ${message}`, "error");
     };
 });
 

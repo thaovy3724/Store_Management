@@ -33,31 +33,6 @@ namespace StoreManagement.Controllers
             return View(user);
         }
 
-        // POST: PersonalInfo/UpdateFullName
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateFullName(int userId, string fullName)
-        {
-            try
-            {
-                var user = await _context.Users.FindAsync(userId);
-                if (user == null)
-                    return Json(new { success = false, message = "Không tìm thấy người dùng!" });
-
-                fullName = fullName?.Trim();
-
-                user.FullName = fullName;
-                _context.Update(user);
-                await _context.SaveChangesAsync();
-
-                return Json(new { success = true, message = "Cập nhật họ tên thành công!" });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
-            }
-        }
-
         // POST: PersonalInfo/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,6 +58,36 @@ namespace StoreManagement.Controllers
                 return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdatePersonalInfo(int userId, string fullName, string username)
+        {
+            try
+            {
+                var user = await _context.Users.FindAsync(userId);
+                if (user == null)
+                    return Json(new { success = false, message = "Không tìm thấy người dùng!" });
+
+                // Kiểm tra trùng username
+                var exists = await _context.Users.AnyAsync(u => u.Username == username && u.UserId != userId);
+                if (exists)
+                    return Json(new { success = false, message = "Tên đăng nhập đã tồn tại!" });
+
+                user.FullName = fullName?.Trim();
+                user.Username = username?.Trim();
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Cập nhật thông tin thành công!" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+            }
+        }
+
+
     }
 }
 

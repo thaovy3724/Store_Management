@@ -387,8 +387,6 @@ C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\scopedcss\pr
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\4t1wm0pz9p-duz49jhawa.gz
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\xay7e4300w-61n19gt1b8.gz
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\8n2gs5r4cg-d2ley3cvib.gz
-C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\uk8311lpr9-3i1blwjrh8.gz
-C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\90pacsmdfu-8obb2x3qlp.gz
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\yn835j70bh-jh0qivbcue.gz
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\qytw2xjyzb-bqjiyaj88i.gz
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\5liokxt3hr-c2jlpeoesf.gz
@@ -466,3 +464,5 @@ C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\refint\Store
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.pdb
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
 C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
+C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\uk8311lpr9-s6md9pkcn0.gz
+C:\Users\Huynh Thu\StoreManagement\StoreManagement\obj\Debug\net9.0\compressed\90pacsmdfu-igftfm3i35.gz
