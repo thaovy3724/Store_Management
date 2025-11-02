@@ -1,0 +1,230 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Thống kê";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <link rel="stylesheet" href="../css/statistic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+<div class="row g-4">
+    <!-- Doanh thu -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card stats-card card-hover-primary shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="text-muted text-uppercase fw-bold small">Doanh thu</div>
+                        <div class="stat-value text-primary">42,890 đ</div>
+                        <div class="stat-change text-success">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>8.3% so với tuần trước</span>
+                        </div>
+                    </div>
+                    <div class="icon-circle">
+                        <i class="fas fa-dollar-sign text-primary"></i>
+                    </div>
+                </div>
+                <div class="progress mt-4">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
+                </div>
+                <div class="mini-chart">
+                    <div class="chart-bar" style="height: 60%"></div>
+                    <div class="chart-bar" style="height: 40%"></div>
+                    <div class="chart-bar" style="height: 80%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                    <div class="chart-bar" style="height: 100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khách hàng mới -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card stats-card card-hover-success shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="text-muted text-uppercase fw-bold small">Khách hàng mới</div>
+                        <div class="stat-value text-success">18</div>
+                        <div class="stat-change text-success">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>12.4% so với tuần trước</span>
+                        </div>
+                    </div>
+                    <div class="icon-circle">
+                        <i class="fas fa-users text-success"></i>
+                    </div>
+                </div>
+                <div class="progress mt-4">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                </div>
+                <div class="mini-chart">
+                    <div class="chart-bar" style="height: 50%"></div>
+                    <div class="chart-bar" style="height: 70%"></div>
+                    <div class="chart-bar" style="height: 85%"></div>
+                    <div class="chart-bar" style="height: 75%"></div>
+                    <div class="chart-bar" style="height: 85%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Đơn hàng -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card stats-card card-hover-info shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="text-muted text-uppercase fw-bold small">Đơn hàng</div>
+                        <div class="stat-value text-info">156</div>
+                        <div class="stat-change text-danger">
+                            <i class="fas fa-arrow-down trend-icon"></i>
+                            <span>3.2% so với tuần trước</span>
+                        </div>
+                    </div>
+                    <div class="icon-circle">
+                        <i class="fas fa-tasks text-info"></i>
+                    </div>
+                </div>
+                <div class="progress mt-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%"></div>
+                </div>
+                <div class="mini-chart">
+                    <div class="chart-bar" style="height: 80%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                    <div class="chart-bar" style="height: 55%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản phẩm bán được -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card stats-card card-hover-warning shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="text-muted text-uppercase fw-bold small">Sản phẩm bán được</div>
+                        <div class="stat-value text-warning">24</div>
+                        <div class="stat-change text-success">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>5.7% so với tuần trước</span>
+                        </div>
+                    </div>
+                    <div class="icon-circle">
+                        <i class="fas fa-chart-pie text-warning"></i>
+                    </div>
+                </div>
+                <div class="progress mt-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 45%"></div>
+                </div>
+                <div class="mini-chart">
+                    <div class="chart-bar" style="height: 30%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                    <div class="chart-bar" style="height: 40%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <!-- Biểu đồ Doanh thu -->
+    <div class="col-md-8 bg-white border rounded-3 shadow-sm p-3">
+        <!-- Bộ lọc -->
+        <div class="filter-bar bg-light rounded-2 px-3 py-2 mb-3 d-flex flex-wrap align-items-center justify-content-between">
+            <!-- Cột chọn năm -->
+            <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
+                <label for="yearSelect" class="form-label mb-0 fw-semibold text-secondary">Năm:</label>
+                <select id="yearSelect" class="form-select form-select-sm w-auto">
+                    <option value="">-- Chọn năm --</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025" selected>2025</option>
+                </select>
+            </div>
+
+            <!-- Cột chọn khoảng ngày -->
+            <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
+                <label class="form-label mb-0 fw-semibold text-secondary">Từ:</label>
+                <input type="date" id="startDate" class="form-control form-control-sm" style="width: 160px;">
+                <label class="form-label mb-0 fw-semibold text-secondary">Đến:</label>
+                <input type="date" id="endDate" class="form-control form-control-sm" style="width: 160px;">
+                <button id="filterBtn" class="btn btn-sm btn-success ms-2 px-3">
+                    <i class="bi bi-funnel-fill"></i> Lọc
+                </button>
+            </div>
+        </div>
+
+        <!-- Biểu đồ -->
+        <div class="chart-container" style="position: relative; height: 420px;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-4 border rounded-3 p-3 bg-white">
+        <!-- Biểu đồ thống kê TOP -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-start align-items-center mb-2 w-100">
+                    <label for="startDatePie" class="me-2 d-flex justify-content-center align-items-center">
+                        Ngày:
+                    </label>
+                    <input type="date" id="startDatePie" style="max-width: 150px;" class="form-control me-2">
+                    <span class="fs-3 me-2">-</span>
+                    <input type="date" id="endDatePie" style="max-width: 150px;" class="form-control me-2">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input-group rounded-3">
+                    <!-- Nút "Top" -->
+                    <span class="input-group-text">Top</span>
+
+                    <!-- Input nhập số -->
+                    <input type="number" id="topLimit" class="form-control" style="max-width: 60px;" min="1" max="10">
+
+                    <!-- Select menu -->
+                    <select class="form-select" id="topType" style="max-width: 266px;">
+                        <option selected value="1">Sản phẩm bán chạy nhất</option>
+                        <option value="2">Sản phẩm ít bán chạy nhất</option>
+                        <option value="3">Khách hàng chi tiêu nhiều nhất</option>
+                        <option value="4">Khách hàng chi tiêu ít nhất</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <canvas id="myChartTop"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+@section Scripts {
+    <script src="../js/Toast.js"></script>
+    <script src="../js/Statistic.js"></script>
+}
+
+

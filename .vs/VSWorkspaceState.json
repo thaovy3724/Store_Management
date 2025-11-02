@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\StoreManagement",
+    "\\StoreManagement\\Data",
+    "\\StoreManagement\\Migrations",
+    "\\StoreManagement\\Models",
+    "\\StoreManagement\\Models\\Entities",
+    "\\StoreManagement\\obj\\Debug",
+    "\\StoreManagement\\Views"
+  ],
+  "SelectedNode": "\\StoreManagement\\Data\\StoreContext.cs",
+  "PreviewInSolutionExplorer": false
+}
