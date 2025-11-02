@@ -68,7 +68,7 @@ namespace StoreManagement.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("StoreManagement.Models.Entities.Inventory", b =>

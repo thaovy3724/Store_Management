@@ -1,4 +1,4 @@
-.body-login {
+﻿.body-login {
     background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
     font-family: "Lexend", sans-serif;
     height: 100vh;
@@ -60,4 +60,16 @@
   .forgot-link a:hover {
     text-decoration: underline;
   }
-
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* nền mờ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* nằm trên tất cả */
+    transition: opacity 0.3s ease;
+}

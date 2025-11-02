@@ -10,19 +10,19 @@
             icon.classList.replace("bi-eye", "bi-eye-slash");
         }
     });
+    const loginForm = document.getElementById("loginForm");
+    const overlay = document.getElementById("loadingOverlay");
 
-    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const username = this.querySelector("[name='username']").value.trim();
         const password = this.querySelector("[name='password']").value.trim();
-
         const errUser = document.querySelector(".error-username");
         const errPwd = document.querySelector(".error-password");
         errUser.textContent = "";
         errPwd.textContent = "";
 
-        // Validate client-side
         if (!username) {
             errUser.textContent = "Tên đăng nhập không được để trống.";
             return;
@@ -32,7 +32,9 @@
             return;
         }
 
-        // Gửi bằng fetch
+        // Hiện overlay
+        overlay.classList.remove("d-none");
+
         const formData = new FormData(this);
 
         try {
@@ -40,20 +42,20 @@
                 method: "POST",
                 body: formData
             });
-
             const data = await res.json();
 
             if (data.success) {
                 showAlert("Đăng nhập thành công", 'success');
-                setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1000);
+                setTimeout(() => window.location.href = data.redirect, 1000);
             } else {
                 showAlert(data.message, 'error');
             }
         } catch (err) {
             console.error(err);
-            showAlert(data.message, 'error');
+            showAlert("Không thể kết nối máy chủ, vui lòng thử lại!", 'error');
+        } finally {
+            // Ẩn overlay
+            overlay.classList.add("d-none");
         }
     });
 });

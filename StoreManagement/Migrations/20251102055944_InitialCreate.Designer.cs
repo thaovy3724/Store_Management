@@ -12,8 +12,8 @@ using StoreManagement.Data;
 namespace StoreManagement.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20251102040230_initial")]
-    partial class initial
+    [Migration("20251102055944_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,7 @@ namespace StoreManagement.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("StoreManagement.Models.Entities.Inventory", b =>

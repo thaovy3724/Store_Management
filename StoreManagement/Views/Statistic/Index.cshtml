@@ -25,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  
+
 <div class="row g-4">
     <!-- Doanh thu -->
     <div class="col-xl-3 col-md-6">
@@ -34,25 +34,21 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="text-muted text-uppercase fw-bold small">Doanh thu</div>
-                        <div class="stat-value text-primary">42,890 đ</div>
-                        <div class="stat-change text-success">
-                            <i class="fas fa-arrow-up trend-icon"></i>
-                            <span>8.3% so với tuần trước</span>
+                        <div class="stat-value text-primary">@String.Format("{0:N0} đ", ViewBag.Revenue)</div>
+                        <div class="stat-change @(ViewBag.RevenueChange >= 0 ? "text-success" : "text-danger")">
+                            <i class="fas @(ViewBag.RevenueChange >= 0 ? "fa-arrow-up" : "fa-arrow-down") trend-icon"></i>
+                            <span>@ViewBag.RevenueChange% so với tuần trước</span>
                         </div>
                     </div>
                     <div class="icon-circle">
                         <i class="fas fa-dollar-sign text-primary"></i>
                     </div>
                 </div>
-                <div class="progress mt-4">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
-                </div>
-                <div class="mini-chart">
-                    <div class="chart-bar" style="height: 60%"></div>
-                    <div class="chart-bar" style="height: 40%"></div>
-                    <div class="chart-bar" style="height: 80%"></div>
-                    <div class="chart-bar" style="height: 65%"></div>
-                    <div class="chart-bar" style="height: 100%"></div>
+                <div class="progress mt-4"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Đạt @String.Format("{0:N0}", ViewBag.Revenue) / @ViewBag.RevenueTarget ₫ (@ViewBag.RevenueProgress%)">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: @ViewBag.RevenueProgress%"></div>
                 </div>
             </div>
         </div>
@@ -65,25 +61,20 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="text-muted text-uppercase fw-bold small">Khách hàng mới</div>
-                        <div class="stat-value text-success">18</div>
-                        <div class="stat-change text-success">
-                            <i class="fas fa-arrow-up trend-icon"></i>
-                            <span>12.4% so với tuần trước</span>
+                        <div class="stat-value text-success">@ViewBag.NewCustomers</div>
+                        <div class="stat-change @(ViewBag.CustomerChange >= 0 ? "text-success" : "text-danger")">
+                            <i class="fas @(ViewBag.CustomerChange >= 0 ? "fa-arrow-up" : "fa-arrow-down") trend-icon"></i>
+                            <span>@ViewBag.CustomerChange% so với tuần trước</span>
                         </div>
                     </div>
                     <div class="icon-circle">
                         <i class="fas fa-users text-success"></i>
                     </div>
                 </div>
-                <div class="progress mt-4">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
-                </div>
-                <div class="mini-chart">
-                    <div class="chart-bar" style="height: 50%"></div>
-                    <div class="chart-bar" style="height: 70%"></div>
-                    <div class="chart-bar" style="height: 85%"></div>
-                    <div class="chart-bar" style="height: 75%"></div>
-                    <div class="chart-bar" style="height: 85%"></div>
+                <div class="progress mt-4"
+                        data-bs-toggle="tooltip"
+                        title="Đạt @ViewBag.NewCustomers / @ViewBag.CustomerTarget khách hàng (@ViewBag.CustomerProgress%)">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: @ViewBag.CustomerProgress%"></div>
                 </div>
             </div>
         </div>
@@ -96,25 +87,20 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="text-muted text-uppercase fw-bold small">Đơn hàng</div>
-                        <div class="stat-value text-info">156</div>
-                        <div class="stat-change text-danger">
-                            <i class="fas fa-arrow-down trend-icon"></i>
-                            <span>3.2% so với tuần trước</span>
+                        <div class="stat-value text-info">@ViewBag.OrderCount</div>
+                        <div class="stat-change @(ViewBag.OrderChange >= 0 ? "text-success" : "text-danger")">
+                            <i class="fas @(ViewBag.OrderChange >= 0 ? "fa-arrow-up" : "fa-arrow-down") trend-icon"></i>
+                            <span>@ViewBag.OrderChange% so với tuần trước</span>
                         </div>
                     </div>
                     <div class="icon-circle">
                         <i class="fas fa-tasks text-info"></i>
                     </div>
                 </div>
-                <div class="progress mt-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%"></div>
-                </div>
-                <div class="mini-chart">
-                    <div class="chart-bar" style="height: 80%"></div>
-                    <div class="chart-bar" style="height: 65%"></div>
-                    <div class="chart-bar" style="height: 55%"></div>
-                    <div class="chart-bar" style="height: 65%"></div>
-                    <div class="chart-bar" style="height: 65%"></div>
+                <div class="progress mt-4"
+                        data-bs-toggle="tooltip"
+                        title="Đạt @ViewBag.OrderCount / @ViewBag.OrderTarget đơn hàng (@ViewBag.OrderProgress%)">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: @ViewBag.OrderProgress%"></div>
                 </div>
             </div>
         </div>
@@ -127,30 +113,26 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="text-muted text-uppercase fw-bold small">Sản phẩm bán được</div>
-                        <div class="stat-value text-warning">24</div>
-                        <div class="stat-change text-success">
-                            <i class="fas fa-arrow-up trend-icon"></i>
-                            <span>5.7% so với tuần trước</span>
+                        <div class="stat-value text-warning">@ViewBag.SoldProducts</div>
+                        <div class="stat-change @(ViewBag.SoldChange >= 0 ? "text-success" : "text-danger")">
+                            <i class="fas @(ViewBag.SoldChange >= 0 ? "fa-arrow-up" : "fa-arrow-down") trend-icon"></i>
+                            <span>@ViewBag.SoldChange% so với tuần trước</span>
                         </div>
                     </div>
                     <div class="icon-circle">
                         <i class="fas fa-chart-pie text-warning"></i>
                     </div>
                 </div>
-                <div class="progress mt-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 45%"></div>
-                </div>
-                <div class="mini-chart">
-                    <div class="chart-bar" style="height: 30%"></div>
-                    <div class="chart-bar" style="height: 45%"></div>
-                    <div class="chart-bar" style="height: 40%"></div>
-                    <div class="chart-bar" style="height: 45%"></div>
-                    <div class="chart-bar" style="height: 45%"></div>
+                <div class="progress mt-4"
+                        data-bs-toggle="tooltip"
+                        title="Đạt @ViewBag.SoldProducts / @ViewBag.SoldTarget sản phẩm (@ViewBag.SoldProgress%)">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewBag.SoldProgress%"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="row mt-4">
     <!-- Biểu đồ Doanh thu -->
     <div class="col-md-8 bg-white border rounded-3 shadow-sm p-3">
@@ -159,12 +141,20 @@
             <!-- Cột chọn năm -->
             <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
                 <label for="yearSelect" class="form-label mb-0 fw-semibold text-secondary">Năm:</label>
-                <select id="yearSelect" class="form-select form-select-sm w-auto">
-                    <option value="">-- Chọn năm --</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025" selected>2025</option>
-                </select>
+                    <select id="yearSelect" class="form-select form-select-sm w-auto">
+                        <option value="">-- Chọn năm --</option>
+                        @foreach (var year in ViewBag.Years as List<int>)
+                        {
+                            if (year == ViewBag.CurrentYear)
+                            {
+                                <option value="@year" selected>@year</option>
+                            }
+                            else
+                            {
+                                <option value="@year">@year</option>
+                            }
+                        }
+                    </select>
             </div>
 
             <!-- Cột chọn khoảng ngày -->
@@ -181,20 +171,20 @@
 
         <!-- Biểu đồ -->
         <div class="chart-container" style="position: relative; height: 420px;">
-            <canvas id="myChart"></canvas>
+            <canvas id="revenueChart"></canvas>
         </div>
     </div>
     <div class="col-md-4 border rounded-3 p-3 bg-white">
-        <!-- Biểu đồ thống kê TOP -->
+    <!-- Biểu đồ thống kê TOP -->
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-start align-items-center mb-2 w-100">
                     <label for="startDatePie" class="me-2 d-flex justify-content-center align-items-center">
                         Ngày:
                     </label>
-                    <input type="date" id="startDatePie" style="max-width: 150px;" class="form-control me-2">
+                    <input type="date" id="startDatePie" style="max-width: 170px;" class="form-control me-2">
                     <span class="fs-3 me-2">-</span>
-                    <input type="date" id="endDatePie" style="max-width: 150px;" class="form-control me-2">
+                    <input type="date" id="endDatePie" style="max-width: 170px;" class="form-control me-2">
                 </div>
             </div>
             <div class="col-md-12">
@@ -206,7 +196,7 @@
                     <input type="number" id="topLimit" class="form-control" style="max-width: 60px;" min="1" max="10">
 
                     <!-- Select menu -->
-                    <select class="form-select" id="topType" style="max-width: 266px;">
+                    <select class="form-select" id="topType" style="max-width: 306px;">
                         <option selected value="1">Sản phẩm bán chạy nhất</option>
                         <option value="2">Sản phẩm ít bán chạy nhất</option>
                         <option value="3">Khách hàng chi tiêu nhiều nhất</option>

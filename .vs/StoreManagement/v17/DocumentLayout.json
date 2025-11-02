@@ -1,74 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\",
+  "WorkspaceRootPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\views\\statistic\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\views\\statistic\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\statistic\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\wwwroot\\js\\statistic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\wwwroot\\js\\statistic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\statistic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\wwwroot\\js\\ordermanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\ordermanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\viewmodel\\statistic\\statisticviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\viewmodel\\statistic\\statisticviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\wwwroot\\js\\ordermanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\ordermanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\entities\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\models\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\models\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\store_management\\storemanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|d:\\dkp_sgu_2022\\y4hk1\\dotnet\\doandotnet\\store_management\\storemanagement\\models\\viewmodel\\statistic\\statisticviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\viewmodel\\statistic\\statisticviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,8 +54,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 298,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "StoreManagement\\appsettings.Development.json",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\appsettings.Development.json",
+              "RelativeToolTip": "StoreManagement\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-02T14:16:02.645Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -90,224 +79,124 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StatisticViewModel.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowBcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:40:30.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\OrdersController.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:41:20.654Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StatisticController.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\StatisticController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\StatisticController.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\StatisticController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\StatisticController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:41:22.267Z",
-              "EditorCaption": ""
+              "DocumentIndex": 7,
+              "Title": "OrderManager.js",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\OrderManager.js",
+              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\OrderManager.js",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\OrderManager.js",
+              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\OrderManager.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-02T13:35:11.079Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Statistic.js",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Statistic.js",
-              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Statistic.js",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Statistic.js",
-              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Statistic.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
+              "Title": "Toast.js",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
+              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Toast.js",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
+              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Toast.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-02T04:39:18.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Order.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\Order.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Order.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\Entities\\Order.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwDYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:49:49.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T13:34:52.846Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrderManager.js",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\OrderManager.js",
-              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\OrderManager.js",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\OrderManager.js",
-              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\OrderManager.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Login.js",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Login.js",
+              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Login.js",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Login.js",
+              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Login.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-02T05:00:32.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Views\\Statistic\\Index.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Statistic\\Index.cshtml",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Views\\Statistic\\Index.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Statistic\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T04:37:20.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T13:32:54.378Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\OrderItem.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\OrderItem.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\OrderItem.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\Entities\\OrderItem.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwCgAAAAAAAAAAAAAAA==",
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\Customer.cs",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Customer.cs",
+              "RelativeToolTip": "StoreManagement\\Models\\Entities\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:50:01.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T13:18:53.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StatisticViewModel.cs",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
+              "RelativeToolTip": "StoreManagement\\Models\\ViewModel\\Statistic\\StatisticViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAkwBUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T11:17:19.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Statistic.js",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Statistic.js",
+              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Statistic.js",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Statistic.js",
+              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Statistic.js",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAIkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-02T10:12:48.46Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "StatisticController.cs",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Controllers\\StatisticController.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\StatisticController.cs",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Controllers\\StatisticController.cs",
+              "RelativeToolTip": "StoreManagement\\Controllers\\StatisticController.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAmwKwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T05:05:55.435Z",
+              "WhenOpened": "2025-11-02T09:54:33.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Views\\Statistic\\Index.cshtml",
+              "RelativeDocumentMoniker": "StoreManagement\\Views\\Statistic\\Index.cshtml",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Views\\Statistic\\Index.cshtml",
+              "RelativeToolTip": "StoreManagement\\Views\\Statistic\\Index.cshtml",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAcwLgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-02T09:54:31.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Toast.js",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
-              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Toast.js",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
-              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Toast.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-02T05:07:41.686Z",
-              "EditorCaption": ""
+              "Title": "login.css",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\css\\login.css",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "StoreManagement\\wwwroot\\css\\login.css",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwEoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-02T13:39:45.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\Product.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Product.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\Entities\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:48:14.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OrderStatus.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\OrderStatus.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\OrderStatus.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\OrderStatus.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\Entities\\OrderStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T05:03:38.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Customer.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\Customer.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Models\\Entities\\Customer.cs",
-              "RelativeToolTip": "StoreManagement\\Models\\Entities\\Customer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:48:03.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Views\\Orders\\Index.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Orders\\Index.cshtml",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Views\\Orders\\Index.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Orders\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "StoreManagement\\Views\\Auth\\Login.cshtml",
+              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "StoreManagement\\Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T05:02:50.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Product.js",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Product.js",
-              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Product.js",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\wwwroot\\js\\Product.js",
-              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Product.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-02T05:00:29.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:41:44.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T04:41:52.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T13:40:08.547Z"
             }
           ]
         }

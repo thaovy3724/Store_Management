@@ -51,7 +51,7 @@ namespace StoreManagement.Controllers
             string redirectUrl = user.Role switch
             {
                 Role.Admin => Url.Action("Index", "Product"),
-                Role.Staff => Url.Action("Index", "Order"),
+                Role.Staff => Url.Action("Index", "Orders"),
                 _ => Url.Action("Index", "Home")
             };
 
