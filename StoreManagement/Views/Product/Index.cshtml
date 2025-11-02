@@ -1,0 +1,215 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StoreManagement.Models.Pages.Product.ProductPageViewModel
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Nội dung chính: RenderBody -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="fw-bold">Quản lý Sản phẩm</h3>   
+    </div>
+    <!-- Thanh lọc -->
+    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+        <!-- Thanh lọc bên trái -->
+        <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+            <!-- Lọc theo loại sản phẩm -->
+              <!-- Lọc theo vai trò -->
+            <select id="filterCategory" class="form-select form-select-sm" style="width: 150px;">
+                <option value="-1">Tất cả loại</option>
+            @foreach(var c in Model.Categories)
+            {
+                <option value="@c.CategoryId" selected="@(c.CategoryId == Model.FilterCategory ? "selected" : null)">@c.CategoryName</option>
+            }
+            </select>
+            <!-- Lọc theo khoảng giá -->
+            <div class="input-group input-group-sm" style="width: 250px;">
+                <span class="input-group-text">Giá từ</span>
+            <input id="filterPriceFrom" type="number" value="@(Model.PriceFrom)" class="form-control" placeholder="" min="0">
+                <span class="input-group-text">đến</span>
+            <input id="filterPriceTo" type="number" value="@(Model.PriceTo)" class="form-control" placeholder="" min="0">
+            </div>
+            <!-- Ô tìm kiếm -->
+            <div class="input-group input-group-sm" style="width: 300px;">
+            <input id="searchInput" type="text" value="@Model.Search" class="form-control" placeholder="Nhập tên sản phẩm, barcode">
+                <button id="btnSearch" class="btn btn-primary btn-search" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nút Thêm mới bên phải -->
+        <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view_add">
+            <i class="bi bi-plus-circle"></i> Thêm mới
+        </button>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light thead-separator ">
+                <tr class="text-center">
+                    <th style="width:100px;">Barcode</th>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá bán</th>
+                    <th>Đơn vị</th>
+                    <th style="width:150px;">Hành động</th>
+                </tr>
+                </thead>
+                <tbody id="productList">
+                    @if (Model.Products == null || !Model.Products.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">Không có sản phẩm nào.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var product in Model.Products)
+                        {
+                            <tr class="text-center">
+                                <td class="text-center">@product.Barcode</td>
+                                <td class="text-center">
+                                    <img src="~/uploads/@product.ProductImage" alt="@product.ProductName"
+                                         style="width:60px; height:60px; object-fit:cover; border-radius:4px;">
+                                </td>
+                                <td>@product.ProductName</td>
+                                <td>@($"{product.Price:N0}đ")</td>
+                                <td>@product.Unit</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-light border me-1 btn-view"
+                                            title="Xem" data-bs-toggle="modal"
+                                            data-bs-target="#productModal" data-action="view"
+                                            data-barcode="@product.Barcode">
+                                        <i class="bi bi-eye text-primary"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-light border me-1 btn-edit"
+                                            title="Sửa" data-bs-toggle="modal"
+                                            data-bs-target="#productModal" data-action="view_edit"
+                                            data-barcode="@product.Barcode">
+                                        <i class="bi bi-pencil text-success"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-light border btn-delete"
+                                            data-barcode="@product.Barcode" title="Xóa" data-action="delete">
+                                        <i class="bi bi-trash text-danger"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- Phân trang-->
+        <div id="paginationContainer">
+            @await Html.PartialAsync("Pagination", (object)Model)
+        </div>
+      </div>
+    </div>
+
+    <!-- Các modal dùng chung có thể đặt ở đây -->
+@section Modals {
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalTitle">Quản lý sản phẩm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Body -->
+      <div class="modal-body">
+        <form id="productForm" enctype="multipart/form-data">
+            <div class="row">
+                <!-- hình ảnh -->
+                <div class="col-md-3 text-center">
+                <div id="image-preview" class="mb-3">
+                    <span>Click để tải ảnh</span>
+                </div>
+                <input type="file" name="ImageFile" id="product-image" class="hidden-input" accept="image/*">
+                <small id="product-image-error" class="form-text text-danger d-none"></small>
+                <button type="button" class="btn btn-primary w-100" id="upload-btn">
+                    <i class="bi bi-upload"></i> Tải ảnh lên
+                </button>
+                </div>
+
+                <!-- thông tin sản phẩm -->
+                <div class="col-md-9">
+                <div class="mb-3">
+                    <label class="form-label">Tên sản phẩm</label>
+                    <input type="text" class="form-control" name="ProductName" id="product-name" placeholder="Nhập tên sản phẩm">
+                    <small id="product-name-error" class="form-text text-danger d-none"></small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Loại sản phẩm</label>
+                    <select class="form-select" name="CategoryId" id="product-category">
+                    <option value="-1">Chọn loại sản phẩm</option>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                    </select>
+                    <small id="product-category-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Giá</label>
+                    <input type="number" class="form-control" name="Price" id="product-price" placeholder="Nhập giá">
+                    <small id="product-price-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Đơn vị</label>
+                    <input type="text" class="form-control" name="Unit" id="product-unit" placeholder="Nhập đơn vị">
+                    <small id="product-unit-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Barcode</label>
+                    <input type="text" class="form-control" name="Barcode" id="product-barcode" placeholder="Nhập barcode">
+                    <small id="product-barcode-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tồn kho</label>
+                    <input type="number" class="form-control" name="InventoryQuantity" id="product-inventory" placeholder="Nhập tồn kho">
+                    <small id="product-inventory-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="product-supplier">Nhà cung cấp</label>
+                    <select class="form-select" name="SupplierId" id="product-supplier">
+                    <option value="-1">Chọn nhà cung cấp</option>
+                    @foreach (var supplier in Model.Suppliers)
+                    {
+                        <option value="@supplier.SupplierId">@supplier.Name</option>
+                    }
+                    </select>
+                    <small id="product-supplier-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" id="productModalSaveBtn" class="btn btn-primary" data-action="add">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>  
+}
+
+@section Scripts {
+    <script src="~/js/Product.js"></script>
+    <script src="~/js/Toast.js"></script>
+}

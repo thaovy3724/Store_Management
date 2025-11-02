@@ -5,7 +5,7 @@
         icon: type, // "success", "error", "warning", "info", "question"
         title: message,
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1800,
         timerProgressBar: true
     });
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreManagement.Data;
+using StoreManagement.Models.Entities;
 
 namespace StoreManagement.Controllers
 {
@@ -19,48 +20,44 @@ namespace StoreManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login([FromForm] string username, [FromForm] string password)
         {
-            ModelState.Remove("username");
-            ModelState.Remove("password");
-            // --- 1. Kiểm tra rỗng ---
-            if (string.IsNullOrWhiteSpace(username))
-                ModelState.AddModelError("Username", "Tên đăng nhập không được để trống");
+            // 1. Kiểm tra rỗng
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                return Json(new { success = false, message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu." });
+            }
 
-            if (string.IsNullOrWhiteSpace(password))
-                ModelState.AddModelError("Password", "Mật khẩu không được để trống");
-
-            // Nếu có lỗi nhập liệu thì dừng ở đây
-            if (!ModelState.IsValid)
-                return View();
-
-            // --- 2. Kiểm tra tài khoản ---
+            // 2. Tìm người dùng
             var user = _context.Users.FirstOrDefault(u => u.Username == username);
             if (user == null)
             {
-                ModelState.AddModelError("username", "Tên đăng nhập không tồn tại");
-                return View();
+                return Json(new { success = false, message = "Tên đăng nhập không tồn tại." });
             }
 
-            // --- 3. Kiểm tra mật khẩu ---
+            // 3. Kiểm tra mật khẩu
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
             if (!isPasswordValid)
             {
-                ModelState.AddModelError("password", "Mật khẩu không chính xác");
-                return View();
+                return Json(new { success = false, message = "Mật khẩu không chính xác." });
             }
 
-            // --- 4. Thành công -> lưu session ---
+            // 4. Lưu session
             HttpContext.Session.SetString("Username", user.Username);
             HttpContext.Session.SetString("Fullname", user.FullName);
-            HttpContext.Session.SetString("Role", user.Role);
+            HttpContext.Session.SetString("Role", user.Role.ToString());
 
-            // --- 5. Chuyển hướng theo quyền ---
-            if (user.Role == "admin")
-                return RedirectToAction("Index", "Product");
-            else
-                return RedirectToAction("Index", "Product");
+            // 5. Trả về JSON redirect
+            string redirectUrl = user.Role switch
+            {
+                Role.Admin => Url.Action("Index", "Product"),
+                Role.Staff => Url.Action("Index", "Order"),
+                _ => Url.Action("Index", "Home")
+            };
+
+            return Json(new { success = true, redirect = redirectUrl });
         }
+
 
         public IActionResult Logout()
         {
