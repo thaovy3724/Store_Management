@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k3g2PTk7PWs=",
+  "dgSpecHash": "bCNBu5SNEJM=",
   "success": true,
-  "projectFilePath": "B:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
+  "projectFilePath": "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huonglamcoder\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\huonglamcoder\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

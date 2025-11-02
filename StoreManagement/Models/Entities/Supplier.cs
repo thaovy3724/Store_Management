@@ -1,21 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StoreManagement.Models.Entities;
 
+[Table("suppliers")]
 public class Supplier
 {
-    public int Id { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int SupplierId { get; set; }
     
-    [Required(ErrorMessage = "Tên không được để trống")]
+    [Required]
+    [MaxLength(100)]
+    [Column("name")]
     public string Name { get; set; }
     
-    [Required(ErrorMessage = "Số điện thoại không được để trống")]
-    public string Phone { get; set; }
+    [MaxLength(20)]
+    [Column("phone")]
+    public string? Phone { get; set; }
     
-    [Required(ErrorMessage = "Email không được để trống")]
-    public string Email { get; set; }
+    [MaxLength(100)]
+    [Column("email")]
+    public string? Email { get; set; }
     
-    [Required(ErrorMessage = "Địa chỉ không được để trống")]
-    public string Address { get; set; }
+    [Column("address")]
+    public string? Address { get; set; }
+    
+    // Navigation Properties
+    // 1 supplier - n products
+    public ICollection<Product>? Products { get; set; }
 
 }

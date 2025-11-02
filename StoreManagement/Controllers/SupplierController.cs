@@ -5,14 +5,8 @@ using StoreManagement.Models.Entities;
 
 namespace StoreManagement.Controllers;
 
-public class SupplierController : Controller
+public class SupplierController(ApplicationDbContext _dbContext) : Controller
 {
-    private readonly ApplicationDbContext _dbContext;
-    
-    public SupplierController(ApplicationDbContext dbContext)  
-    {
-        _dbContext = dbContext;
-    }
     
     [HttpGet]
     public IActionResult Index()
@@ -20,6 +14,7 @@ public class SupplierController : Controller
         return View();
     }
 
+    // GET Suppliers
     [HttpGet]
     public async Task<IActionResult> GetSuppliers(string search = "")
     {
@@ -37,12 +32,13 @@ public class SupplierController : Controller
         }
         
         var suppliers = await query
-            .OrderBy(s => s.Id)
+            .OrderBy(s => s.SupplierId)
             .ToListAsync();
 
         return Json(new { success = true, data = suppliers });
     }
 
+    // INSERT + UPDATE Supplier
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveSupplier([FromBody] Supplier model)
@@ -51,7 +47,7 @@ public class SupplierController : Controller
         {
             // Kiểm tra email đã tồn tại hay chưa (trừ id hiện tại)
             var existingEmail = await _dbContext.Suppliers.AnyAsync(
-                s => s.Email == model.Email && s.Id != model.Id    
+                s => s.Email == model.Email && s.SupplierId != model.SupplierId    
             );
 
             if (existingEmail)
@@ -66,7 +62,7 @@ public class SupplierController : Controller
             // Kiểm tra số điện thoại đã tồn tại hay chưa
             var existingPhoneNumber =
                 await _dbContext.Suppliers.AnyAsync(
-                    s => s.Phone == model.Phone && s.Id != model.Id
+                    s => s.Phone == model.Phone && s.SupplierId != model.SupplierId
                 );
 
             if (existingPhoneNumber)
@@ -79,7 +75,7 @@ public class SupplierController : Controller
                 });
             }
 
-            if (model.Id == 0) // Thêm mới
+            if (model.SupplierId == 0) // Thêm mới
             {
                 _dbContext.Suppliers.Add(model);
                 await _dbContext.SaveChangesAsync();
@@ -88,7 +84,7 @@ public class SupplierController : Controller
             }
             else // Cập nhật
             {
-                var supplier = await _dbContext.Suppliers.FindAsync(model.Id);
+                var supplier = await _dbContext.Suppliers.FindAsync(model.SupplierId);
                 if (supplier == null)
                 {
                     return Json(new { success = false, message = "Nhà cung cấp không tồn tại!" });
@@ -111,6 +107,7 @@ public class SupplierController : Controller
         }
     }
 
+    // Get Supplier
     [HttpGet]
     public async Task<IActionResult> GetSupplierDetail(int id)
     {
@@ -131,6 +128,7 @@ public class SupplierController : Controller
         }
     }
 
+    // Xóa
     [HttpPost]
     public async Task<IActionResult> DeleteSupplier(int id)
     {

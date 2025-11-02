@@ -1,8 +1,8 @@
+// Load danh sách nhà cung cấp
+loadSuppliers();
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Load danh sách nhà cung cấp
-    loadSuppliers();
-    
-    
+       
     const modalTitle = document.getElementById("supplierModalTitle");
     const saveBtn = document.getElementById("supplierModalSaveBtn");
     const inputs = document.querySelectorAll("#supplierForm input, #supplierForm select, #supplierForm textarea");
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Tìm kiếm nhà cung cấp
         // Mỗi lần thay đổi ô input#search thì gọi ajax (không muốn gọi ajax liên tục -> bỏ)
-    $(document).on('input', '#search', function() {
+    $(document).on('change', '#search', function() {
         loadSuppliers();
     });
     $(document).on('click', ".btn-search", function() {
@@ -208,9 +208,8 @@ function loadSuppliers() {
 function renderTable(suppliers) {
     const body = $('#tableBody');
     body.empty();
-
     if (suppliers.length === 0) {
-        tbody.append(`
+        body.append(`
             <tr>
                 <td colspan="5" class="text-center">Không có dữ liệu</td>
             </tr>
