@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Admin Panel</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="brand">Admin Panel</div>
+        <div class="d-flex align-items-center">
+            <span class="user-info me-2">Xin chào, <a href="#" class="fw-bold text-decoration-none" style="color:#0d6efd">Ngô Đức Trọng</a></span>
+            <span class="text-muted mx-2">|</span>
+            <button class="btn btn-link btn-sm p-0 text-decoration-none" style="color:#0d6efd">Đăng xuất</button>
+        </div>
+    </div>
+
+    <!-- Sidebar bên trái -->
+    <div class="sidebar d-flex flex-column pt-3">
+        <nav class="nav flex-column mt-2">
+            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-people-fill text-primary"></i>
+                <span>Quản lý tài khoản</span>
+            </a>
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Customer" ? "active" : "")" asp-controller="Customer" asp-action="Index">
+                <i class="bi bi-person-lines-fill text-primary"></i>
+                <span>Quản lý khách hàng</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-box-seam text-primary"></i>
+                <span>Quản lý sản phẩm</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-tags-fill text-primary"></i>
+                <span>Quản lý loại sản phẩm</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-truck text-primary"></i>
+                <span>Quản lý nhà cung cấp</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-gift-fill text-primary"></i>
+                <span>Quản lý khuyến mãi</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-journal-plus text-primary"></i>
+                <span>Quản lý phiếu nhập</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-bar-chart-line-fill text-primary"></i>
+                <span>Thống kê</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content">
+        <div class="container-fluid p-4">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: fixed; top: 70px; right: 20px; z-index: 1050; min-width: 350px; max-width: 500px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Toast.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

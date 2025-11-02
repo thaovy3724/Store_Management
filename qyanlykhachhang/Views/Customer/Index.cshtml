@@ -1,0 +1,221 @@
+@{
+    ViewData["Title"] = "Quản lý Khách hàng";
+}
+
+@section Styles {
+    <style>
+        /* Ẩn các dòng cảnh báo màu đỏ khi ở chế độ xem */
+        #customerModal.view-mode .text-danger,
+        #customerModal.view-mode small.form-text { display: none !important; }
+        #customerModal.view-mode input,
+        #customerModal.view-mode textarea { background-color: #f8f9fa; }
+        #customerModal.view-mode .modal-footer { display: none; }
+    </style>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold">Quản lý Khách hàng</h3>
+</div>
+
+<!-- Thanh lọc -->
+<div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+    <!-- Thanh lọc bên trái -->
+    <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+        <!-- Ô tìm kiếm -->
+        <div class="input-group input-group-sm" style="width: 300px;" id="searchContainer">
+            <input type="text" id="searchInput" class="form-control" placeholder="Nhập tên, email, số điện thoại">
+            <button class="btn btn-primary btn-search" type="button" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+            </button>
+            <button class="btn btn-outline-secondary btn-clear" type="button" title="Xóa" style="display: none;">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Nút Thêm mới bên phải -->
+    <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#customerModal">
+        <i class="bi bi-plus-circle"></i> Thêm mới
+    </button>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light thead-separator ">
+                    <tr class="text-center">
+                        <th style="width:100px;">ID</th>
+                        <th>Tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th style="width:150px;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.Customers != null)
+                    {
+                        foreach (var c in (IEnumerable<qyanlykhachhang.Models.Enities.Customer>)ViewBag.Customers)
+                        {
+                            <tr class="text-center">
+                                <td class="text-center">@c.Id</td>
+                                <td>@c.Name</td>
+                                <td>@c.PhoneNumber</td>
+                                <td>@c.Email</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem"
+                                            data-bs-toggle="modal" data-bs-target="#customerModal"
+                                            data-id="@c.Id" data-name="@c.Name" data-phone="@c.PhoneNumber" data-email="@c.Email" data-address="@c.Address">
+                                        <i class="bi bi-eye text-primary"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa"
+                                            data-bs-toggle="modal" data-bs-target="#customerModal"
+                                            data-id="@c.Id" data-name="@c.Name" data-phone="@c.PhoneNumber" data-email="@c.Email" data-address="@c.Address">
+                                        <i class="bi bi-pencil text-success"></i>
+                                    </button>
+                                    <form asp-controller="Customer" asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm btn-light border" title="Xóa" onclick="return confirm('Xóa khách hàng này?');">
+                                            <i class="bi bi-trash text-danger"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- Phân trang-->
+        <nav class="mt-3">
+            <ul class="pagination justify-content-center modern-pagination-light">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">&laquo;</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Modal dùng chung -->
+<div class="modal fade" id="customerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="customerModalTitle">Quản lý khách hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="customerForm" asp-controller="Customer" asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+                    <div class="mb-3">
+                        <label class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="fullname" name="Name">
+                        <span class="text-danger"></span>
+                        <small id="fullname-msg" class="form-text text-danger" style="display: none;">Họ tên không để trống</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phonenumber" name="PhoneNumber">
+                        <span class="text-danger"></span>
+                        <small id="phonenumber-msg" class="form-text text-danger" style="display: none;">Số điện không để trống</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="customeremail" name="Email">
+                        <span class="text-danger"></span>
+                        <small id="customeremail-msg" class="form-text text-danger" style="display: none;">email không để trống</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ</label>
+                        <textarea class="form-control" id="address" name="Address" rows="3"></textarea>
+                        <span class="text-danger"></span>
+                        <small id="address-msg" class="form-text text-danger" style="display: none;">Địa chỉ không để trống</small>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="submit" form="customerForm" id="customerModalSaveBtn" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Customer.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+    (function(){
+        const modal = document.getElementById('customerModal');
+        const form = document.getElementById('customerForm');
+        const title = document.getElementById('customerModalTitle');
+        const saveBtn = document.getElementById('customerModalSaveBtn');
+
+        const inputName = document.getElementById('fullname');
+        const inputPhone = document.getElementById('phonenumber');
+        const inputEmail = document.getElementById('customeremail');
+        const inputAddress = document.getElementById('address');
+
+        function setReadOnly(readonly){
+            [inputName, inputPhone, inputEmail, inputAddress].forEach(i=>{
+                i.readOnly = readonly;
+                i.disabled = false; // keep enabled so validation can show
+            });
+            saveBtn.style.display = readonly ? 'none' : '';
+            if (readonly) {
+                modal.classList.add('view-mode');
+            } else {
+                modal.classList.remove('view-mode');
+            }
+        }
+
+        document.querySelector('.btn-add').addEventListener('click', function(){
+            title.textContent = 'Thêm khách hàng';
+            form.setAttribute('action', '/Customer/Create');
+            inputName.value = '';
+            inputPhone.value = '';
+            inputEmail.value = '';
+            inputAddress.value = '';
+            setReadOnly(false);
+        });
+
+        document.querySelectorAll('.btn-view').forEach(btn=>{
+            btn.addEventListener('click', function(){
+                title.textContent = 'Xem khách hàng';
+                form.setAttribute('action', '#');
+                inputName.value = this.dataset.name || '';
+                inputPhone.value = this.dataset.phone || '';
+                inputEmail.value = this.dataset.email || '';
+                inputAddress.value = this.dataset.address || '';
+                setReadOnly(true);
+            });
+        });
+
+        document.querySelectorAll('.btn-edit').forEach(btn=>{
+            btn.addEventListener('click', function(){
+                const id = this.dataset.id;
+                title.textContent = 'Sửa khách hàng';
+                form.setAttribute('action', '/Customer/Edit/' + id);
+                inputName.value = this.dataset.name || '';
+                inputPhone.value = this.dataset.phone || '';
+                inputEmail.value = this.dataset.email || '';
+                inputAddress.value = this.dataset.address || '';
+                setReadOnly(false);
+            });
+        });
+    })();
+    </script>
+}
+
