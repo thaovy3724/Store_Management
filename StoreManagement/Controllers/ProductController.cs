@@ -33,7 +33,7 @@ namespace StoreManagement.Controllers
         [HttpPost]
         public IActionResult Add()
         {
-
+            return View();
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace StoreManagement.Controllers
                 return BadRequest("Thiếu barcode.");
             }
 
-
+            return Json(new { success = true });
         }
     }
 }

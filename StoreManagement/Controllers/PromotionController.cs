@@ -5,11 +5,20 @@ using System;
 using System.Linq;
 //using System.Web.Mvc;
 
-namespace Store_Management.Controllers
+namespace StoreManagement.Controllers
 {
     public class PromotionController : Controller
     {
         private readonly StoreContext db;
+        public PromotionController(StoreContext context)
+        {
+            db = context;
+        }
+        public IActionResult Index()
+        {
+            return View("Promotion");
+        }
+
 
         // GET: Promotion/GetAll
         [HttpGet]
@@ -18,14 +27,14 @@ namespace Store_Management.Controllers
             var list = db.Promotions
                 .OrderByDescending(p => p.Id)
                 .Select(p => new {
-                    p.Id,
-                    p.Code,
-                    p.Type,
-                    p.Value,
-                    p.MinOrderAmount,
-                    p.UsageLimit,
-                    p.StartDate,
-                    p.EndDate
+                    id = p.Id,
+                    code = p.Code,
+                    type = p.Type,
+                    value = p.Value,
+                    minOrderAmount = p.MinOrderAmount,
+                    usageLimit = p.UsageLimit,
+                    startDate = p.StartDate,
+                    endDate = p.EndDate
                 })
                 .ToList();
 
@@ -38,7 +47,7 @@ namespace Store_Management.Controllers
         {
             var p = db.Promotions.Find(id);
             if (p == null)
-                return Json(new { success = false, message = "Không tìm thấy mã giảm giá." }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, message = "Không tìm thấy mã giảm giá." });
 
             return Json(new { success = true, data = p });
         }

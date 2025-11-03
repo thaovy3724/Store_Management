@@ -1,10 +1,10 @@
-﻿@page
-@model StoreManagement.Views.Promotion.PromotionModel
+﻿@model StoreManagement.Views.Promotion.PromotionModel
 @{
 	ViewData["Title"] = "Quản lý mã giảm giá";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_Layout";
 }
 
+<h1>@ViewData["Title"]</h1>
 <!-- Nội dung chính -->
 <div class="content">
     <div class="container-fluid p-4">
@@ -49,54 +49,7 @@
                                 <th style="width:150px;">Hành động</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="text-center">
-                                <td class="align-middle">PROMO10</td>
-                                <td class="align-middle">500,000 đ</td>
-                                <td class="align-middle">100</td>
-                                <td class="align-middle">2025-10-01</td>
-                                <td class="align-middle">2025-10-31</td>
-                                <td>
-                                    <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background-color:#0d6efd1a; color:#0d6efd; border:1px solid #0d6efd;">
-                                        Hoạt động
-                                    </span>
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#promotionModal">
-                                        <i class="bi bi-eye text-primary"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa" data-bs-toggle="modal" data-bs-target="#promotionModal">
-                                        <i class="bi bi-pencil text-success"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-light border me-1 btn-lock" title="Khóa/ Mở khóa">
-                                        <i class="bi bi-unlock text-primary"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="align-middle">PROMO10</td>
-                                <td class="align-middle">500,000 đ</td>
-                                <td class="align-middle">100</td>
-                                <td class="align-middle">2025-10-01</td>
-                                <td class="align-middle">2025-10-31</td>
-                                <td>
-                                    <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background-color:#ffc1071a; color:#b8860b; border:1px solid #ffc107;">
-                                        Bị khóa
-                                    </span>
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#promotionModal">
-                                        <i class="bi bi-eye text-primary"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa" data-bs-toggle="modal" data-bs-target="#promotionModal">
-                                        <i class="bi bi-pencil text-success"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-light border me-1 btn-lock" title="Khóa/ Mở khóa">
-                                        <i class="bi bi-unlock text-primary"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="promotionTableBody"></tbody>
                     </table>
                 </div>
                 <!-- Phân trang-->
@@ -131,6 +84,13 @@
             <!-- Body -->
             <div class="modal-body">
                 <form id="promotionForm">
+                    <!-- Mã khuyến mãi -->
+                    <div class="mb-3">
+                        <label class="form-label">Mã khuyến mãi</label>
+                        <input type="text" class="form-control" id="code" maxlength="20">
+                        <small id="code-msg" class="form-text text-danger">Vui lòng nhập mã khuyến mãi</small>
+                    </div>
+
                     <!-- Loại khuyến mãi -->
                     <div class="mb-3">
                         <label class="form-label">Loại khuyến mãi</label>

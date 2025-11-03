@@ -10,13 +10,14 @@
         $.get("/Promotion/GetAll", function (data) {
             tableBody.empty();
             data.forEach(p => {
+                console.log("Promotion item:", p); // THÊM LOG ĐỂ XEM DỮ LIỆU
                 const row = `
-                    <tr class="text-center" data-id="${p.Id}">
-                        <td>${p.Code}</td>
-                        <td>${p.MinOrderAmount.toLocaleString()} đ</td>
-                        <td>${p.UsageLimit}</td>
-                        <td>${p.StartDate.split('T')[0]}</td>
-                        <td>${p.EndDate.split('T')[0]}</td>
+                    <tr class="text-center" data-id="${p.id}">
+                        <td>${p.code}</td>
+                        <td>${p.minOrderAmount.toLocaleString()} đ</td>
+                        <td>${p.usageLimit}</td>
+                        <td>${p.startDate.split('T')[0]}</td>
+                        <td>${p.endDate.split('T')[0]}</td>
                         <td>
                             <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem"><i class="bi bi-eye text-primary"></i></button>
                             <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa"><i class="bi bi-pencil text-success"></i></button>
@@ -43,10 +44,84 @@
         modalTitle.text("Thêm khuyến mãi mới");
         $("#promotionModal").modal("show");
     });
+    function resetModal() {
+        form[0].reset();
+        editingId = null;
+        saveBtn.text("Lưu").show();
+        form.find("input, select").prop("readonly", false).prop("disabled", false);
+
+        // ẨN TẤT CẢ WARNING
+        form.find(".form-text.text-danger").hide();
+    }
+    function validateForm() {
+        let isValid = true;
+        form.find(".form-text.text-danger").hide(); // Ẩn tất cả trước
+
+        const code = $("#code").val()?.trim().toUpperCase();
+        const type = $("#discountType").val();
+        const value = parseFloat($("#discountValue").val()) || 0;
+        const minOrder = parseFloat($("#minOrderAmount").val()) || 0;
+        const usageLimit = parseInt($("#usageLimit").val()) || 0;
+        const startDate = $("#startDate").val();
+        const endDate = $("#endDate").val();
+
+        // 1. Mã
+        if (!code) {
+            $("#code-msg").show();
+            isValid = false;
+        }
+
+        // 2. Loại
+        if (!type) {
+            $("#discountType-msg").show();
+            isValid = false;
+        }
+
+        // 3. Giá trị
+        if (value <= 0) {
+            $("#discountValue-msg").text("Giá trị phải lớn hơn 0").show();
+            isValid = false;
+        } else if (type === "percent" && value > 100) {
+            $("#discountValue-msg").text("Phần trăm không được vượt quá 100").show();
+            isValid = false;
+        } else {
+            $("#discountValue-msg").hide();
+        }
+
+        // 4. Đơn tối thiểu
+        if (minOrder < 0) {
+            $("#minOrderAmount-msg").text("Không được âm").show();
+            isValid = false;
+        }
+
+        // 5. Giới hạn sử dụng
+        if (usageLimit < 0) {
+            $("#usageLimit-msg").text("Không được âm").show();
+            isValid = false;
+        }
+
+        // 6. Ngày bắt đầu
+        if (!startDate) {
+            $("#startDate-msg").show();
+            isValid = false;
+        }
+
+        // 7. Ngày kết thúc
+        if (!endDate) {
+            $("#endDate-msg").show();
+            isValid = false;
+        } else if (startDate && endDate < startDate) {
+            $("#endDate-msg").text("Ngày kết thúc phải sau ngày bắt đầu").show();
+            isValid = false;
+        }
+
+        return isValid;
+    }
 
     // --- 4. Lưu (Thêm hoặc Cập nhật) ---
     form.submit(function (e) {
         e.preventDefault();
+        if (!validateForm) return;
         const payload = {
             Code: $("#code").val()?.trim().toUpperCase(),
             Type: $("#discountType").val(),
@@ -127,12 +202,21 @@
 
     // --- 8. Hàm fill form ---
     function fillForm(p, readonly) {
-        $("#discountType").val(p.Type);
-        $("#discountValue").val(p.Value);
-        $("#minOrderAmount").val(p.MinOrderAmount);
-        $("#usageLimit").val(p.UsageLimit);
-        $("#startDate").val(p.StartDate.split('T')[0]);
-        $("#endDate").val(p.EndDate.split('T')[0]);
+        $("#code").val(p.code);
+        $("#discountType").val(p.type);
+        $("#discountValue").val(p.value);
+        $("#minOrderAmount").val(p.minOrderAmount);
+        $("#usageLimit").val(p.usageLimit);
+        $("#startDate").val(formatDate(p.startDate));
+        $("#endDate").val(formatDate(p.endDate));
+
+        // ẨN TẤT CẢ WARNING KHI XEM/SỬA
+        form.find(".form-text.text-danger").hide();
         form.find("input, select").prop("readonly", readonly).prop("disabled", readonly);
+        if (readonly) $("#isLocked").prop("disabled", true);
+    }
+    function formatDate(dateStr) {
+        if (!dateStr) return '';
+        return dateStr.split('T')[0]; // "2025-11-01T00:00:00" → "2025-11-01"
     }
 });
