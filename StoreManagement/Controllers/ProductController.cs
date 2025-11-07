@@ -47,7 +47,7 @@ namespace StoreManagement.Controllers
 
             // --- 3. Lấy danh sách ProductViewModel ---
             var allProducts = await query
-                .OrderBy(p => p.ProductName)
+                .OrderBy(p => p.ProductId)
                 .Select(p => new ProductViewModel
                 {
                     ProductName = p.ProductName,
@@ -88,14 +88,14 @@ namespace StoreManagement.Controllers
             var extension = Path.GetExtension(imageFile.FileName).ToLower();
             var newFileName = "SP_" + Guid.NewGuid().ToString("N") + extension;
 
-            // 📂 Đường dẫn tuyệt đối đến thư mục uploads
+            // Đường dẫn tuyệt đối đến thư mục uploads
             var uploadPath = Path.Combine(_env.WebRootPath, "uploads");
 
-            // ✅ Nếu thư mục chưa tồn tại thì tạo
+            // Nếu thư mục chưa tồn tại thì tạo
             if (!Directory.Exists(uploadPath))
                 Directory.CreateDirectory(uploadPath);
 
-            // 📄 Đường dẫn đầy đủ của file
+            // Đường dẫn đầy đủ của file
             var filePath = Path.Combine(uploadPath, newFileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -103,7 +103,7 @@ namespace StoreManagement.Controllers
                 imageFile.CopyTo(stream);
             }
 
-            // 👉 Trả về đường dẫn tương đối (để lưu DB)
+            // Trả về đường dẫn tương đối (để lưu DB)
             return newFileName;
         }
         // Thêm 

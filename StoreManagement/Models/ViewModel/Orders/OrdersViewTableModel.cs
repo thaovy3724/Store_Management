@@ -8,7 +8,7 @@ namespace StoreManagement.Models.Pages.Orders
         public required string CustomerName { get; set; }
         public DateTime OrderDate { get; set; }
         public Decimal TotalAmount { get; set; }
-        public OrderStatus Status { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
 
     }
 }

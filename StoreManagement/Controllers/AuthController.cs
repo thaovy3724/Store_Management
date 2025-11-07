@@ -43,6 +43,7 @@ namespace StoreManagement.Controllers
             }
 
             // 4. Lưu session
+            HttpContext.Session.SetString("UserId", user.UserId.ToString());
             HttpContext.Session.SetString("Username", user.Username);
             HttpContext.Session.SetString("Fullname", user.FullName);
             HttpContext.Session.SetString("Role", user.Role.ToString());

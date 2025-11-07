@@ -51,7 +51,12 @@
             <a class="nav-link @(currentController == "Orders" ? "active" : "")" asp-controller="Orders" asp-action="Index">
                 <i class="bi bi-receipt-cutoff text-primary"></i> Quản lý đơn hàng
             </a>
-            <a class="nav-link" asp-controller="Statistic" asp-action="Index"><i class="bi bi-bar-chart-line-fill text-primary"></i> Thống kê</a>
+            <a class="nav-link @(currentController == "Statistic" ? "active" : "")" asp-controller="Statistic" asp-action="Index">
+                <i class="bi bi-bar-chart-line-fill text-primary"></i> Thống kê
+            </a>
+            <a class="nav-link @(currentController == "OrderStaff" ? "active" : "")" asp-controller="OrderStaff" asp-action="Index">
+                <i class="bi bi-bar-chart-line-fill text-primary"></i> Trang bán hàng
+            </a>
         </nav>
     </div>
 

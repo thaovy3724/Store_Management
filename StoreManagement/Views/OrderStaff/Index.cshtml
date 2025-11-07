@@ -1,0 +1,369 @@
+﻿@using StoreManagement.Models.Entities 
+@model StoreManagement.Models.ViewModel.OrderStaff.OrderStaffLoadViewPageModel
+
+@{
+    ViewData["Title"] = "Trang bán hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@inject IHttpContextAccessor HttpContextAccessor
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin CRUD - Demo</title>
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/OrderStaff.css">
+</head>
+<body>
+<div class="container-fluid p-1">
+    <div class="row bg-white">
+        <!-- Col trái: Sản phẩm - lọc - phân trang -->
+        <div class="col-md-5 border-end">
+            <!-- Thanh tìm kiếm -->
+            <div class="row mt-3 mb-2 ">
+                <div class="col-4 align-items-sketch">
+                    <select class="form-select form-select-sm">
+                        <option value="-1">Tất cả</option>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.CategoryId">@category.CategoryName</option>
+                            }
+                    </select>
+                </div>
+                <div class="col-6">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Nhập tên, mã sản phẩm">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button id="toggleScannerBtn" class="btn btn-sm btn-primary w-100 ">
+                        <i class="bi bi-upc-scan"></i>
+                    </button>
+                </div>
+            </div>
+            @* Ô quét mã *@
+            <main>
+                <div id="reader"></div>
+                <div id="result"></div>
+            </main>
+
+            <!-- Danh sách sản phẩm -->
+            <div class="row g-3">
+                    @if (Model.Products != null && Model.Products.Any())
+                    {
+                        foreach (var p in Model.Products)
+                        {
+                            <div class="col-4 align-items-sketch">
+                                <div class="product-card d-flex flex-column h-100 justify-content-between"
+                                    data-id="@p.ProductId"
+                                    data-name="@p.ProductName"
+                                    data-price="@p.Price"
+                                    data-image="@p.ProductImage"
+                                    data-quantity="@p.Quantity">
+
+                                    <img src="~/uploads/@p.ProductImage" alt="@p.ProductName" class="img-fluid rounded mb-2">
+                                    <p class="mb-1 fw-semibold text-truncate" title="@p.ProductName">@p.ProductName</p>
+                                    <span class="text-muted small d-block mb-2">
+                                        Tồn kho:
+                                        <strong class="text-success">
+                                            @(p.Quantity != null ? p.Quantity.ToString() : "0")
+                                        </strong>
+                                    </span>
+                                    <span class="product-price text-center">@p.Price.ToString("N0") đ</span>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="col-12 text-center text-muted py-3">
+                            Không có sản phẩm nào để hiển thị.
+                        </div>
+                    }
+            </div>
+            <!-- Phân trang -->
+            <div class="row mt-2">
+                <nav class="">
+                    <ul class="pagination justify-content-end modern-pagination-light">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">&laquo;</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">&raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Giỏ Hàng -->
+        <div class="col-md-7">
+            <div class="" style="min-height: 400px;">
+                <h5 class="mt-3">Phiếu Hàng</h5>
+                <div class="cart-wrapper table-responsive">
+                    <table class="table table-bordered cart-table thead-separator">
+                        <thead class="table-light">
+                            <tr class="text-center">
+                                <th style="width: 50px;"></th>
+                                <th>Sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-body">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <hr class="my-3">
+            <div>
+                <div class="row">
+                    <div class="col-md-6" style="border-right: 2px dashed #6c757d;">
+                        <!-- Thông tin khách hàng -->
+                        <div class="row mb-3">
+                            <label class="form-label fw-medium">Khách hàng</label>
+                            <div class="input-group">
+                                <input type="text" id="customerPhoneInput" class="form-control" placeholder="Nhập số điện thoại" autocomplete="off">
+                                <button class="btn btn-outline-primary btn-add-customer" type="button" data-bs-toggle="modal" data-bs-target="#modalThemKhach">
+                                    <i class="bi bi-person-plus"></i>
+                                </button>
+                            </div>
+                            <div class="form-text text-secondary fst-italic" id="customerInfo"></div>
+                        </div>
+                        <div id="customerSuggestions" class="list-group position-absolute" style="z-index:10000; display:none;"></div>
+                        <!-- Khuyến mãi -->
+                        <div class="row mb-3">
+                            <label class="form-label fw-medium">Khuyến mãi</label>
+                            <div class="input-group">
+                                <input type="text" id="selectedPromotionInput" class="form-control" placeholder="Chọn khuyến mãi..." readonly>
+                                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                                    <i class="bi bi-gift"></i>
+                                </button>
+                            </div>
+                            <div id="selectedPromotionText" class="form-text text-secondary fst-italic"></div>
+                        </div>
+                    </div>
+                    <!-- Thông tin thanh toán -->
+                    <div class="col-md-6">
+                        <div class="total-box">
+                            <p>Tổng tiền hàng: <strong id="totalAmount">0đ</strong></p>
+                            <p>Khuyến mãi: <span id="discountAmount">0đ</span></p>
+                            <h5 class="text-danger">Thành tiền: <span id="finalAmount">0đ</span></h5>
+                            <div id="payment-cash" class="payment-form">
+                                <button class="btn btn-primary w-100" id="btn-payment">
+                                    <i class="bi me-2"></i> Thanh toán
+                                </button>
+                                <button class="btn btn-outline-danger btn-payment-cancel w-100 mt-2">
+                                    <i class="bi bi-x-circle me-2"></i> Hủy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal thêm khách hàng -->
+<div class="modal fade" id="modalThemKhach" tabindex="-1" aria-labelledby="modalThemKhachLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalThemKhachLabel">Thêm khách hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addCustomerForm" data-url="/OrderStaff/AddCustomer">
+                    <div class="mb-3">
+                        <label class="form-label">Tên khách hàng</label>
+                        <input type="text" class="form-control" name="Name" placeholder="Nhập tên khách hàng">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" name="Phone" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="Email" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ</label>
+                        <textarea class="form-control" name="Address" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="submitAddCustomer()">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal khuyến mãi -->
+<div class="modal fade" id="promotionModal" tabindex="-1" aria-labelledby="promotionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="promotionModalLabel">Danh sách khuyến mãi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered cart-table thead-separator">
+                    <thead class="table-light thead-separator">
+                        <tr class="text-center">
+                            <th scope="col">Chọn</th>
+                            <th scope="col">Mã khuyến mãi</th>
+                             <th scope="col">Mô tả</th>
+                            <th scope="col">Đơn hàng tối thiểu</th>
+                            <th scope="col">Giá trị</th>
+                            <th scope="col">Hết hạn</th>
+                        </tr>
+                    </thead>
+                        <tbody id="promotionTableBody">
+                         
+                        </tbody>
+                    </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" onclick="applyPromotion()">Áp dụng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal thanh toán -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+                <div id="userId" class="d-none" data-user-id=@(HttpContextAccessor.HttpContext.Session.GetString("UserId") ?? null)></div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Chọn hình thức thanh toán</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 border-end">
+                        <!-- Danh sách nút lựa chọn -->
+                        <div class="list-group">
+                            <button class="list-group-item list-group-item-action" onclick="showPaymentOption('Cash')">
+                                <i class="bi bi-cash-coin me-2"></i> Tiền mặt
+                            </button>
+                            <button class="list-group-item list-group-item-action" onclick="showPaymentOption('EWallet')">
+                                <i class="bi bi-wallet2 me-2"></i> Ví điện tử
+                            </button>
+                            <button class="list-group-item list-group-item-action" onclick="showPaymentOption('Card')">
+                                <i class="bi bi-credit-card me-2"></i> Thanh toán bằng thẻ
+                            </button>
+                            <button class="list-group-item list-group-item-action" onclick="showPaymentOption('BankTransfer')">
+                                <i class="bi bi-bank me-2"></i> Chuyển khoản
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <!-- Thanh toán tiền mặt -->
+                        <div id="Cash" class="payment-content d-none">
+                            <h5 class="mb-3"><i class="bi bi-cash-stack me-2"></i>Thanh toán tiền mặt</h5>
+                            <div class="card shadow-sm mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Tổng tiền hàng:</span>
+                                        <strong id="piTotalAmountCash">0đ</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Giảm giá:</span>
+                                        <strong id="piDiscountCash" class="text-danger">-0đ</strong>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Khách cần thanh toán:</span>
+                                        <strong id="piFinalCash" class="text-success fs-5">0đ</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success w-100" id="btnConfirmCash">
+                                <i class="bi bi-check-circle me-2"></i> Xác nhận thanh toán
+                            </button>
+                        </div>
+
+                        <!-- Ví điện tử -->
+                        <div id="EWallet" class="payment-content d-none text-center">
+                            <h5><i class="bi bi-wallet2 me-2"></i>Thanh toán qua ví điện tử (MoMo, ZaloPay,...)</h5>
+                            <p class="text-muted">Quét mã QR bên dưới để thanh toán đúng số tiền.</p>
+                            <div id="qrWalletContainer" class="my-3"></div>
+                        </div>
+
+                        <!-- Thẻ ngân hàng -->
+                        <div id="Card" class="payment-content d-none">
+                            <h5><i class="bi bi-credit-card me-2"></i>Thanh toán bằng thẻ</h5>
+                            <form id="cardForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Số thẻ</label>
+                                    <input type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Ngày hết hạn</label>
+                                        <input type="text" class="form-control" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">CVV</label>
+                                        <input type="password" class="form-control" placeholder="***" maxlength="3">
+                                    </div>
+                                </div>
+                            </form>
+                            <button class="btn btn-success w-100" id="btnConfirmCard">
+                                <i class="bi bi-credit-card-2-front me-2"></i> Xác nhận thanh toán
+                            </button>
+                        </div>
+
+                        <!-- Ngân hàng -->
+                        <div id="BankTransfer" class="payment-content d-none text-center">
+                            <h5><i class="bi bi-bank me-2"></i>Chuyển khoản ngân hàng</h5>
+                            <p class="text-muted">Quét mã QR hoặc chuyển khoản theo thông tin bên dưới.</p>
+                            <div id="qrBankContainer" class="my-3"></div>
+                            <p class="mt-2 fw-semibold">Ngân hàng: <span class="text-primary">Vietcombank - 0123456789</span></p>
+                            <p>Chủ tài khoản: <strong>Công ty Store Management</strong></p>
+                            <p>Nội dung: Thanh toán đơn hàng #<span id="bankOrderCode">####</span></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-2"></i> Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+@section Scripts {
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="../js/Toast.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../js/OrderStaff.js" defer></script>
+}
+
+

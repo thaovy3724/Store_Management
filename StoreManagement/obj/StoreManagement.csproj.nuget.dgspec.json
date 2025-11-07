@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj": {}
+    "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj": {}
   },
   "projects": {
-    "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj": {
+    "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj",
+        "projectUniqueName": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj",
         "projectName": "StoreManagement",
-        "projectPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj",
+        "projectPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\StoreManagement.csproj",
         "packagesPath": "C:\\Users\\Trong\\.nuget\\packages\\",
-        "outputPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\DoAnDotNet\\Store_Management\\StoreManagement\\obj\\",
+        "outputPath": "D:\\DKP_SGU_2022\\Y4HK1\\DotNet\\Store_Management\\StoreManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -62,7 +66,13 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.TypeScript.MSBuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.9.3, )"
             }
           },
           "imports": [

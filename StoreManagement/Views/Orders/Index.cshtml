@@ -14,21 +14,24 @@
     <!-- Thanh lọc bên trái -->
     <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
 
-        <!-- Lọc theo trạng thái -->
         @{
-            var statusDict = new Dictionary<OrderStatus, string> {
-                { OrderStatus.Pending, "Chờ xử lý" },
-                { OrderStatus.Paid, "Đã thanh toán" },
-                { OrderStatus.Cancelled, "Đã hủy" }
+            var paymentDict = new Dictionary<PaymentMethod, string>
+                {
+                { PaymentMethod.Cash, "Tiền mặt" },
+                { PaymentMethod.Card, "Thẻ" },
+                { PaymentMethod.BankTransfer, "Chuyển khoản" },
+                { PaymentMethod.EWallet, "Ví điện tử" }
                 };
+
+            int? selectedPayment = Model.PaymentMethod.HasValue ? (int)Model.PaymentMethod.Value : (int?)null;
         }
 
-        <select class="form-select form-select-sm filter-status" name="status" style="width: 180px;">
-            <option value="-1">Tất cả trạng thái</option>
-            @foreach (var kvp in statusDict)
+        <select class="form-select form-select-sm filter-payment" name="paymentMethod" style="width: 180px;">
+            <option value="-1">Tất cả hình thức</option>
+            @foreach (var kvp in paymentDict)
             {
                 var key = (int)kvp.Key;
-                if (Model.Status.HasValue && key == Model.Status.Value)
+                if (selectedPayment.HasValue && key == selectedPayment.Value)
                 {
                     <option value="@key" selected>@kvp.Value</option>
                 }
@@ -67,7 +70,7 @@
                         <th>Tên khách hàng</th>
                         <th>Ngày tạo đơn</th>
                         <th>Tổng giá trị đơn hàng</th>
-                        <th>Trạng thái đơn hàng</th>
+                        <th>Hình thức thanh toán</th>
                         <th style="width:150px;">Hành động</th>
                     </tr>
                 </thead>
@@ -87,21 +90,41 @@
                                 <td>@order.OrderDate.ToString("dd/MM/yyyy hh:mm:ss tt")</td>
                                 <td>@String.Format("{0:N0} đ", order.TotalAmount)</td>
                                 <td>
-                                    @if(@order.Status == OrderStatus.Pending){
-                                        <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background-color:#ffc1071a; color:#b8860b; border:1px solid #ffc107;">
-                                            Chờ xử lý
-                                        </span>
-                                    } else if(@order.Status == OrderStatus.Paid){
-                                        <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background-color:#0d6efd1a; color:#0d6efd; border:1px solid #0d6efd;">
-                                            Đã thanh toán
-                                        </span>
-                                    } else if(@order.Status == OrderStatus.Cancelled){
-                                        <span class="badge rounded-pill px-3 py-2 fw-semibold"
-                                              style="background-color: #dc35451a; color: #dc3545; border: 1px solid #dc3545;">
-                                            Đã hủy
-                                        </span>
+                                    @switch (order.PaymentMethod)
+                                    {
+                                        case PaymentMethod.Cash:
+                                            <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                                                  style="background-color:#ffc1071a; color:#b8860b; border:1px solid #ffc107;">
+                                                Tiền mặt
+                                            </span>
+                                            break;
+                                        case PaymentMethod.Card:
+                                            <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                                                  style="background-color:#0d6efd1a; color:#0d6efd; border:1px solid #0d6efd;">
+                                                Thẻ
+                                            </span>
+                                            break;
+                                        case PaymentMethod.BankTransfer:
+                                            <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                                                  style="background-color:#1987541a; color:#198754; border:1px solid #198754;">
+                                                Chuyển khoản
+                                            </span>
+                                            break;
+                                        case PaymentMethod.EWallet:
+                                            <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                                                  style="background-color:#6f42c11a; color:#6f42c1; border:1px solid #6f42c1;">
+                                                Ví điện tử
+                                            </span>
+                                            break;
+                                        default:
+                                            <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                                                  style="background-color:#6c757d1a; color:#6c757d; border:1px solid #6c757d;">
+                                                Chưa thanh toán
+                                            </span>
+                                            break;
                                     }
                                 </td>
+
                                 <td class="text-center">
                                     <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#orderHistoryModal" data-order-id="@order.OrderId">
                                         <i class="bi bi-eye text-primary"></i>
@@ -180,12 +203,7 @@
                                             <span class="fw-semibold">Ngày tạo đơn hàng:</span>
                                             <span class="order-history-orderdate"></span>
                                         </div>
-                                        <div class="mb-2 d-flex justify-content-between">
-                                            <span class="fw-semibold">Trạng thái:</span>
-                                            <span class="badge rounded-pill px-3 py-2 fw-semibold order-history-orderstatus"
-                                                  style="background-color:#ffc1071a; color:#b8860b; border:1px solid #ffc107;">
-                                            </span>
-                                        </div>
+
                                         <div class="mb-2 d-flex justify-content-between order-history-paymentmethod-div">
                                             <span class="fw-semibold">Phương thức thanh toán:</span>
                                             <div>
@@ -245,8 +263,6 @@
         </div>
     </div>
 }
-
-
 
 @section Scripts {
     <script src="../js/Toast.js"></script>
