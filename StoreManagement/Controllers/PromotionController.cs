@@ -20,12 +20,45 @@ namespace StoreManagement.Controllers
         }
 
 
-        // GET: Promotion/GetAll
+        // GET: Promotion/GetAll?search=SUMMER&status=Active&fromDate=2025-01-01&toDate=2025-12-31&page=1&pageSize=10
         [HttpGet]
-        public JsonResult GetAll()
+        public JsonResult GetAll(string search = null, string status = null, DateTime? fromDate = null, DateTime? toDate = null, int page = 1, int pageSize = 10)
         {
-            var list = db.Promotions
+            // .AsQueryable() đổi DbSet<Promotion> thành IQueryable<Promotion>, giúp xây dựng các truy vấn LinQ
+            // Các truy vấn này là deferred execution (Các truy vấn không thực hiện ngay) như Select, Where, ...
+            var query = db.Promotions.AsQueryable();
+
+            // Tìm kiếm theo từ khóa
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToUpper();
+                query = query.Where(p => p.Code.ToUpper().Contains(search));
+            }
+
+            // Lọc theo trạng thái
+            if (!string.IsNullOrEmpty(status))
+            {
+                query = query.Where(p => p.Status == status);
+            }
+
+            // Lọc theo thời gian
+            if (fromDate.HasValue)
+            {
+                query = query.Where(p => p.EndDate >= fromDate.Value);
+            }
+            if (toDate.HasValue)
+            {
+                query = query.Where(p => p.StartDate <= toDate.Value);
+            }
+
+            // Tổng số bản ghi (sau khi lọc)
+            int totalCount = query.Count();
+
+            // Phân trang
+            var list = query
                 .OrderByDescending(p => p.Id)
+                .Skip((page - 1) * pageSize) // Vd đang ở trang 2 (page = 2) => bỏ qua 1 * pageSize (=10) = 10 mã
+                .Take(pageSize) // => Lấy ra pageSize (=10) phần tử sau khi đã Skip
                 .Select(p => new {
                     id = p.Id,
                     code = p.Code,
@@ -34,11 +67,12 @@ namespace StoreManagement.Controllers
                     minOrderAmount = p.MinOrderAmount,
                     usageLimit = p.UsageLimit,
                     startDate = p.StartDate,
-                    endDate = p.EndDate
+                    endDate = p.EndDate,
+                    status = p.Status
                 })
                 .ToList();
 
-            return Json(list);
+            return Json(new { totalCount, items = list });
         }
 
         // GET: Promotion/Get/5
@@ -59,7 +93,18 @@ namespace StoreManagement.Controllers
             try
             {
                 model.Code = model.Code?.Trim().ToUpper();
-                db.Promotions.Add(model);
+                // Cái này để tạm thui tại sql server express hong có xài agent job được  =)))))))
+                DateTime today = DateTime.Today;
+                model.Status = "Active";
+                if (today < model.StartDate)
+                {
+                    model.Status = "Upcoming";
+                } else if (today > model.EndDate)
+                {
+                    model.Status = "Ended";
+                }
+
+                    db.Promotions.Add(model);
                 db.SaveChanges();
                 return Json(new { success = true, message = "Đã thêm mã khuyến mãi mới." });
             }
@@ -78,7 +123,7 @@ namespace StoreManagement.Controllers
                 var promo = db.Promotions.Find(id);
                 if (promo == null)
                     return Json(new { success = false, message = "Không tìm thấy mã." });
-
+                promo.Code = model.Code;
                 promo.Type = model.Type;
                 promo.Value = model.Value;
                 promo.MinOrderAmount = model.MinOrderAmount;

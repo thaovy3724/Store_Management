@@ -2,33 +2,100 @@
     const modalTitle = $("#promotionModalTitle");
     const saveBtn = $("#promotionModalSaveBtn");
     const form = $("#promotionForm");
-    const tableBody = $("table tbody");
+    const tableBody = $("#promotionTableBody"); // Thay "table tbody" bằng id
+    const pagination = $("#pagination"); // Id cho ul pagination
     let editingId = null;
 
-    // --- 1. Load danh sách ---
+    // Biến lưu filters và page
+    let currentPage = 1;
+    let pageSize = 10;
+    let search = '';
+    let status = '';
+    let fromDate = '';
+    let toDate = '';
+
+    // --- 1. Load danh sách với filter và pagination ---
     function loadPromotions() {
-        $.get("/Promotion/GetAll", function (data) {
+        const params = {
+            search: search,
+            status: status,
+            fromDate: fromDate,
+            toDate: toDate,
+            page: currentPage,
+            pageSize: pageSize
+        };
+
+        $.get("/Promotion/GetAll", params, function (res) {
             tableBody.empty();
-            data.forEach(p => {
-                console.log("Promotion item:", p); // THÊM LOG ĐỂ XEM DỮ LIỆU
-                const row = `
-                    <tr class="text-center" data-id="${p.id}">
-                        <td>${p.code}</td>
-                        <td>${p.minOrderAmount.toLocaleString()} đ</td>
-                        <td>${p.usageLimit}</td>
-                        <td>${p.startDate.split('T')[0]}</td>
-                        <td>${p.endDate.split('T')[0]}</td>
-                        <td>
-                            <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem"><i class="bi bi-eye text-primary"></i></button>
-                            <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa"><i class="bi bi-pencil text-success"></i></button>
-                            <button class="btn btn-sm btn-light border btn-delete" title="Xóa"><i class="bi bi-trash text-danger"></i></button>
-                        </td>
-                    </tr>`;
-                tableBody.append(row);
-            });
+            if (res.items.length === 0) {
+                tableBody.append('<tr><td colspan="7" class="text-center text-muted">Không có mã giảm giá</td></tr>');
+            } else {
+                res.items.forEach(p => {
+                    console.log("Promotion item:", p);
+                    const row = `
+                        <tr class="text-center" data-id="${p.id}">
+                            <td>${p.code}</td>
+                            <td>${p.minOrderAmount.toLocaleString()} đ</td>
+                            <td>${p.usageLimit}</td>
+                            <td>${formatDate(p.startDate)}</td>
+                            <td>${formatDate(p.endDate)}</td>
+                            <td>${p.status}</td>
+                            <td>
+                                <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem"><i class="bi bi-eye text-primary"></i></button>
+                                <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa"><i class="bi bi-pencil text-success"></i></button>
+                                <button class="btn btn-sm btn-light border btn-delete" title="Xóa"><i class="bi bi-trash text-danger"></i></button>
+                            </td>
+                        </tr>`;
+                    tableBody.append(row);
+                });
+            }
+
+            // Build pagination
+            buildPagination(res.totalCount);
         });
     }
-    loadPromotions();
+    loadPromotions(); // Load lần đầu
+
+    // --- Thanh phân trang ---
+    function buildPagination(totalCount) {
+        pagination.empty();
+        const totalPages = Math.ceil(totalCount / pageSize);
+        if (totalPages <= 1) return;
+
+        // Prev
+        pagination.append(`
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Previous">&laquo;</a>
+            </li>
+        `);
+
+        // Pages
+        for (let i = 1; i <= totalPages; i++) {
+            pagination.append(`
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" data-page="${i}">${i}</a>
+                </li>
+            `);
+        }
+
+        // Next
+        pagination.append(`
+            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Next">&raquo;</a>
+            </li>
+        `);
+    }
+
+    // Event click page
+    $(document).on("click", "#pagination a", function (e) {
+        e.preventDefault();
+        const page = $(this).data("page");
+        if (page && page > 0) {
+            currentPage = page;
+            loadPromotions();
+        }
+    });
+
 
     // --- 2. Reset modal ---
     function resetModal() {
@@ -66,8 +133,12 @@
         const endDate = $("#endDate").val();
 
         // 1. Mã
+        let codeRegex = /^[A-Za-z0-9]+$/;
         if (!code) {
             $("#code-msg").show();
+            isValid = false;
+        } else if (!codeRegex.test(code)) {
+            $("#code-msg").text("Chỉ bao gồm chữ và số").show();
             isValid = false;
         }
 
@@ -121,7 +192,7 @@
     // --- 4. Lưu (Thêm hoặc Cập nhật) ---
     form.submit(function (e) {
         e.preventDefault();
-        if (!validateForm) return;
+        if (!validateForm()) return;
         const payload = {
             Code: $("#code").val()?.trim().toUpperCase(),
             Type: $("#discountType").val(),
@@ -210,13 +281,66 @@
         $("#startDate").val(formatDate(p.startDate));
         $("#endDate").val(formatDate(p.endDate));
 
-        // ẨN TẤT CẢ WARNING KHI XEM/SỬA
+        // Ẩn tất cả warning khi sửa
         form.find(".form-text.text-danger").hide();
         form.find("input, select").prop("readonly", readonly).prop("disabled", readonly);
-        if (readonly) $("#isLocked").prop("disabled", true);
+        if (readonly) {
+            $("#isLocked").prop("disabled", true);
+            saveBtn.hide(); // Ẩn nút khi xem
+        } else {
+            saveBtn.show(); // Luôn hiện khi sửa
+        }
     }
     function formatDate(dateStr) {
         if (!dateStr) return '';
         return dateStr.split('T')[0]; // "2025-11-01T00:00:00" → "2025-11-01"
     }
+
+    // --- 9. Lọc & tìm kiếm ---
+    // Lọc theo trạng thái
+    $("#filterStatus").change(function () {
+        status = $(this).val();
+        currentPage = 1;
+        loadPromotions();
+    });
+
+    // Lọc từ ngày
+    $("#fromDate").change(function () {
+        fromDate = $(this).val();
+        currentPage = 1;
+        loadPromotions();
+    });
+
+    // Lọc đến ngày
+    $("#toDate").change(function () {
+        toDate = $(this).val();
+        currentPage = 1;
+        loadPromotions();
+    });
+
+    // Tìm kiếm mã
+    $("#btnSearch").click(function () {
+        search = $("#searchCode").val()?.trim();
+        currentPage = 1;
+        loadPromotions();
+    });
+
+    // Reset filter
+    $("#btnResetFilter").click(function () {
+        // Reset các biến filter
+        search = '';
+        status = '';
+        fromDate = '';
+        toDate = '';
+        currentPage = 1;
+
+        // Reset UI (xóa giá trị input/select)
+        $("#searchCode").val('');
+        $("#filterStatus").val('');
+        $("#fromDate").val('');
+        $("#toDate").val('');
+
+        // Load lại danh sách đầy đủ
+        loadPromotions();
+    });
 });

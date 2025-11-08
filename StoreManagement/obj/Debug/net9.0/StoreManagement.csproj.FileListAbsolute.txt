@@ -457,4 +457,4 @@ C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\st
 C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\StoreMan.B2A7598D.Up2Date
 C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
 C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\ref\StoreManagement.dll
-C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\compressed\huwg6iuptv-im3udx70tu.gz
+C:\Users\ACER\Visual Studio\Store_Management\StoreManagement\obj\Debug\net9.0\compressed\huwg6iuptv-40k2i6urru.gz

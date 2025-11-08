@@ -7,16 +7,28 @@
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\promotion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\promotion\\promotion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\promotion\\promotion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\controllers\\promotioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\promotioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\models\\entities\\promotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\entities\\promotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\models\\pages\\promotion\\addpromotionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\pages\\promotion\\addpromotionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\models\\pages\\product\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\models\\pages\\product\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -25,34 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\promotion\\promotion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\promotion\\promotion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|solutionrelative:storemanagement\\views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{85C4358A-2229-4168-AA92-DF9CD9DCF2CD}|StoreManagement\\StoreManagement.csproj|c:\\users\\acer\\visual studio\\store_management\\storemanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -78,41 +62,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Toast.js",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
-              "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Toast.js",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\wwwroot\\js\\Toast.js",
-              "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Toast.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-03T22:13:41.362Z",
+              "DocumentIndex": 5,
+              "Title": "AddPromotionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Pages\\Promotion\\AddPromotionViewModel.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Models\\Pages\\Promotion\\AddPromotionViewModel.cs",
+              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Pages\\Promotion\\AddPromotionViewModel.cs",
+              "RelativeToolTip": "StoreManagement\\Models\\Pages\\Promotion\\AddPromotionViewModel.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T18:46:32.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\Error.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Shared\\Error.cshtml",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\Error.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Shared\\Error.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:50:36.358Z",
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Pages\\Product\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Models\\Pages\\Product\\ProductViewModel.cs",
+              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Pages\\Product\\ProductViewModel.cs",
+              "RelativeToolTip": "StoreManagement\\Models\\Pages\\Product\\ProductViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T18:46:28.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:50:33.731Z",
+              "DocumentIndex": 4,
+              "Title": "Promotion.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Entities\\Promotion.cs",
+              "RelativeDocumentMoniker": "StoreManagement\\Models\\Entities\\Promotion.cs",
+              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Models\\Entities\\Promotion.cs",
+              "RelativeToolTip": "StoreManagement\\Models\\Entities\\Promotion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T17:20:00.692Z",
               "EditorCaption": ""
             },
             {
@@ -123,27 +107,27 @@
               "RelativeDocumentMoniker": "StoreManagement\\wwwroot\\js\\Promotion.js",
               "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\wwwroot\\js\\Promotion.js",
               "RelativeToolTip": "StoreManagement\\wwwroot\\js\\Promotion.js",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAQwBIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAgwEUBAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-03T21:05:49.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PromotionController.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\PromotionController.cs",
               "RelativeDocumentMoniker": "StoreManagement\\Controllers\\PromotionController.cs",
               "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\PromotionController.cs",
               "RelativeToolTip": "StoreManagement\\Controllers\\PromotionController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAEwCQAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T21:10:49.475Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "StoreManagement\\Views\\_ViewImports.cshtml",
@@ -151,12 +135,11 @@
               "RelativeToolTip": "StoreManagement\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:50:39.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T21:50:39.066Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "StoreManagement\\Views\\_ViewStart.cshtml",
@@ -164,77 +147,24 @@
               "RelativeToolTip": "StoreManagement\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:50:39.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T21:50:39.856Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:50:32.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:49:15.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "StoreManagement\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\ProductController.cs",
               "RelativeToolTip": "StoreManagement\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T21:47:45.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "StoreManagement\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "StoreManagement\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBoAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T21:47:39.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Product.cshtml",
-              "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Product\\Product.cshtml",
-              "RelativeDocumentMoniker": "StoreManagement\\Views\\Product\\Product.cshtml",
-              "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Product\\Product.cshtml",
-              "RelativeToolTip": "StoreManagement\\Views\\Product\\Product.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T21:47:32.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Program.cs",
               "RelativeDocumentMoniker": "StoreManagement\\Program.cs",
@@ -242,12 +172,11 @@
               "RelativeToolTip": "StoreManagement\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T21:14:17.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T21:14:17.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\appsettings.json",
               "RelativeDocumentMoniker": "StoreManagement\\appsettings.json",
@@ -255,18 +184,17 @@
               "RelativeToolTip": "StoreManagement\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-03T21:12:31.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T21:12:31.821Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Promotion.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Promotion\\Promotion.cshtml",
               "RelativeDocumentMoniker": "StoreManagement\\Views\\Promotion\\Promotion.cshtml",
               "ToolTip": "C:\\Users\\ACER\\Visual Studio\\Store_Management\\StoreManagement\\Views\\Promotion\\Promotion.cshtml",
               "RelativeToolTip": "StoreManagement\\Views\\Promotion\\Promotion.cshtml",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAAAFsAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-03T21:05:54.993Z",
               "EditorCaption": ""
