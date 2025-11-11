@@ -59,7 +59,7 @@
                     <th>Tên sản phẩm</th>
                     <th>Giá bán</th>
                     <th>Đơn vị</th>
-                    <th style="width:150px;">Hành động</th>
+                    <th style="width:200px;">Hành động</th>
                 </tr>
                 </thead>
                 <tbody id="productList">
@@ -99,6 +99,9 @@
                                             data-barcode="@product.Barcode" title="Xóa" data-action="delete">
                                         <i class="bi bi-trash text-danger"></i>
                                     </button>
+                                    <button class="btn btn-sm btn-light border me-1 btn-barcode" title="Xem Barcode" data-barcode="@product.Barcode">
+                                        <i class="bi bi-upc text-warning"></i>
+                                    </button>
                                 </td>
                             </tr>
                         }
@@ -112,7 +115,6 @@
         </div>
       </div>
     </div>
-
     <!-- Các modal dùng chung có thể đặt ở đây -->
 @section Modals {
 <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
@@ -207,6 +209,29 @@
     </div>
   </div>
 </div>  
+<!-- Modal Barcode -->
+<div class="modal fade" id="barcodeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Barcode</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center" id="barcodeImageContainer">
+                <!-- Ảnh barcode sẽ được chèn ở đây -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnPrintBarcode" class="btn btn-primary">
+                    <i class="bi bi-printer"></i> In Barcode
+                </button>
+                <button type="button" id="btnDownloadBarcode" class="btn btn-success">
+                    <i class="bi bi-download"></i> Tải Barcode
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 }
 
 @section Scripts {

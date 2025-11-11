@@ -22,6 +22,7 @@ namespace StoreManagement.Models.Entities
         public DateTime UpdatedAt { get; set; }
 
         //bidirectional navigation property
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
     }
 }

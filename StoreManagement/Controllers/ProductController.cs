@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StoreManagement.Utils;
 using StoreManagement.Data;
-using StoreManagement.Models;
 using StoreManagement.Models.Entities;
 using StoreManagement.Models.Pages.Product;
+using StoreManagement.Utils;
+using System.Drawing;
+using System.Drawing.Imaging;
+using BarcodeLib;
 
 namespace StoreManagement.Controllers
 {
@@ -47,7 +49,7 @@ namespace StoreManagement.Controllers
 
             // --- 3. Lấy danh sách ProductViewModel ---
             var allProducts = await query
-                .OrderBy(p => p.ProductName)
+                .OrderBy(p => p.ProductId)
                 .Select(p => new ProductViewModel
                 {
                     ProductName = p.ProductName,
@@ -289,6 +291,31 @@ namespace StoreManagement.Controllers
                 InventoryQuantity = product.Inventory != null ? product.Inventory.Quantity : 0
             };
             return Json(new { success = true,viewModel});
+        }
+        [HttpGet]
+        public IActionResult GetBarcodeImage(string barcode)
+        {
+            if (string.IsNullOrEmpty(barcode))
+                return BadRequest("Barcode không hợp lệ");
+
+            // Tạo ảnh barcode
+            byte[] imgBytes = GenerateBarcodeImage(barcode);
+
+            // Chuyển thành base64 và trả về JSON
+            return Json(Convert.ToBase64String(imgBytes));
+        }
+
+        public byte[] GenerateBarcodeImage(string code)
+        {
+            Barcode barcode = new Barcode();
+            barcode.IncludeLabel = true;
+            barcode.LabelPosition = BarcodeLib.LabelPositions.BOTTOMCENTER;
+            Image img = barcode.Encode(TYPE.CODE128, code, 300, 100);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
     }
 }

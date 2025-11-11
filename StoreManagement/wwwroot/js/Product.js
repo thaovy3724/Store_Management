@@ -207,33 +207,11 @@
                     showAlert(data.message, 'success');
                     // có thể load lại danh sách sản phẩm tại đây nếu cần
                     await new Promise(resolve => setTimeout(resolve, 1800));
-
+                    window.location.href ="/Product/Index?page=1"
                     const modalEl = document.getElementById('productModal');
                     const modal = bootstrap.Modal.getInstance(modalEl);
                     modal.hide(); // Đóng modal đúng chuẩn Bootstrap
                     resetModal();
-
-                    const productList = document.getElementById("productList");
-                    const newRow = document.createElement("tr");
-                    newRow.innerHTML = `
-                        <td class="text-center">${data.product.barcode}</td>
-                        <td class="text-center"><img src="/uploads/${data.product.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;"></td>
-                        <td class="text-center">${data.product.name}</td>
-                        <td class="text-center">${data.product.price}</td>
-                        <td class="text-center">${data.product.unit}</td>
-                        <td class="text-center">
-                            <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view" data-barcode="${data.product.barcode}">
-                                <i class="bi bi-eye text-primary"></i>
-                            </button>
-                            <button class="btn btn-sm btn-light border me-1 btn-edit" title="Sửa" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view_edit" data-barcode="${data.product.barcode}">
-                                <i class="bi bi-pencil text-success"></i>
-                            </button>
-                            <button class="btn btn-sm btn-light border btn-delete" data-barcode="${data.product.barcode}" title="Xóa" data-action="delete">
-                                <i class="bi bi-trash text-danger"></i>
-                            </button>
-                        </td>
-                    `;
-                    productList.appendChild(newRow);
                 } else {
                     showAlert(data.message, 'error');
                 }
@@ -248,7 +226,7 @@
         // Create form data
         const formData = new FormData(document.getElementById("productForm"));
 
-        // validate form data
+        // validate form data 
         if (validateForm(formData, 'edit')) {
             // Call API to add product
             try {
@@ -398,7 +376,7 @@
     }
 
     // Bấm nút tìm kiếm
-    document.getElementById("btnSearch").addEventListener("click", applyFilter);
+    document.getElementById("btnSearch").addEventListener("click",applyFilter);
     document.getElementById("searchInput").addEventListener("keypress", e => {
         if (e.key === "Enter") {
             e.preventDefault();
@@ -411,4 +389,143 @@
         document.getElementById(id).addEventListener("change", applyFilter);
     });
 
+    document.querySelectorAll('.btn-barcode').forEach(button => {
+        button.addEventListener('click', async () => {
+            const barcode = button.dataset.barcode;
+            if (!barcode) return;
+
+            const overlay = document.getElementById('loadingOverlay');
+
+            try {
+                // ✅ Hiện overlay
+                overlay.classList.remove('d-none');
+
+                // Gọi API tạo barcode
+                const response = await fetch(`/Product/GetBarcodeImage?barcode=${barcode}`);
+                if (!response.ok) throw new Error("Lỗi khi lấy barcode");
+
+                const base64 = await response.json();
+
+                // Hiển thị ảnh barcode
+                const container = document.getElementById('barcodeImageContainer');
+                container.innerHTML = `
+                <div style="text-align:center">
+                    <img src="data:image/png;base64,${base64}" alt="${barcode}" />
+                </div>
+            `;
+
+                // Gán tên barcode cho nút tải
+                const btnDownload = document.getElementById('btnDownloadBarcode');
+                btnDownload.dataset.barcode = barcode;
+
+                // Hiển thị modal
+                const modal = new bootstrap.Modal(document.getElementById('barcodeModal'));
+                modal.show();
+            } catch (err) {
+                alert(err.message);
+            } finally {
+                // ✅ Ẩn overlay sau khi hoàn tất
+                overlay.classList.add('d-none');
+            }
+        });
+    });
+
+    document.getElementById('btnPrintBarcode').addEventListener('click', () => {
+    const container = document.getElementById('barcodeImageContainer');
+    const img = container.querySelector('img');
+
+    if (!img) {
+        alert("Chưa có barcode để in!");
+        return;
+    }
+
+    const width = 500;
+    const height = 600;
+
+    const left = (screen.width / 2) - (width / 2);
+    const top = (screen.height / 2) - (height / 2) - 150;
+
+    const printWindow = window.open('', '_blank',
+        `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no,status=no`);
+
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="vi">
+        <head>
+            <meta charset="UTF-8">
+            <title>In mã Barcode</title>
+            <style>
+                body {
+                    font-family: 'Segoe UI', sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    margin: 0;
+                    background: #f9f9f9;
+                }
+                .barcode-container {
+                    background: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 12px;
+                    padding: 30px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                    text-align: center;
+                    max-width: 90%;
+                }
+                img {
+                    width: 300px;
+                    height: auto;
+                    margin-top: 10px;
+                }
+                h2 {
+                    margin: 0;
+                    color: #333;
+                }
+                p {
+                    margin: 8px 0 0 0;
+                    font-size: 14px;
+                    color: #555;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="barcode-container">
+                <h2>🏷️ Mã sản phẩm</h2>
+                <img src="${img.src}" alt="Barcode" />
+                <p>Quét mã để kiểm tra thông tin sản phẩm</p>
+            </div>
+            <script>
+                window.onload = function() {
+                    setTimeout(() => {
+                        window.print();
+                        window.close();
+                    }, 500);
+                };
+            </script>
+        </body>
+        </html>
+        `);
+        printWindow.document.close();
+    });
+
+    document.getElementById('btnDownloadBarcode').addEventListener('click', () => {
+        const container = document.getElementById('barcodeImageContainer');
+        const img = container.querySelector('img');
+        const barcode = document.getElementById('btnDownloadBarcode').dataset.barcode; // ✅ lấy lại barcode
+
+        if (!img) {
+            alert("Chưa có barcode để tải!");
+            return;
+        }
+
+        // Tạo link tạm để download
+        const a = document.createElement('a');
+        a.href = img.src;
+        a.download = `barcode_${barcode}.png`; // ✅ đặt tên theo mã
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
 });
