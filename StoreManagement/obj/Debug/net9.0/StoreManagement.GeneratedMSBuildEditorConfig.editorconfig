@@ -17,65 +17,65 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StoreManagement
 build_property.RootNamespace = StoreManagement
-build_property.ProjectDir = D:\DKP_SGU_2022\Y4HK1\DotNet\Store_Management\StoreManagement\
+build_property.ProjectDir = D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\StoreManagement\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\DKP_SGU_2022\Y4HK1\DotNet\Store_Management\StoreManagement
+build_property.MSBuildProjectDirectory = D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\StoreManagement
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Auth/Login.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Home/Index.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Home/Privacy.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/OrderStaff/Index.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/OrderStaff/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJTdGFmZlxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Orders/Index.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Product/Index.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Shared/Error.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Shared/Pagination.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Shared/Pagination.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhZ2luYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Statistic/Index.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Statistic/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/_ViewImports.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/_ViewStart.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DKP_SGU_2022/Y4HK1/DotNet/Store_Management/StoreManagement/Views/Shared/_Layout.cshtml]
+[D:/DKP_SGU_2022/Y4HK1/DotNet/DoAnDotNet/Store_Management/StoreManagement/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1idw9mat1g
