@@ -2,8 +2,67 @@
 
 window.selectedCustomerId = null;
 document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const success = params.get("paymentSuccess");
+    const orderId = params.get("orderId");
+
+    if (success === "true") {
+        Swal.fire({
+            icon: 'success',
+            title: 'Thanh toán thành công!',
+            text: `Đơn hàng #${orderId} đã được tạo.`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href =`/OrderStaff/`;
+            }
+        });
+
+        localStorage.clear();
+    }
+    else if (success === "false") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Thanh toán thất bại!',
+            text: 'Vui lòng thử lại.',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/OrderStaff/`;
+            }
+        });
+    }
+
+    // Khuyến mãi trong localStorage
+    const promoSaved = localStorage.getItem("selectedPromotion");
+    if (promoSaved) {
+        const { promoCode, discountValue } = JSON.parse(promoSaved);
+
+        document.getElementById('selectedPromotionInput').value = `${promoCode} - ${discountValue}`;
+        document.getElementById('selectedPromotionText').innerText = `Khuyến mãi: ${promoCode} - ${discountValue}`;
+
+        // Nếu cần reset lại selectedPromotionId để đúng radio
+        const radios = document.querySelectorAll('#promotionTableBody input[name="promotion"]');
+        radios.forEach(radio => {
+            const tr = radio.closest('tr');
+            if (tr.children[1].innerText === promoCode) {
+                radio.checked = true;
+                selectedPromotionId = radio.value;
+            }
+        });
+
+        updatePaymentInfo();
+    }
+    // Khách hàng trong localStorage
+    const customerSaved = localStorage.getItem("selectedCustomer");
+    if (customerSaved) {
+        const { id, name, phone } = JSON.parse(customerSaved);
+        document.getElementById("customerPhoneInput").value = phone;
+        document.getElementById("customerInfo").innerText = `Tên: ${name}, SĐT: ${phone}`;
+        document.getElementById("customerSuggestions").style.display = "none";
+        window.selectedCustomerId = id;
+    }
 
     window.submitAddCustomer = function () {
+
         if (!validateCustomerForm()) return;
 
         var $form = $("#addCustomerForm");
@@ -19,6 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
             data: formData,
             success: function (res) {
                 if (res.success) {
+                    const newCustomer = {
+                        id: res.customerId,
+                        name: res.customerName,
+                        phone: phone
+                    };
+                    localStorage.setItem("selectedCustomer", JSON.stringify(newCustomer));
                     showAlert('Đã thêm khách hàng: ' + res.customerName, 'success');
                     window.selectedCustomerId = res.customerId;
                     console.log("==> Gán selectedCustomerId khi thêm khách:", window.selectedCustomerId);
@@ -123,6 +188,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return isValid;
     }
+    function applyFilter() {
+        const categoryId = document.querySelector(".filter-category").value;
+        const search = document.getElementById("filter-search").value.trim();
+
+        const params = new URLSearchParams({
+            page: 1,
+            search: search || "",
+            categoryId: categoryId
+        });
+
+        window.location.href = `/OrderStaff/Index?${params.toString()}`;
+    }
+
+    // Khi nhấn nút tìm kiếm
+    document.getElementById("btnSearch").addEventListener("click", applyFilter);
+
+    // Khi nhấn Enter trong ô tìm kiếm
+    document.getElementById("filter-search").addEventListener("keypress", e => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            applyFilter();
+        }
+    });
+
+    // Khi đổi danh mục trong combobox
+    document.querySelector(".filter-category").addEventListener("change", applyFilter);
 });
 
 const phoneInput = document.getElementById("customerPhoneInput");
@@ -186,6 +277,12 @@ function selectCustomer(c) {
     customerInfo.innerText = `Tên: ${c.name}, SĐT: ${c.phone}`;
     suggestionBox.style.display = "none";
     window.selectedCustomerId = c.customerId;
+    const newCustomer = {
+        id: c.customerId,
+        name: c.name,
+        phone: c.phone
+    };
+    localStorage.setItem("selectedCustomer", JSON.stringify(newCustomer));
     console.log("==> Gán selectedCustomerId:", window.selectedCustomerId);
 }
 
@@ -642,6 +739,11 @@ function applyPromotion() {
 
         document.getElementById('selectedPromotionInput').value = `${promoCode} - ${discountValue}`;
         document.getElementById('selectedPromotionText').innerText = `Khuyến mãi: ${promoCode} - ${discountValue}`;
+
+        localStorage.setItem("selectedPromotion", JSON.stringify({
+            promoCode: promoCode,
+            discountValue: discountValue
+        }));
     }
 
     const modalEl = document.getElementById('promotionModal');
@@ -654,7 +756,7 @@ function applyPromotion() {
 // --------------------------------------------------------------------Thanh toán-------------
 // Hủy thanh toán
 function resetOrderForm() {
-    localStorage.removeItem("cart");
+    localStorage.clear();
     renderCart();
     updatePaymentInfo();
 
@@ -665,6 +767,8 @@ function resetOrderForm() {
     suggestions = [];
     currentIndex = -1;
     suggestionBox.style.display = "none";
+
+    window.selectedCustomerId = null;
 
     selectedPromotionId = null;
     document.getElementById('selectedPromotionInput').value = '';
@@ -708,6 +812,7 @@ const phoneInputEl = document.getElementById("customerPhoneInput");
 const paymentModalEl = document.getElementById('paymentModal');
 
 paymentBtn.addEventListener("click", (e) => {
+    const phoneVal = phoneInputEl.value.trim();
     if (window.selectedCustomerId == null) {
         Swal.fire({
             icon: 'warning',
@@ -745,6 +850,9 @@ function updatePaymentContent(optionId) {
     const finalAmount = total - discount;
     const amountText = finalAmount.toLocaleString('vi-VN') + 'đ';
 
+    const customerId = window.selectedCustomerId;
+    const currentUserId = parseInt(document.getElementById("userId").dataset.userId);
+
     if (optionId === "Cash") {
         document.getElementById("piTotalAmountCash").innerText = total.toLocaleString('vi-VN') + 'đ';
         document.getElementById("piDiscountCash").innerText = '-' + discount.toLocaleString('vi-VN') + 'đ';
@@ -752,16 +860,90 @@ function updatePaymentContent(optionId) {
     }
 
     if (optionId === "EWallet") {
-        const qrWallet = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MoMo:${finalAmount}`;
-        document.getElementById("qrWalletContainer").innerHTML =
-            `<img src="${qrWallet}" alt="QR Ví điện tử" class="img-fluid rounded">`;
+        document.getElementById("paymentLoading").classList.remove("d-none");
+        const input = {
+            CustomerId: customerId,
+            UserId: currentUserId,
+            PromoId: selectedPromotionId ? parseInt(selectedPromotionId) : null,
+            TotalAmount: total,
+            DiscountAmount: discount,
+            OrderStatus: 0, // pending
+            PaymentMethod: 3, // E-Wallet
+            OrderItems: cart.map(p => ({
+                ProductId: parseInt(p.productId),
+                Quantity: parseInt(p.quantity),
+                Price: parseFloat(p.price)
+            }))
+        };
+
+        // Gửi request tạo hóa đơn
+        fetch("/OrderStaff/AddOrder", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(input)
+        })
+            .then(res => res.json())
+            .then(order => {
+                const orderId = order.orderId;
+                const amount = finalAmount;
+                const orderInfo = "Thanh toan don hang " + orderId;
+
+                // Gọi tiếp sang MoMo backend
+                fetch(`/momo-payment?orderId=${orderId}&amount=${amount}&orderInfo=${encodeURIComponent(orderInfo)}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.paymentUrl) {
+                            window.location.href = data.paymentUrl; // redirect đến MoMo
+                        }
+                    });
+            });
     }
 
     if (optionId === "BankTransfer") {
-        const qrBank = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Vietcombank:${finalAmount}`;
-        document.getElementById("qrBankContainer").innerHTML =
-            `<img src="${qrBank}" alt="QR Ngân hàng" class="img-fluid rounded">`;
-        document.getElementById("bankOrderCode").innerText = Math.floor(Math.random() * 100000);
+        document.getElementById("paymentLoading").classList.remove("d-none");
+        // 1. Gửi yêu cầu tạo đơn hàng pending
+        const input = {
+            CustomerId: customerId,
+            UserId: currentUserId,
+            PromoId: selectedPromotionId ? parseInt(selectedPromotionId) : null,
+            TotalAmount: cart.reduce((sum, i) => sum + i.price * i.quantity, 0),
+            DiscountAmount: discount,
+            OrderStatus: 0, // pending
+            PaymentMethod: 2, // VNPay
+            OrderItems: cart.map(p => ({
+                ProductId: parseInt(p.productId),
+                Quantity: parseInt(p.quantity),
+                Price: parseFloat(p.price)
+            }))
+        };
+
+        fetch("/OrderStaff/AddOrder", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(input)
+        })
+            .then(res => res.json())
+            .then(order => {
+                if (order.success) {
+                    const orderId = order.orderId;
+                    const amount = finalAmount;
+                    const orderInfo = "Thanh toán đơn hàng " + orderId;
+
+                    // 2. Gọi tiếp sang backend tạo URL VNPay
+                    fetch(`/OrderStaff/VNPayPaymentUrl?orderId=${orderId}&amount=${amount}&orderInfo=${encodeURIComponent(orderInfo)}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.paymentUrl) {
+                                window.location.href = data.paymentUrl; // Redirect sang cổng thanh toán
+                            } else {
+                                Swal.fire("Lỗi", "Không tạo được link thanh toán VNPay", "error");
+                            }
+                        });
+                } else {
+                    Swal.fire("Lỗi", order.message, "error");
+                }
+            })
+            .catch(err => console.error("Lỗi khi tạo đơn hàng:", err));
     }
 }
 
@@ -776,6 +958,124 @@ $(document).on("click", "#btnConfirmCash, #btnConfirmWallet, #btnConfirmCard, #b
     const method = this.id.replace("btnConfirm", "");
     await confirmPayment(method);
 });
+
+function onlyDigits(s) { return (s || '').replace(/\D/g, ''); }
+
+function isExpiryValid(mmYY) {
+    if (!/^\d{2}\/\d{2}$/.test(mmYY)) return false;
+    const [mmStr, yyStr] = mmYY.split('/');
+    const mm = parseInt(mmStr, 10), yy = parseInt(yyStr, 10);
+    if (mm < 1 || mm > 12) return false;
+    const fullYear = 2000 + yy;
+    // first day of month after expiry
+    const expiryNext = new Date(fullYear, mm, 1);
+    const today = new Date();
+    // compare by date (set today's midnight)
+    const todayCompare = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    return expiryNext > todayCompare;
+}
+
+/* ----- Elements ----- */
+const cardNumberInput = document.getElementById('cardNumber');
+const cardExpiryInput = document.getElementById('cardExpiry');
+const cardCvvInput = document.getElementById('cardCvv');
+
+const cardNumberError = document.getElementById('cardNumberError');
+const cardExpiryError = document.getElementById('cardExpiryError');
+const cardCvvError = document.getElementById('cardCvvError');
+
+const btnConfirmCard = document.getElementById('btnConfirmCard');
+
+/* ----- Auto-format số thẻ ----- */
+if (cardNumberInput) {
+    cardNumberInput.addEventListener('input', (e) => {
+        const raw = onlyDigits(cardNumberInput.value).slice(0, 19); // max 19 digits
+        // group 4
+        const parts = [];
+        for (let i = 0; i < raw.length; i += 4) parts.push(raw.substr(i, 4));
+        const formatted = parts.join(' ');
+        cardNumberInput.value = formatted;
+        // remove error state while typing
+        cardNumberInput.classList.remove('is-invalid');
+        cardNumberError.textContent = '';
+    });
+}
+
+/* ----- Auto-format expiry MM/YY ----- */
+if (cardExpiryInput) {
+    cardExpiryInput.addEventListener('input', (e) => {
+        let v = onlyDigits(cardExpiryInput.value).slice(0, 4);
+        if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
+        cardExpiryInput.value = v;
+        cardExpiryInput.classList.remove('is-invalid');
+        cardExpiryError.textContent = '';
+    });
+}
+
+/* ----- CVV input clean ----- */
+if (cardCvvInput) {
+    cardCvvInput.addEventListener('input', () => {
+        cardCvvInput.value = onlyDigits(cardCvvInput.value).slice(0, 4);
+        cardCvvInput.classList.remove('is-invalid');
+        cardCvvError.textContent = '';
+    });
+}
+function validateCard() {
+    // reset
+    [cardNumberInput, cardExpiryInput, cardCvvInput].forEach(i => i && i.classList.remove('is-invalid'));
+    cardNumberError.textContent = '';
+    cardExpiryError.textContent = '';
+    cardCvvError.textContent = '';
+
+    const rawNumber = onlyDigits(cardNumberInput.value || '');
+    const expiry = (cardExpiryInput.value || '').trim();
+    const cvv = (cardCvvInput.value || '').trim();
+
+    // card number
+    if (!rawNumber) {
+        cardNumberError.textContent = 'Vui lòng nhập số thẻ.';
+        cardNumberInput.classList.add('is-invalid');
+        cardNumberInput.focus();
+        return false;
+    }
+    if (rawNumber.length < 13 || rawNumber.length > 19) {
+        cardNumberError.textContent = 'Số thẻ phải có từ 13 đến 19 chữ số.';
+        cardNumberInput.classList.add('is-invalid');
+        cardNumberInput.focus();
+        return false;
+    }
+
+    // expiry
+    if (!expiry) {
+        cardExpiryError.textContent = 'Vui lòng nhập ngày hết hạn (MM/YY).';
+        cardExpiryInput.classList.add('is-invalid');
+        cardExpiryInput.focus();
+        return false;
+    }
+    if (!isExpiryValid(expiry)) {
+        cardExpiryError.textContent = 'Ngày hết hạn không hợp lệ hoặc đã hết hạn.';
+        cardExpiryInput.classList.add('is-invalid');
+        cardExpiryInput.focus();
+        return false;
+    }
+
+    // cvv
+    if (!cvv) {
+        cardCvvError.textContent = 'Vui lòng nhập CVV.';
+        cardCvvInput.classList.add('is-invalid');
+        cardCvvInput.focus();
+        return false;
+    }
+    if (!/^\d{3,4}$/.test(cvv)) {
+        cardCvvError.textContent = 'CVV phải gồm 3 hoặc 4 chữ số.';
+        cardCvvInput.classList.add('is-invalid');
+        cardCvvInput.focus();
+        return false;
+    }
+
+    // all ok
+    return { cardNumber: rawNumber, expiry, cvv };
+}
 
 // Xác nhận thanh toán (gọi API AddOrder)
 async function confirmPayment(method) {
@@ -808,44 +1108,19 @@ async function confirmPayment(method) {
         PromoId: selectedPromotionId ? parseInt(selectedPromotionId) : null,
         TotalAmount: total,
         DiscountAmount: discount,
+        OrderStatus: 1,
         PaymentMethod: paymentMethod,
         OrderItems: cart.map(p => ({
             ProductId: parseInt(p.productId),
             Quantity: parseInt(p.quantity),
-            Price: parseFloat(p.price)
+            Price: parseFloat(p.price)  
         }))
     };
+    console.log(input);
 
-    // 🟢 Nếu là ví điện tử (MoMo)
-    if (method === "EWallet") {
-        // Tạo model gửi qua PaymentController
-        const orderInfo = {
-            FullName: "Khách hàng #" + customerId,
-            Amount: finalAmount,
-            OrderInfo: "Thanh toán qua ví MoMo tại StoreManagement"
-        };
-
-        const response = await fetch("/Payment/CreatePaymentUrl", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(orderInfo)
-        });
-
-        if (response.redirected) {
-            // Redirect sang trang thanh toán MoMo
-            window.location.href = response.url;
-        } else {
-            const res = await response.json();
-            if (res?.payUrl) {
-                window.location.href = res.payUrl;
-            } else {
-                Swal.fire("Lỗi", "Không tạo được link thanh toán MoMo!", "error");
-            }
-        }
-
-        return; // Dừng ở đây, không xử lý tiếp
+    if (paymentMethod == 1) {
+        if(validateCard()==false) return;
     }
-
     // 🟢 Nếu không phải ví điện tử → xử lý như cũ
     const response = await fetch("/OrderStaff/AddOrder", {
         method: "POST",
@@ -863,7 +1138,7 @@ async function confirmPayment(method) {
             showConfirmButton: false
         });
         await new Promise(resolve => setTimeout(resolve, 1800));
-        localStorage.removeItem("cart");
+        localStorage.clear();
         location.reload();
         const modalEl = document.getElementById('paymentModal');
         const modal = bootstrap.Modal.getInstance(modalEl);
@@ -872,8 +1147,6 @@ async function confirmPayment(method) {
         Swal.fire("Lỗi", result.message, "error");
     }
 }
-
-
 
 
 

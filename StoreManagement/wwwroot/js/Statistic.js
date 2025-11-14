@@ -22,10 +22,10 @@ async function loadRevenueByYear(year) {
                 label: 'Doanh thu (₫)',
                 data: values,
                 borderColor: 'rgba(54, 162, 235, 1)',
-                //backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderWidth: 2,
                 tension: 0.4,
-            //    fill: true
+                fill: true
             }]
         },
         options: {
@@ -51,7 +51,7 @@ async function loadRevenueByRange(start, end) {
     const data = await res.json();
 
     if (data.error) {
-        showAlert('Vui lòng chọn đủ ngày bắt đầu và kết thúc!', 'warning');
+        alert("Vui lòng chọn đủ ngày bắt đầu và kết thúc!");
         return;
     }
 
@@ -68,10 +68,10 @@ async function loadRevenueByRange(start, end) {
                 label: 'Doanh thu (₫)',
                 data: values,
                 borderColor: 'rgba(54, 162, 235, 1)',
-                //backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderWidth: 2,
                 tension: 0.4,
-            //    fill: true
+                fill: true
             }]
         },
         options: {

@@ -27,6 +27,10 @@ namespace StoreManagement.Models.Entities
         public DateTime OrderDate { get; set; }
 
         [Required]
+        [Column("status")]
+        public OrderStatus Status { get; set; }
+
+        [Required]
         [Column("total_amount", TypeName = "decimal(10,2)")]
         public decimal TotalAmount { get; set; }
 

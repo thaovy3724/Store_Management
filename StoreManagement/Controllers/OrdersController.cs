@@ -22,9 +22,9 @@ namespace StoreManagement.Controllers
             int page = 1,
             int pageSize = 5,
             string search = "",
+            int? status = null,
             decimal? priceFrom = null,
-            decimal? priceTo = null,
-            PaymentMethod? payment = null)
+            decimal? priceTo = null)
         {
             // Truy vấn cơ bản với các include
             var query = dbContext.Orders
@@ -38,6 +38,10 @@ namespace StoreManagement.Controllers
                 query = query.Where(o => o.OrderId == orderId);
             }
 
+            // Lọc theo Status nếu có
+            if (status.HasValue && status.Value >= 0)
+                query = query.Where(o => (int)o.Status == status.Value);
+
             // Lọc theo giá min
             if (priceFrom.HasValue)
                 query = query.Where(o => o.TotalAmount >= priceFrom.Value);
@@ -45,15 +49,6 @@ namespace StoreManagement.Controllers
             // Lọc theo giá max
             if (priceTo.HasValue)
                 query = query.Where(o => o.TotalAmount <= priceTo.Value);
-
-            // Filter theo PaymentMethod
-            if (payment.HasValue)
-            {
-                query = query.Where(o => dbContext.Payments
-                                    .Where(p => p.OrderId == o.OrderId)
-                                    .Select(p => p.PaymentMethod)
-                                    .FirstOrDefault() == payment.Value);
-            }
 
             // Chọn ra ViewModel
             var ordersList = await query
@@ -64,10 +59,7 @@ namespace StoreManagement.Controllers
                     CustomerName = o.Customer != null ? o.Customer.Name : "N/A",
                     OrderDate = o.OrderDate,
                     TotalAmount = o.TotalAmount,
-                    PaymentMethod = dbContext.Payments
-                            .Where(p => p.OrderId == o.OrderId)
-                            .Select(p => p.PaymentMethod)
-                            .FirstOrDefault()
+                    Status = o.Status
                 })
                 .ToListAsync();
 
@@ -80,10 +72,10 @@ namespace StoreManagement.Controllers
                 Orders = pagedOrders.Items,
                 CurrentPage = pagedOrders.CurrentPage,
                 TotalPages = pagedOrders.TotalPages,
-                Search = search,         
+                Search = search,          // giữ giá trị search để hiển thị lại trên input
+                Status = status,
                 PriceFrom = priceFrom,
-                PriceTo = priceTo,
-                PaymentMethod = payment
+                PriceTo = priceTo
             };
 
             return View(viewModel);
@@ -127,6 +119,7 @@ namespace StoreManagement.Controllers
                 CustomerName = order.Customer?.Name ?? "N/A",
                 UserName = order.User?.Username ?? "N/A",
                 OrderDate = order.OrderDate,
+                Status = order.Status,
                 PaymentMethod = payment?.PaymentMethod ?? PaymentMethod.Cash,
                 TotalAmount = order.TotalAmount,
                 DiscountAmount = order.DiscountAmount,

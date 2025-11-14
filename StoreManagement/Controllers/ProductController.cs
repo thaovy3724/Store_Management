@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BarcodeLib;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StoreManagement.Utils;
 using StoreManagement.Data;
-using StoreManagement.Models;
 using StoreManagement.Models.Entities;
 using StoreManagement.Models.Pages.Product;
+using StoreManagement.Utils;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace StoreManagement.Controllers
 {
@@ -22,7 +25,7 @@ namespace StoreManagement.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(
             int page = 1,
-            int pageSize = 5,
+            int pageSize = 2,
             int categoryId = -1,
             string search = "",
             decimal? priceFrom = null,
@@ -88,14 +91,14 @@ namespace StoreManagement.Controllers
             var extension = Path.GetExtension(imageFile.FileName).ToLower();
             var newFileName = "SP_" + Guid.NewGuid().ToString("N") + extension;
 
-            // Đường dẫn tuyệt đối đến thư mục uploads
+            // 📂 Đường dẫn tuyệt đối đến thư mục uploads
             var uploadPath = Path.Combine(_env.WebRootPath, "uploads");
 
-            // Nếu thư mục chưa tồn tại thì tạo
+            // ✅ Nếu thư mục chưa tồn tại thì tạo
             if (!Directory.Exists(uploadPath))
                 Directory.CreateDirectory(uploadPath);
 
-            // Đường dẫn đầy đủ của file
+            // 📄 Đường dẫn đầy đủ của file
             var filePath = Path.Combine(uploadPath, newFileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -103,7 +106,7 @@ namespace StoreManagement.Controllers
                 imageFile.CopyTo(stream);
             }
 
-            // Trả về đường dẫn tương đối (để lưu DB)
+            // 👉 Trả về đường dẫn tương đối (để lưu DB)
             return newFileName;
         }
         // Thêm 
@@ -121,7 +124,7 @@ namespace StoreManagement.Controllers
 
             // Upload image file
             var newFileName = UploadImage(model.ImageFile);
-            if(newFileName == null)
+            if (newFileName == null)
             {
                 return Json(new { success = false, message = "Lỗi khi tải lên hình ảnh sản phẩm." });
             }
@@ -212,7 +215,7 @@ namespace StoreManagement.Controllers
                 product = new
                 {
                     barcode = product.Barcode,
-                    image = product.ProductImage, 
+                    image = product.ProductImage,
                     name = product.ProductName,
                     price = product.Price,
                     unit = product.Unit
@@ -223,7 +226,7 @@ namespace StoreManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(String barcode)
         {
-            if(String.IsNullOrEmpty(barcode))
+            if (String.IsNullOrEmpty(barcode))
             {
                 return Json(new { success = false, message = "Mã vạch không được để trống." });
             }
@@ -231,7 +234,7 @@ namespace StoreManagement.Controllers
             // *** Business logic to delete product by barcode ***
             // Find product
             var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Barcode == barcode);
-            if(product == null)
+            if (product == null)
             {
                 return Json(new { success = false, message = "Sản phẩm không tồn tại." });
             }
@@ -242,9 +245,10 @@ namespace StoreManagement.Controllers
                 {
                     return Json(new { success = false, message = "Sản phẩm đã được bán, không thể xóa." });
                 }
-                else {
+                else
+                {
                     // Check if product exists in inventory and has quantity > 0
-                    if( await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
+                    if (await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
                     {
                         return Json(new { success = false, message = "Sản phẩm còn tồn kho, không thể xóa." });
                     }
@@ -253,8 +257,8 @@ namespace StoreManagement.Controllers
 
             // If checks pass, delete product
             dbContext.Products.Remove(product);
-            await dbContext.SaveChangesAsync(); 
-            return Json(new { success = true, message = "Xóa sản phẩm thành công" }); 
+            await dbContext.SaveChangesAsync();
+            return Json(new { success = true, message = "Xóa sản phẩm thành công" });
         }
 
         [HttpGet]
@@ -275,7 +279,7 @@ namespace StoreManagement.Controllers
             {
                 return Json(new { success = false, message = "Sản phẩm không tồn tại." });
             }
-            
+
             // Map from entity to AddProductViewModel
             var viewModel = new AddProductViewModel
             {
@@ -288,7 +292,32 @@ namespace StoreManagement.Controllers
                 Barcode = product.Barcode,
                 InventoryQuantity = product.Inventory != null ? product.Inventory.Quantity : 0
             };
-            return Json(new { success = true,viewModel});
+            return Json(new { success = true, viewModel });
+        }
+        [HttpGet]
+        public IActionResult GetBarcodeImage(string barcode)
+        {
+            if (string.IsNullOrEmpty(barcode))
+                return BadRequest("Barcode không hợp lệ");
+
+            // Tạo ảnh barcode
+            byte[] imgBytes = GenerateBarcodeImage(barcode);
+
+            // Chuyển thành base64 và trả về JSON
+            return Json(Convert.ToBase64String(imgBytes));
+        }
+
+        public byte[] GenerateBarcodeImage(string code)
+        {
+            Barcode barcode = new Barcode();
+            barcode.IncludeLabel = true;
+            barcode.LabelPosition = BarcodeLib.LabelPositions.BOTTOMCENTER;
+            Image img = barcode.Encode(TYPE.CODE128, code, 300, 100);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
     }
 }

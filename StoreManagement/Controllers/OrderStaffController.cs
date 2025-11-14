@@ -3,79 +3,85 @@ using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
 using StoreManagement.Models.ViewModel.OrderStaff;
+using StoreManagement.Models.ViewModel.Utils;
+using StoreManagement.Utils;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+using System.Web;
 
 namespace StoreManagement.Controllers
 {
     public class OrderStaffController : Controller
     {
         private readonly StoreContext _context;
+        private readonly IConfiguration _config;
 
-        public OrderStaffController(StoreContext context)
+        public OrderStaffController(IConfiguration config,StoreContext context)
         {
+            _config = config;
             _context = context;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(
+            int page = 1,
+            int pageSize = 6,
+            int? categoryId = null,
+            string search = "")
         {
-            var model = new OrderStaffLoadViewPageModel
+            // 1️⃣ Lấy danh mục (để hiển thị combobox lọc)
+            var categories = _context.Categories.ToList();
+
+            // 2️⃣ Tạo query cơ bản
+            var query = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Inventory)
+                .AsQueryable();
+
+            // 3️⃣ Lọc theo tên sản phẩm (search)
+            if (!string.IsNullOrEmpty(search))
             {
-                Categories = _context.Categories.ToList(),
-                Products = _context.Products
-                   .Include(p => p.Category)
-                   .Include(p => p.Inventory)
-                   .Select(p => new OrderStaffLoadProductModel
-                   {
-                       ProductId = p.ProductId,
-                       ProductName = p.ProductName,
-                       ProductImage = p.ProductImage,
-                       Price = p.Price,
-                       Quantity = p.Inventory != null ? p.Inventory.Quantity : 0,
-                       CategoryName = p.Category != null ? p.Category.CategoryName : ""
-                   })
-                   .ToList(),
-            };
-
-            return View(model);
-        }
-
-        // POST: Thêm khách hàng mới
-        [HttpPost]
-        public async Task<IActionResult> AddCustomer(AddCustomerInputModel input)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("Dữ liệu không hợp lệ");
-
-            var existingCustomer = await _context.Customers
-                .FirstOrDefaultAsync(c => c.Phone == input.Phone);
-
-            if (existingCustomer != null)
-            {
-                return Json(new
-                {
-                    success = false,
-                    message = "Số điện thoại này đã tồn tại trong hệ thống!"
-                });
+                query = query.Where(p => p.ProductName.Contains(search));
             }
 
-            var customer = new Customer
+            // 4️⃣ Lọc theo danh mục
+            if (categoryId.HasValue && categoryId.Value > 0)
             {
-                Name = input.Name,
-                Phone = input.Phone,
-                Email = string.IsNullOrWhiteSpace(input.Email) ? null : input.Email,
-                Address = string.IsNullOrWhiteSpace(input.Address) ? null : input.Address,
-                CreatedAt = DateTime.Now
+                query = query.Where(p => p.CategoryId == categoryId.Value);
+            }
+
+            // 5️⃣ Truy vấn danh sách sản phẩm (chưa phân trang)
+            var productsList = query
+                .OrderBy(p => p.ProductId)
+                .Select(p => new OrderStaffLoadProductModel
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    ProductImage = p.ProductImage,
+                    Price = p.Price,
+                    Quantity = p.Inventory != null ? p.Inventory.Quantity : 0,
+                    CategoryName = p.Category != null ? p.Category.CategoryName : ""
+                })
+                .ToList();
+
+            // 6️⃣ Phân trang bằng lớp Pagination<T>
+            var pagedProducts = Pagination<OrderStaffLoadProductModel>.Create(productsList, page, pageSize);
+
+            // 7️⃣ Tạo ViewModel tổng hợp
+            var viewModel = new OrderStaffLoadViewPageModel
+            {
+                Categories = categories,
+                Products = pagedProducts.Items,
+                CurrentPage = pagedProducts.CurrentPage,
+                TotalPages = pagedProducts.TotalPages,
+                Search = search,
+                SelectedCategoryId = categoryId
             };
 
-            _context.Customers.Add(customer);
-            await _context.SaveChangesAsync();
-
-            return Json(new
-            {
-                success = true,
-                customerId = customer.CustomerId,
-                customerName = customer.Name
-            });
+            return View(viewModel);
         }
+
 
         // GET: Lấy thông tin sản phẩm theo barcode
         [HttpGet]
@@ -208,7 +214,8 @@ namespace StoreManagement.Controllers
                     PromoId = input.PromoId,
                     OrderDate = DateTime.Now,
                     TotalAmount = input.TotalAmount,
-                    DiscountAmount = input.DiscountAmount
+                    DiscountAmount = input.DiscountAmount,
+                    Status = input.OrderStatus
                 };
 
                 _context.Orders.Add(order);
@@ -272,6 +279,69 @@ namespace StoreManagement.Controllers
                 return Json(new { success = false, message = "Lỗi khi tạo đơn hàng: " + ex.Message });
             }
         }
+        //VNPAY
+        [HttpGet]
+        public IActionResult VNPayPaymentUrl(int orderId, decimal amount)
+        {
+            var vnpay = new VnPayLibrary();
 
+            vnpay.AddRequestData("vnp_Version", _config["VnPay:Version"]);
+            vnpay.AddRequestData("vnp_Command", _config["VnPay:Command"]);
+            vnpay.AddRequestData("vnp_TmnCode", _config["VnPay:TmnCode"]);
+            vnpay.AddRequestData("vnp_Amount", (amount * 100).ToString());
+            vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
+            vnpay.AddRequestData("vnp_CurrCode", _config["VnPay:CurrCode"]);
+            vnpay.AddRequestData("vnp_IpAddr", UtilsVNPay.GetIpAddress(HttpContext));
+            vnpay.AddRequestData("vnp_Locale", _config["VnPay:Locale"]);
+            vnpay.AddRequestData("vnp_OrderInfo", $"Thanh toán đơn hàng {orderId}");
+            vnpay.AddRequestData("vnp_OrderType", "other");
+            vnpay.AddRequestData("vnp_ReturnUrl", _config["VnPay:PaymentBackReturnUrl"]);
+            vnpay.AddRequestData("vnp_TxnRef", orderId.ToString());
+
+            string paymentUrl = vnpay.CreateRequestUrl(_config["VnPay:BaseUrl"], _config["VnPay:HashSecret"]);
+            Console.WriteLine(paymentUrl);
+
+            return Json(new { paymentUrl });
+        }
+
+        // Callback từ VNPay
+        [HttpGet("/vnpay-return")]
+        public IActionResult VNPayReturn()
+        {
+            var vnpay = new VnPayLibrary();
+            foreach (var (key, value) in Request.Query)
+            {
+                if (!string.IsNullOrEmpty(key) && key.StartsWith("vnp_"))
+                    vnpay.AddResponseData(key, value.ToString());
+            }
+
+            var txnRef = vnpay.GetResponseData("vnp_TxnRef");
+            var transactionNo = vnpay.GetResponseData("vnp_TransactionNo");
+            var responseCode = vnpay.GetResponseData("vnp_ResponseCode");
+            var orderInfo = vnpay.GetResponseData("vnp_OrderInfo");
+            var secureHash = Request.Query["vnp_SecureHash"].ToString();
+
+            bool checkSignature = vnpay.ValidateSignature(secureHash, _config["VnPay:HashSecret"]);
+
+            if (!checkSignature)
+                return Content("Chữ ký không hợp lệ hoặc thanh toán thất bại");
+
+            var order = _context.Orders.FirstOrDefault(o => o.OrderId == int.Parse(txnRef));
+            if (order == null)
+                return BadRequest("Không tìm thấy đơn hàng.");
+
+            if (responseCode == "00")
+            {
+                order.Status = Models.Entities.OrderStatus.Paid;
+                _context.SaveChanges();
+                return Redirect($"/OrderStaff?paymentSuccess=true&orderId={order.OrderId}");
+            }
+            else
+            {
+                order.Status = Models.Entities.OrderStatus.Cancelled;
+                _context.SaveChanges();
+                return Redirect($"/OrderStaff?paymentSuccess=false&orderId={order.OrderId}");
+            }
+        }
     }
 }

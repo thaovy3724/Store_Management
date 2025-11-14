@@ -9,6 +9,7 @@ namespace StoreManagement.Models.ViewModel.OrderStaff
         public int? PromoId { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal DiscountAmount { get; set; }
+        public OrderStatus OrderStatus { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
 
         public List<OrderItemInputModel> OrderItems { get; set; }

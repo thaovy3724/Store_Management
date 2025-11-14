@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
-using StoreManagement.Models.Entities; 
+using StoreManagement.Models.Entities; // để dùng OrderStatus enum
 using StoreManagement.Models.ViewModels;
 using System;
 using System.Linq;
@@ -33,21 +33,21 @@ namespace StoreManagement.Controllers
 
             // Doanh thu tuần này
             var revenueThisWeek = await _context.Orders
-                .Where(o => o.OrderDate >= startOfWeek && o.OrderDate < endOfWeek )
+                .Where(o => o.OrderDate >= startOfWeek && o.OrderDate < endOfWeek && o.Status == OrderStatus.Paid)
                 .SumAsync(o => (decimal?)o.TotalAmount) ?? 0;
 
             // Doanh thu tuần trước
             var revenueLastWeek = await _context.Orders
-                .Where(o => o.OrderDate >= startOfLastWeek && o.OrderDate < endOfLastWeek )
+                .Where(o => o.OrderDate >= startOfLastWeek && o.OrderDate < endOfLastWeek && o.Status == OrderStatus.Paid)
                 .SumAsync(o => (decimal?)o.TotalAmount) ?? 0;
 
             // Đơn hàng tuần này
             var orderCount = await _context.Orders
-                .CountAsync(o => o.OrderDate >= startOfWeek && o.OrderDate < endOfWeek );
+                .CountAsync(o => o.OrderDate >= startOfWeek && o.OrderDate < endOfWeek && o.Status == OrderStatus.Paid);
 
             // Đơn hàng tuần trước
             var orderCountLastWeek = await _context.Orders
-                .CountAsync(o => o.OrderDate >= startOfLastWeek && o.OrderDate < endOfLastWeek);
+                .CountAsync(o => o.OrderDate >= startOfLastWeek && o.OrderDate < endOfLastWeek && o.Status == OrderStatus.Paid);
 
             // Khách hàng mới tuần này
             var newCustomers = await _context.Customers
@@ -59,12 +59,12 @@ namespace StoreManagement.Controllers
 
             // Sản phẩm bán được tuần này
             var soldProducts = await _context.OrderItems
-                .Where(oi => oi.Order.OrderDate >= startOfWeek && oi.Order.OrderDate < endOfWeek )
+                .Where(oi => oi.Order.OrderDate >= startOfWeek && oi.Order.OrderDate < endOfWeek && oi.Order.Status == OrderStatus.Paid)
                 .SumAsync(oi => (int?)oi.Quantity) ?? 0;
 
             // Sản phẩm bán được tuần trước
             var soldProductsLastWeek = await _context.OrderItems
-                .Where(oi => oi.Order.OrderDate >= startOfLastWeek && oi.Order.OrderDate < endOfLastWeek )
+                .Where(oi => oi.Order.OrderDate >= startOfLastWeek && oi.Order.OrderDate < endOfLastWeek && oi.Order.Status == OrderStatus.Paid)
                 .SumAsync(oi => (int?)oi.Quantity) ?? 0;
 
             // Hàm tính phần trăm thay đổi (an toàn chia 0)
@@ -131,7 +131,7 @@ namespace StoreManagement.Controllers
                 year = DateTime.Now.Year;
 
             var result = await _context.Orders
-                .Where(o => o.OrderDate.Year == year)
+                .Where(o => o.OrderDate.Year == year && o.Status == OrderStatus.Paid)
                 .GroupBy(o => o.OrderDate.Month)
                 .Select(g => new RevenueByMonthVM
                 {
@@ -152,7 +152,8 @@ namespace StoreManagement.Controllers
                 return Json(new { error = "Thiếu dữ liệu ngày lọc" });
 
             var data = await _context.Orders
-                .Where(o => o.OrderDate.Date >= startDate.Value.Date
+                .Where(o => o.Status == OrderStatus.Paid
+                         && o.OrderDate.Date >= startDate.Value.Date
                          && o.OrderDate.Date <= endDate.Value.Date)
                 .GroupBy(o => o.OrderDate.Date)
                 .Select(g => new
@@ -187,7 +188,8 @@ namespace StoreManagement.Controllers
             {
                 // Top sản phẩm bán chạy nhất
                 var topProducts = await _context.OrderItems
-                    .Where(oi => oi.Order.OrderDate >= start && oi.Order.OrderDate <= end)
+                    .Where(oi => oi.Order.Status == OrderStatus.Paid &&
+                                 oi.Order.OrderDate >= start && oi.Order.OrderDate <= end)
                     .GroupBy(oi => oi.Product.ProductName)
                     .Select(g => new { Label = g.Key, Value = g.Sum(x => x.Quantity) })
                     .OrderByDescending(x => x.Value)
@@ -200,7 +202,8 @@ namespace StoreManagement.Controllers
             {
                 // Sản phẩm ít bán chạy nhất
                 var lowProducts = await _context.OrderItems
-                    .Where(oi => oi.Order.OrderDate >= start && oi.Order.OrderDate <= end)
+                    .Where(oi => oi.Order.Status == OrderStatus.Paid &&
+                                 oi.Order.OrderDate >= start && oi.Order.OrderDate <= end)
                     .GroupBy(oi => oi.Product.ProductName)
                     .Select(g => new { Label = g.Key, Value = g.Sum(x => x.Quantity) })
                     .OrderBy(x => x.Value)
@@ -213,7 +216,8 @@ namespace StoreManagement.Controllers
             {
                 // Khách hàng chi tiêu nhiều nhất
                 var topCustomers = await _context.Orders
-                    .Where(o => o.OrderDate >= start && o.OrderDate <= end)
+                    .Where(o => o.Status == OrderStatus.Paid &&
+                                o.OrderDate >= start && o.OrderDate <= end)
                     .GroupBy(o => o.Customer.Name)
                     .Select(g => new { Label = g.Key, Value = g.Sum(x => x.TotalAmount) })
                     .OrderByDescending(x => x.Value)
@@ -226,7 +230,8 @@ namespace StoreManagement.Controllers
             {
                 // Khách hàng chi tiêu ít nhất
                 var lowCustomers = await _context.Orders
-                    .Where(o => o.OrderDate >= start && o.OrderDate <= end)
+                    .Where(o => o.Status == OrderStatus.Paid &&
+                                o.OrderDate >= start && o.OrderDate <= end)
                     .GroupBy(o => o.Customer.Name)
                     .Select(g => new { Label = g.Key, Value = g.Sum(x => x.TotalAmount) })
                     .OrderBy(x => x.Value)

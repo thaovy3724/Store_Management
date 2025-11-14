@@ -27,39 +27,69 @@
             document.querySelector(".order-history-username").innerText = order.userName;
             document.querySelector(".order-history-orderdate").innerText = new Date(order.orderDate).toLocaleString();
 
+            const statusEl = document.querySelector(".order-history-orderstatus");
 
+            switch (order.status) {
+                case 0:
+                    statusEl.innerText = "Chờ xử lý";
+                    statusEl.style.backgroundColor = "#ffc1071a";
+                    statusEl.style.color = "#b8860b";
+                    statusEl.style.border = "1px solid #ffc107";
+                    break;
+                case 1:
+                    statusEl.innerText = "Đã thanh toán";
+                    statusEl.style.backgroundColor = "#0d6efd1a";
+                    statusEl.style.color = "#0d6efd";
+                    statusEl.style.border = "1px solid #0d6efd";
+                    break;
+                case 2:
+                    statusEl.innerText = "Đã hủy";
+                    statusEl.style.backgroundColor = "#dc35451a";
+                    statusEl.style.color = "#dc3545";
+                    statusEl.style.border = "1px solid #dc3545";
+                    break;
+                default:
+                    statusEl.innerText = "Không xác định";
+                    statusEl.style.backgroundColor = "#eee";
+                    statusEl.style.color = "#333";
+                    statusEl.style.border = "1px solid #ccc";
+                    break;
+            }
             const paymentDiv = document.querySelector(".order-history-paymentmethod-div");
             const paymentDivCollapse = document.querySelector(".order-history-paymentmethod-div-collapse");
             paymentDiv.classList.add("d-none");
             paymentDivCollapse.classList.add("d-none");
-            paymentDiv.classList.remove("d-none"); 
-            paymentDivCollapse.classList.remove("d-none"); 
-            const paymentBtn = paymentDiv.querySelector(".btn-order-history-paymentmethod");
-            let paymentText;
+            if (order.status === 1) { 
+                paymentDiv.classList.remove("d-none"); 
+                paymentDivCollapse.classList.remove("d-none"); 
+                const paymentBtn = paymentDiv.querySelector(".btn-order-history-paymentmethod");
+                let paymentText;
 
-            switch (order.paymentMethod) {
-                case 0:
-                    paymentText = "Tiền mặt";
-                    break;
-                case 1:
-                    paymentText = "Thẻ";
-                    break;
-                case 2:
-                    paymentText = "Chuyển khoản ngân hàng";
-                    break;
-                case 3:
-                    paymentText = "Ví điện tử";
-                    break;
-                default:
-                    paymentText = "Không xác định";
-                    break;
-            }
+                switch (order.paymentMethod) {
+                    case 0:
+                        paymentText = "Tiền mặt";
+                        break;
+                    case 1:
+                        paymentText = "Thẻ";
+                        break;
+                    case 2:
+                        paymentText = "Chuyển khoản";
+                        break;
+                    case 3:
+                        paymentText = "Ví điện tử";
+                        break;
+                    default:
+                        paymentText = "Không xác định";
+                        break;
+                }
 
-            document.querySelector(".btn-order-history-paymentmethod").innerText = paymentText;
-            document.querySelector(".order-history-paymentmethod").innerText = paymentText;
+                document.querySelector(".btn-order-history-paymentmethod").innerText = paymentText;
+                document.querySelector(".order-history-paymentmethod").innerText = paymentText;
 
-            document.querySelector(".order-history-paymentamount").innerText = order.totalAmount.toLocaleString() + " đ";
-            document.querySelector(".order-history-paymentdate").innerText = order.orderDate ? new Date(order.orderDate).toLocaleString() : "";
+                document.querySelector(".order-history-paymentamount").innerText = order.totalAmount.toLocaleString() + " đ";
+                document.querySelector(".order-history-paymentdate").innerText = order.orderDate ? new Date(order.orderDate).toLocaleString() : "";
+            } 
+
             document.querySelector(".order-history-totalamount").innerText = order.totalAmount.toLocaleString() + " đ";
             document.querySelector(".order-history-promotioncode").innerText = order.promotionCode;
             document.querySelector(".order-history-discountamount").innerText = "-" + (order.discountAmount || 0).toLocaleString() + " đ";
@@ -110,12 +140,21 @@
 
                     const order = data.viewModel;
 
+                    // Trạng thái
+                    let statusText;
+                    switch (order.status) {
+                        case 0: statusText = "Chờ xử lý"; break;
+                        case 1: statusText = "Đã thanh toán"; break;
+                        case 2: statusText = "Đã hủy"; break;
+                        default: statusText = "Không xác định"; break;
+                    }
+
                     // Phương thức thanh toán
                     let paymentText;
                     switch (order.paymentMethod) {
                         case 0: paymentText = "Tiền mặt"; break;
                         case 1: paymentText = "Thẻ"; break;
-                        case 2: paymentText = "Chuyển khoản ngân hàng"; break;
+                        case 2: paymentText = "Chuyển khoản"; break;
                         case 3: paymentText = "Ví điện tử"; break;
                         default: paymentText = "Không xác định"; break;
                     }
@@ -157,7 +196,7 @@
                 <body>
                     <div class="invoice-box">
                         <div class="invoice-header">
-                            <h2>FOMO STORE</h2>
+                            <h2>FUFOGO</h2>
                             <p>Địa chỉ: 256 An Dương Vương, phường 3, quận 5, TP.HCM</p>
                             <p>Hotline: 0123 456 789</p>
                             <hr/>
@@ -171,7 +210,8 @@
                                 <p><strong>Nhân viên:</strong> ${order.userName}</p>
                             </div>
                             <div class="text-right">
-                                <p><strong>Phương thức thanh toán:</strong> ${paymentText}</p>
+                                <p><strong>Trạng thái:</strong> ${statusText}</p>
+                                <p><strong>Phương thức thanh toán:</strong> ${order.status === 1 ? paymentText : "Chưa thanh toán"}</p>
                             </div>
                         </div>
 
@@ -240,7 +280,7 @@
     reloadButton();
 
     function applyFilter() {
-        const payment = document.querySelector(".filter-payment").value;
+        const status = document.querySelector(".filter-status").value;
         const priceFrom = document.querySelector(".filter-price-min").value;
         const priceTo = document.querySelector(".filter-price-max").value;
         const search = document.getElementById("filter-order-id").value.trim();
@@ -248,7 +288,7 @@
         const params = new URLSearchParams({
             page: 1,
             search: search || "",
-            payment: payment !== "-1" ? payment : "",
+            status: status !== "-1" ? status : "",
             priceFrom: priceFrom || "",
             priceTo: priceTo || ""
         });
@@ -266,7 +306,7 @@
     });
 
     // Thay đổi filter
-    [".filter-payment", ".filter-price-min", ".filter-price-max"].forEach(filter => {
+    [".filter-status", ".filter-price-min", ".filter-price-max"].forEach(filter => {
         document.querySelector(filter).addEventListener("change", applyFilter);
     });
 });

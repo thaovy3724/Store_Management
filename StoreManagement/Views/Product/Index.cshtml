@@ -12,55 +12,55 @@
 
 <!-- Nội dung chính: RenderBody -->
 <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="fw-bold">Quản lý Sản phẩm</h3>   
-    </div>
-    <!-- Thanh lọc -->
-    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
-        <!-- Thanh lọc bên trái -->
-        <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
-            <!-- Lọc theo loại sản phẩm -->
-              <!-- Lọc theo vai trò -->
-            <select id="filterCategory" class="form-select form-select-sm" style="width: 150px;">
-                <option value="-1">Tất cả loại</option>
-            @foreach(var c in Model.Categories)
+    <h3 class="fw-bold">Quản lý Sản phẩm</h3>
+</div>
+<!-- Thanh lọc -->
+<div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+    <!-- Thanh lọc bên trái -->
+    <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+        <!-- Lọc theo loại sản phẩm -->
+        <!-- Lọc theo vai trò -->
+        <select id="filterCategory" class="form-select form-select-sm" style="width: 150px;">
+            <option value="-1">Tất cả loại</option>
+            @foreach (var c in Model.Categories)
             {
                 <option value="@c.CategoryId" selected="@(c.CategoryId == Model.FilterCategory ? "selected" : null)">@c.CategoryName</option>
             }
-            </select>
-            <!-- Lọc theo khoảng giá -->
-            <div class="input-group input-group-sm" style="width: 250px;">
-                <span class="input-group-text">Giá từ</span>
+        </select>
+        <!-- Lọc theo khoảng giá -->
+        <div class="input-group input-group-sm" style="width: 250px;">
+            <span class="input-group-text">Giá từ</span>
             <input id="filterPriceFrom" type="number" value="@(Model.PriceFrom)" class="form-control" placeholder="" min="0">
-                <span class="input-group-text">đến</span>
+            <span class="input-group-text">đến</span>
             <input id="filterPriceTo" type="number" value="@(Model.PriceTo)" class="form-control" placeholder="" min="0">
-            </div>
-            <!-- Ô tìm kiếm -->
-            <div class="input-group input-group-sm" style="width: 300px;">
-            <input id="searchInput" type="text" value="@Model.Search" class="form-control" placeholder="Nhập tên sản phẩm, barcode">
-                <button id="btnSearch" class="btn btn-primary btn-search" type="button">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
         </div>
-
-        <!-- Nút Thêm mới bên phải -->
-        <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view_add">
-            <i class="bi bi-plus-circle"></i> Thêm mới
-        </button>
+        <!-- Ô tìm kiếm -->
+        <div class="input-group input-group-sm" style="width: 300px;">
+            <input id="searchInput" type="text" value="@Model.Search" class="form-control" placeholder="Nhập tên sản phẩm, barcode">
+            <button id="btnSearch" class="btn btn-primary btn-search" type="button">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
     </div>
-    <div class="card shadow-sm">
-      <div class="card-body">
+
+    <!-- Nút Thêm mới bên phải -->
+    <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view_add">
+        <i class="bi bi-plus-circle"></i> Thêm mới
+    </button>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered align-middle">
                 <thead class="table-light thead-separator ">
-                <tr class="text-center">
-                    <th style="width:100px;">Barcode</th>
-                    <th>Hình ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá bán</th>
-                    <th>Đơn vị</th>
-                    <th style="width:150px;">Hành động</th>
-                </tr>
+                    <tr class="text-center">
+                        <th style="width:100px;">Barcode</th>
+                        <th>Hình ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá bán</th>
+                        <th>Đơn vị</th>
+                        <th style="width:200px;">Hành động</th>
+                    </tr>
                 </thead>
                 <tbody id="productList">
                     @if (Model.Products == null || !Model.Products.Any())
@@ -99,6 +99,9 @@
                                             data-barcode="@product.Barcode" title="Xóa" data-action="delete">
                                         <i class="bi bi-trash text-danger"></i>
                                     </button>
+                                    <button class="btn btn-sm btn-light border me-1 btn-barcode" title="Xem Barcode" data-barcode="@product.Barcode">
+                                        <i class="bi bi-upc text-warning"></i>
+                                    </button>
                                 </td>
                             </tr>
                         }
@@ -110,103 +113,125 @@
         <div id="paginationContainer">
             @await Html.PartialAsync("Pagination", (object)Model)
         </div>
-      </div>
     </div>
-
-    <!-- Các modal dùng chung có thể đặt ở đây -->
+</div>
+<!-- Các modal dùng chung có thể đặt ở đây -->
 @section Modals {
-<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      
-      <!-- Header -->
-      <div class="modal-header">
-        <h5 class="modal-title" id="productModalTitle">Quản lý sản phẩm</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      
-      <!-- Body -->
-      <div class="modal-body">
-        <form id="productForm" enctype="multipart/form-data">
-            <div class="row">
-                <!-- hình ảnh -->
-                <div class="col-md-3 text-center">
-                <div id="image-preview" class="mb-3">
-                    <span>Click để tải ảnh</span>
-                </div>
-                <input type="file" name="ImageFile" id="product-image" class="hidden-input" accept="image/*">
-                <small id="product-image-error" class="form-text text-danger d-none"></small>
-                <button type="button" class="btn btn-primary w-100" id="upload-btn">
-                    <i class="bi bi-upload"></i> Tải ảnh lên
-                </button>
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle">Quản lý sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <!-- thông tin sản phẩm -->
-                <div class="col-md-9">
-                <div class="mb-3">
-                    <label class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" name="ProductName" id="product-name" placeholder="Nhập tên sản phẩm">
-                    <small id="product-name-error" class="form-text text-danger d-none"></small>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form id="productForm" enctype="multipart/form-data">
+                        <div class="row">
+                            <!-- hình ảnh -->
+                            <div class="col-md-3 text-center">
+                                <div id="image-preview" class="mb-3">
+                                    <span>Click để tải ảnh</span>
+                                </div>
+                                <input type="file" name="ImageFile" id="product-image" class="hidden-input" accept="image/*">
+                                <small id="product-image-error" class="form-text text-danger d-none"></small>
+                                <button type="button" class="btn btn-primary w-100" id="upload-btn">
+                                    <i class="bi bi-upload"></i> Tải ảnh lên
+                                </button>
+                            </div>
+
+                            <!-- thông tin sản phẩm -->
+                            <div class="col-md-9">
+                                <div class="mb-3">
+                                    <label class="form-label">Tên sản phẩm</label>
+                                    <input type="text" class="form-control" name="ProductName" id="product-name" placeholder="Nhập tên sản phẩm">
+                                    <small id="product-name-error" class="form-text text-danger d-none"></small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Loại sản phẩm</label>
+                                    <select class="form-select" name="CategoryId" id="product-category">
+                                        <option value="-1">Chọn loại sản phẩm</option>
+                                        @foreach (var category in Model.Categories)
+                                        {
+                                            <option value="@category.CategoryId">@category.CategoryName</option>
+                                        }
+                                    </select>
+                                    <small id="product-category-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Giá</label>
+                                    <input type="number" class="form-control" name="Price" id="product-price" placeholder="Nhập giá">
+                                    <small id="product-price-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Đơn vị</label>
+                                    <input type="text" class="form-control" name="Unit" id="product-unit" placeholder="Nhập đơn vị">
+                                    <small id="product-unit-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Barcode</label>
+                                    <input type="text" class="form-control" name="Barcode" id="product-barcode" placeholder="Nhập barcode">
+                                    <small id="product-barcode-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tồn kho</label>
+                                    <input type="number" class="form-control" name="InventoryQuantity" id="product-inventory" placeholder="Nhập tồn kho">
+                                    <small id="product-inventory-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="product-supplier">Nhà cung cấp</label>
+                                    <select class="form-select" name="SupplierId" id="product-supplier">
+                                        <option value="-1">Chọn nhà cung cấp</option>
+                                        @foreach (var supplier in Model.Suppliers)
+                                        {
+                                            <option value="@supplier.SupplierId">@supplier.Name</option>
+                                        }
+                                    </select>
+                                    <small id="product-supplier-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Loại sản phẩm</label>
-                    <select class="form-select" name="CategoryId" id="product-category">
-                    <option value="-1">Chọn loại sản phẩm</option>
-                    @foreach (var category in Model.Categories)
-                    {
-                        <option value="@category.CategoryId">@category.CategoryName</option>
-                    }
-                    </select>
-                    <small id="product-category-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Giá</label>
-                    <input type="number" class="form-control" name="Price" id="product-price" placeholder="Nhập giá">
-                    <small id="product-price-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Đơn vị</label>
-                    <input type="text" class="form-control" name="Unit" id="product-unit" placeholder="Nhập đơn vị">
-                    <small id="product-unit-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Barcode</label>
-                    <input type="text" class="form-control" name="Barcode" id="product-barcode" placeholder="Nhập barcode">
-                    <small id="product-barcode-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Tồn kho</label>
-                    <input type="number" class="form-control" name="InventoryQuantity" id="product-inventory" placeholder="Nhập tồn kho">
-                    <small id="product-inventory-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="product-supplier">Nhà cung cấp</label>
-                    <select class="form-select" name="SupplierId" id="product-supplier">
-                    <option value="-1">Chọn nhà cung cấp</option>
-                    @foreach (var supplier in Model.Suppliers)
-                    {
-                        <option value="@supplier.SupplierId">@supplier.Name</option>
-                    }
-                    </select>
-                    <small id="product-supplier-error" class="form-text text-danger d-none">Chọn loại sản phẩm</small>
-                </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button type="button" id="productModalSaveBtn" class="btn btn-primary" data-action="add">Lưu</button>
                 </div>
             </div>
-        </form>
-      </div>
-      
-      <!-- Footer -->
-      <div class="modal-footer">
-        <button type="button" id="productModalSaveBtn" class="btn btn-primary" data-action="add">Lưu</button>
-      </div>
+        </div>
     </div>
-  </div>
-</div>  
+    <!-- Modal Barcode -->
+    <div class="modal fade" id="barcodeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Barcode</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center" id="barcodeImageContainer">
+                    <!-- Ảnh barcode sẽ được chèn ở đây -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnPrintBarcode" class="btn btn-primary">
+                        <i class="bi bi-printer"></i> In Barcode
+                    </button>
+                    <button type="button" id="btnDownloadBarcode" class="btn btn-success">
+                        <i class="bi bi-download"></i> Tải Barcode
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 
 @section Scripts {

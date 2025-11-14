@@ -11,6 +11,7 @@ namespace StoreManagement.Models.Pages.Orders
         public required string CustomerName { get; set; }
         public required string UserName { get; set; }
         public DateTime OrderDate { get; set; }
+        public OrderStatus Status { get; set; }
 
         // Thông tin Payment
         public PaymentMethod PaymentMethod { get; set; }
