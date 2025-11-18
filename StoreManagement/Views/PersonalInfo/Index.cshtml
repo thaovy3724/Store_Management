@@ -1,0 +1,144 @@
+﻿@model StoreManagement.Models.Entities.User
+
+@{
+    ViewData["Title"] = "Thông tin tài khoản";
+}
+
+@* <div class="container-fluid p-4"> *@
+@*     <div class="card shadow-sm border-0"> *@
+@*         <div class="card-header"> *@
+@*             <ul class="nav nav-tabs card-header-tabs" id="profileTabs" role="tablist"> *@
+@*                 <li class="nav-item" role="presentation"> *@
+@*                     <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab"> *@
+@*                         <i class="bi bi-person-circle me-1"></i> Thông tin cá nhân *@
+@*                     </button> *@
+@*                 </li> *@
+@*                 <li class="nav-item" role="presentation"> *@
+@*                     <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password" type="button" role="tab"> *@
+@*                         <i class="bi bi-shield-lock me-1"></i> Đổi mật khẩu *@
+@*                     </button> *@
+@*                 </li> *@
+@*             </ul> *@
+@*         </div> *@
+@*         <div class="card-body"> *@
+@*             <div class="tab-content" id="profileTabsContent"> *@
+@*                 <!-- Tab Thông tin cá nhân --> *@
+@*                 <div class="tab-pane fade show active" id="info" role="tabpanel"> *@
+@*                     <form id="profileForm"> *@
+@*                         @Html.AntiForgeryToken() *@
+@*                         <input type="hidden" id="userId" value="@Model.UserId" /> *@
+@*                         <div class="mb-3"> *@
+@*                             <label class="form-label">Họ và tên</label> *@
+@*                             <input type="text" class="form-control" id="fullname" name="fullname" value="@Model.FullName" placeholder="Nhập họ tên"> *@
+@*                         </div> *@
+@*                         <div class="mb-3"> *@
+@*                             <label class="form-label">Tên đăng nhập</label> *@
+@*                             <input type="text" class="form-control" id="username" value="@Model.Username" readonly> *@
+@*                         </div> *@
+@*                         <div class="mb-3"> *@
+@*                             <label class="form-label">Quyền</label> *@
+@*                             <input type="text" class="form-control" id="role" value="@Model.Role" readonly disabled> *@
+@*                         </div> *@
+@*                         <div class="text-end"> *@
+@*                             <button type="submit" class="btn btn-primary"> *@
+@*                                 <i class="bi bi-save me-1"></i> Cập nhật *@
+@*                             </button> *@
+@*                         </div> *@
+@*                     </form> *@
+@*                 </div> *@
+@*                 <!-- Tab Đổi mật khẩu --> *@
+@*                 <div class="tab-pane fade" id="password" role="tabpanel"> *@
+@*                     <form id="passwordForm"> *@
+@*                         @Html.AntiForgeryToken() *@
+@*                         <input type="hidden" id="userIdPwd" value="@Model.UserId" /> *@
+@*                         <div class="mb-3"> *@
+@*                             <label class="form-label">Mật khẩu mới</label> *@
+@*                             <input type="password" class="form-control" id="newPassword" placeholder="Nhập mật khẩu mới"> *@
+@*                         </div> *@
+@*                         <div class="mb-3"> *@
+@*                             <label class="form-label">Xác nhận mật khẩu</label> *@
+@*                             <input type="password" class="form-control" id="confirmPassword" placeholder="Nhập lại mật khẩu"> *@
+@*                         </div> *@
+@*                         <div class="text-end"> *@
+@*                             <button type="submit" class="btn btn-primary"> *@
+@*                                 <i class="bi bi-check-circle me-1"></i> Lưu thay đổi *@
+@*                             </button> *@
+@*                         </div> *@
+@*                     </form> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+<div class="container-fluid p-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="profileTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">
+                        <i class="bi bi-person-circle me-1"></i> Thông tin cá nhân
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password" type="button" role="tab">
+                        <i class="bi bi-shield-lock me-1"></i> Đổi mật khẩu
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="profileTabsContent">
+                <!-- Tab Thông tin cá nhân -->
+                <div class="tab-pane fade show active" id="info" role="tabpanel">
+                    <form id="profileForm">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="userId" value="@Model.UserId" />
+                        <div class="mb-3">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" value="@Model.FullName">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" class="form-control" id="username" name="username" value="@Model.Username">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Quyền</label>
+                            <input type="text" class="form-control" id="role" value="@Model.Role" readonly disabled>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-1"></i> Cập nhật
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Tab Đổi mật khẩu -->
+                <div class="tab-pane fade" id="password" role="tabpanel">
+                    <form id="passwordForm">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="userIdPwd" value="@Model.UserId" />
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu mới</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="Nhập mật khẩu mới">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Xác nhận mật khẩu</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-1"></i> Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/PersonalInfo.js"></script>
+}

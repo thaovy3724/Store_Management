@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj": {}
+    "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj": {}
   },
   "projects": {
-    "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj": {
+    "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
+        "projectUniqueName": "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
         "projectName": "StoreManagement",
-        "projectPath": "D:\\StoreManagement\\StoreManagement\\StoreManagement.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\StoreManagement\\StoreManagement\\obj\\",
+        "projectPath": "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\StoreManagement.csproj",
+        "packagesPath": "C:\\Users\\huonglamcoder\\.nuget\\packages\\",
+        "outputPath": "A:\\FixBugDiEm\\dotNET\\Demo\\ASPNET MVC CRUD\\QuanLyBanLe\\StoreManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huonglamcoder\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -51,15 +51,19 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
             }
           },
           "imports": [
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

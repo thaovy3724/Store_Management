@@ -1,8 +1,7 @@
-﻿namespace StoreManagement.Models.Entities
+﻿namespace StoreManagement.Models.Entities;
+
+public enum Role
 {
-    public enum Role
-    {
-        Admin,
-        Staff
-    }
+    Admin,
+    Staff
 }

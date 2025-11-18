@@ -1,9 +1,8 @@
-﻿namespace StoreManagement.Models.Entities
+﻿namespace StoreManagement.Models.Entities;
+
+public enum OrderStatus
 {
-    public enum OrderStatus
-    {
-        Pending,
-        Paid,
-        Cancelled
-    }
+    Pending,
+    Paid,
+    Cancelled
 }

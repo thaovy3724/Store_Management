@@ -17,45 +17,77 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StoreManagement
 build_property.RootNamespace = StoreManagement
-build_property.ProjectDir = D:\StoreManagement\StoreManagement\
+build_property.ProjectDir = A:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\StoreManagement\StoreManagement
+build_property.MSBuildProjectDirectory = A:\FixBugDiEm\dotNET\Demo\ASPNET MVC CRUD\QuanLyBanLe\StoreManagement
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/StoreManagement/StoreManagement/Views/Home/Index.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Auth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/Home/Privacy.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/Product/Product.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxQcm9kdWN0LmNzaHRtbA==
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/PersonalInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWxJbmZvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Shared/Pagination.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhZ2luYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Shared/_Topbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/_ViewImports.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Statistic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Supplier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/_ViewStart.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/StoreManagement/StoreManagement/Views/Shared/_Layout.cshtml]
+[A:/FixBugDiEm/dotNET/Demo/ASPNET MVC CRUD/QuanLyBanLe/StoreManagement/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1idw9mat1g

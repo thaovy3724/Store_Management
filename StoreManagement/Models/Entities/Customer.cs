@@ -1,12 +1,36 @@
-﻿namespace StoreManagement.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace StoreManagement.Models.Entities;
+
+[Table("customers")]
+public class Customer
 {
-    public class Customer
-    {
-        public int CustomerId { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        public DateTime CreatedAt { get; set; }
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("customer_id")]
+    public int CustomerId { get; set; }
+    
+    [Required]
+    [StringLength(100)]
+    [Column("name")]
+    public string Name { get; set; }
+    
+    [StringLength(20)]
+    [Column("phone")]
+    public string? Phone { get; set; }
+    
+    [StringLength(100)]
+    [Column("email")]
+    public string? Email { get; set; }
+    
+    [Column("address")]
+    public string? Address { get; set; }
+    
+    [Column("created_at")]
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    
+    // Navigation Properties
+    // 1 customer - n orders
+    public ICollection<Order>? Orders { get; set; }
 }
