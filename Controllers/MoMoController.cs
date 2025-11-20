@@ -297,7 +297,7 @@ namespace StoreManagement.Controllers
 
                 if (calculatedSignature != receivedSignature)
                 {
-                    Console.WriteLine("❌ IPN: Chữ ký không hợp lệ!");
+                    Console.WriteLine("IPN: Chữ ký không hợp lệ!");
                     return BadRequest(new { message = "Invalid signature" });
                 }
 
@@ -321,7 +321,7 @@ namespace StoreManagement.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Error processing IPN: {ex.Message}");
+                Console.WriteLine($"Error processing IPN: {ex.Message}");
                 return StatusCode(500);
             }
         }

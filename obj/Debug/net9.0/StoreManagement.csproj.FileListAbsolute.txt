@@ -624,7 +624,6 @@ D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\rjsmcs
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\scopedcss\bundle\StoreManagement.styles.css
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\scopedcss\projectbundle\StoreManagement.bundle.scp.css
-D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\4t1wm0pz9p-rxmmx26xpl.gz
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\7oa2qyggh0-y59lmlt9gs.gz
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\y3af6hv9xj-b9sayid5wm.gz
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\zt3sk4zrfk-rxtsv3awgo.gz
@@ -717,3 +716,5 @@ D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compre
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\b0z5f1v30h-g0x0sb8k2l.gz
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\vdv2hz59nu-5znxdwrl24.gz
 D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\kb72g76nus-97vu2jjm8w.gz
+D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\4t1wm0pz9p-r8df2omcog.gz
+D:\DKP_SGU_2022\Y4HK1\DotNet\DoAnDotNet\Store_Management\obj\Debug\net9.0\compressed\huwg6iuptv-38ve7mf665.gz
