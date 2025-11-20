@@ -217,6 +217,10 @@ namespace StoreManagement.Migrations
                         .HasColumnType("int")
                         .HasColumnName("order_id");
 
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("payment_date");
+
                     b.Property<string>("PaymentMethod")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -246,7 +250,7 @@ namespace StoreManagement.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("barcode");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int")
                         .HasColumnName("category_id");
 
@@ -255,8 +259,13 @@ namespace StoreManagement.Migrations
                         .HasColumnName("created_at");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)")
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("price");
+
+                    b.Property<string>("ProductImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("product_image");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -264,7 +273,7 @@ namespace StoreManagement.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("product_name");
 
-                    b.Property<int?>("SupplierId")
+                    b.Property<int>("SupplierId")
                         .HasColumnType("int")
                         .HasColumnName("supplier_id");
 
@@ -440,7 +449,7 @@ namespace StoreManagement.Migrations
                         .HasForeignKey("PromotionPromoId");
 
                     b.HasOne("StoreManagement.Models.Entities.User", "User")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Customer");
@@ -459,7 +468,7 @@ namespace StoreManagement.Migrations
                         .IsRequired();
 
                     b.HasOne("StoreManagement.Models.Entities.Product", "Product")
-                        .WithMany("OrderItems")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -483,21 +492,20 @@ namespace StoreManagement.Migrations
             modelBuilder.Entity("StoreManagement.Models.Entities.Product", b =>
                 {
                     b.HasOne("StoreManagement.Models.Entities.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StoreManagement.Models.Entities.Supplier", "Supplier")
                         .WithMany("Products")
-                        .HasForeignKey("SupplierId");
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
                     b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("StoreManagement.Models.Entities.Category", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("StoreManagement.Models.Entities.Customer", b =>
@@ -515,9 +523,8 @@ namespace StoreManagement.Migrations
 
             modelBuilder.Entity("StoreManagement.Models.Entities.Product", b =>
                 {
-                    b.Navigation("Inventory");
-
-                    b.Navigation("OrderItems");
+                    b.Navigation("Inventory")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StoreManagement.Models.Entities.Promotion", b =>
@@ -528,11 +535,6 @@ namespace StoreManagement.Migrations
             modelBuilder.Entity("StoreManagement.Models.Entities.Supplier", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("StoreManagement.Models.Entities.User", b =>
-                {
-                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

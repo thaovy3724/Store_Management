@@ -15,8 +15,4 @@ public class Category
     [StringLength(100)]
     [Column("category_name")]
     public string CategoryName { get; set; }
-    
-    // Navigation Properties
-    // 1 category - n products
-    public ICollection<Product>? Products { get; set; }
 }

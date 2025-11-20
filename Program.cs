@@ -43,10 +43,29 @@ app.Use(async (context, next) =>
     if (!path.Contains("/auth") && !path.Contains("/auth/logout"))
     {
         var username = context.Session.GetString("Username");
+        var role = context.Session.GetString("Role");
+
         if (string.IsNullOrEmpty(username))
         {
             context.Response.Redirect("/Auth");
             return;
+        }
+
+        if (!string.IsNullOrEmpty(role))
+        {
+            // Staff chỉ được vào /OrderStaff
+            if (role == "Staff" && !path.StartsWith("/orderstaff"))
+            {
+                context.Response.Redirect("/orderstaff");
+                return;
+            }
+
+            // Admin không được vào /OrderStaff
+            if (role == "Admin" && path.StartsWith("/orderstaff"))
+            {
+                context.Response.Redirect("/statistic");
+                return;
+            }
         }
     }
 

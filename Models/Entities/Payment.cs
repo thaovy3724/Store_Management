@@ -18,13 +18,14 @@ public class Payment
     [Column("amount", TypeName = "decimal(10,2)")]
     public decimal Amount { get; set; }
 
+    [Required]
+    [Column("payment_date")]
+    public DateTime PaymentDate { get; set; }
+
     [Column("payment_method")]
     [StringLength(20)]
-    public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Cash; 
-    // "cash", "card", "bank_transfer", "e-wallet"
-    
-    // Navigation Properties
-    // 1 payment - 1 order
+    public PaymentMethod PaymentMethod { get; set; }
+
     public Order? Order { get; set; }
 
 }
