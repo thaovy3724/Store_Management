@@ -24,7 +24,7 @@ public class Order
 
     [Column("status")]
     [StringLength(10)]
-    public OrderStatus Status { get; set; } = OrderStatus.Pending; 
+    public OrderStatus Status { get; set; }
     // "pending" | "paid" | "canceled"
 
     [Required]

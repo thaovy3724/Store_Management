@@ -221,18 +221,18 @@ function renderTable(suppliers) {
         body.append(
             `
             <tr class="text-center">
-                <td class="text-center">${s.id}</td>
+                <td class="text-center">${s.supplierId}</td>
                 <td>${s.name}</td>
                 <td>${s.phone}</td>
                 <td>${s.address}</td>
                 <td class="text-center">
-                    <button class="btn btn-sm btn-light border me-1 btn-view" data-id=${s.id} title="Xem" data-bs-toggle="modal" data-bs-target="#supplierModal">
+                    <button class="btn btn-sm btn-light border me-1 btn-view" data-id=${s.supplierId} title="Xem" data-bs-toggle="modal" data-bs-target="#supplierModal">
                         <i class="bi bi-eye text-primary"></i>
                     </button>
-                    <button class="btn btn-sm btn-light border me-1 btn-edit" data-id=${s.id} title="Sửa" data-bs-toggle="modal" data-bs-target="#supplierModal">
+                    <button class="btn btn-sm btn-light border me-1 btn-edit" data-id=${s.supplierId} title="Sửa" data-bs-toggle="modal" data-bs-target="#supplierModal">
                         <i class="bi bi-pencil text-success"></i>
                     </button>
-                    <button class="btn btn-sm btn-light border btn-delete" data-id=${s.id} title="Xóa">
+                    <button class="btn btn-sm btn-light border btn-delete" data-id=${s.supplierId} title="Xóa">
                         <i class="bi bi-trash text-danger"></i>
                     </button>
                 </td>

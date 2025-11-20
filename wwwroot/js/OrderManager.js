@@ -59,21 +59,21 @@
             const paymentDivCollapse = document.querySelector(".order-history-paymentmethod-div-collapse");
             paymentDiv.classList.add("d-none");
             paymentDivCollapse.classList.add("d-none");
-            if (order.status === 1) {
-                paymentDiv.classList.remove("d-none");
-                paymentDivCollapse.classList.remove("d-none");
+            if (order.status === 1) { 
+                paymentDiv.classList.remove("d-none"); 
+                paymentDivCollapse.classList.remove("d-none"); 
                 const paymentBtn = paymentDiv.querySelector(".btn-order-history-paymentmethod");
                 let paymentText;
 
                 switch (order.paymentMethod) {
                     case 0:
-                        paymentText = "Chuyển khoản";
-                        break;
+                        paymentText = "Tiền mặt";
+                        break;ản
                     case 1:
                         paymentText = "Thẻ";
                         break;
                     case 2:
-                        paymentText = "Tiền mặt";
+                        paymentText = "Chuyển khoản";
                         break;
                     case 3:
                         paymentText = "Ví điện tử";
@@ -88,7 +88,7 @@
 
                 document.querySelector(".order-history-paymentamount").innerText = order.totalAmount.toLocaleString() + " đ";
                 document.querySelector(".order-history-paymentdate").innerText = order.orderDate ? new Date(order.orderDate).toLocaleString() : "";
-            }
+            } 
 
             document.querySelector(".order-history-totalamount").innerText = order.totalAmount.toLocaleString() + " đ";
             document.querySelector(".order-history-promotioncode").innerText = order.promotionCode;
@@ -152,9 +152,9 @@
                     // Phương thức thanh toán
                     let paymentText;
                     switch (order.paymentMethod) {
-                        case 0: paymentText = "Chuyển khoản"; break;
+                        case 0: paymentText = "Tiền mặt"; break;
                         case 1: paymentText = "Thẻ"; break;
-                        case 2: paymentText = "Tiền mặt"; break;
+                        case 2: paymentText = "Chuyển khoản"; break;
                         case 3: paymentText = "Ví điện tử"; break;
                         default: paymentText = "Không xác định"; break;
                     }

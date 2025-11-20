@@ -1,0 +1,169 @@
+﻿@model StoreManagement.Views.Promotion.PromotionModel
+@{
+	ViewData["Title"] = "Quản lý mã giảm giá";
+}
+
+<h1>@ViewData["Title"]</h1>
+<!-- Nội dung chính -->
+<div class="content">
+    <div class="container-fluid p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="fw-bold">Quản lý khuyến mãi</h3>
+        </div>
+        <!-- Thanh lọc -->
+        <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+            <!-- Thanh lọc bên trái -->
+            <div class="d-flex flex-wrap gap-2 align-items-center flex-grow-1">
+                <select id="filterStatus" class="form-select form-select-sm" style="width: 180px;">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Active">Active</option>
+                    <option value="Ended">Ended</option>
+                </select>
+
+                <!-- Lọc từ ngày -->
+                <div class="input-group input-group-sm" style="width: 200px;">
+                    <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                    <input type="date" id="fromDate" class="form-control" placeholder="Từ ngày">
+                </div>
+
+                <!-- Lọc đến ngày -->
+                <div class="input-group input-group-sm" style="width: 200px;">
+                    <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                    <input type="date" id="toDate" class="form-control" placeholder="Đến ngày">
+                </div>
+
+                <!-- Ô tìm kiếm -->
+                <div class="input-group input-group-sm" style="width: 300px;">
+                    <input type="text" id="searchCode" class="form-control" placeholder="Nhập mã khuyến mãi">
+                    <button id="btnSearch" class="btn btn-primary btn-search" type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+
+                <!-- Nút Reset (THÊM DÒNG NÀY) -->
+                <button id="btnResetFilter" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+            </div>
+
+            <!-- Nút Thêm mới bên phải -->
+            <button class="btn btn-primary btn-sm btn-add" data-bs-toggle="modal" data-bs-target="#promotionModal">
+                <i class="bi bi-plus-circle"></i> Thêm mới
+            </button>
+        </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light thead-separator ">
+                            <tr class="text-center align-middle">
+                                <th style="width:120px;">Mã</th>
+                                <th>Giá trị đơn hàng tối thiểu</th>
+                                <th>Giới hạn lần sử dụng</th>
+                                <th>Ngày bắt đầu</th>
+                                <th>Ngày kết thúc</th>
+                                <th>Trạng thái</th>
+                                <th style="width:150px;">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="promotionTableBody"></tbody>
+                    </table>
+                </div>
+                <!-- Phân trang-->
+                <nav class="mt-3">
+                    <ul id="pagination" class="pagination justify-content-center modern-pagination-light">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">&laquo;</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">&raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal dùng chung -->
+<div class="modal fade" id="promotionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="promotionModalTitle">Quản lý khuyến mãi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="promotionForm">
+                    <!-- Mã khuyến mãi -->
+                    <div class="mb-3">
+                        <label class="form-label">Mã khuyến mãi</label>
+                        <input type="text" class="form-control" id="code" maxlength="20">
+                        <small id="code-msg" class="form-text text-danger">Vui lòng nhập mã khuyến mãi</small>
+                    </div>
+
+                    <!-- Loại khuyến mãi -->
+                    <div class="mb-3">
+                        <label class="form-label">Loại khuyến mãi</label>
+                        <select class="form-select" id="discountType">
+                            <option value="percent">Percent</option>
+                            <option value="fixed">Fixed</option>
+                        </select>
+                        <small id="discountType-msg" class="form-text text-danger">Vui lòng chọn loại khuyến mãi</small>
+                    </div>
+
+                    <!-- Giá trị khuyến mãi -->
+                    <div class="mb-3">
+                        <label class="form-label">Giá trị khuyến mãi</label>
+                        <input type="number" class="form-control" id="discountValue" min="0">
+                        <small id="discountValue-msg" class="form-text text-danger">Vui lòng nhập giá trị khuyến mãi</small>
+                    </div>
+
+                    <!-- Giá trị đơn hàng tối thiểu -->
+                    <div class="mb-3">
+                        <label class="form-label">Giá trị đơn hàng tối thiểu</label>
+                        <input type="number" class="form-control" id="minOrderAmount" min="0">
+                        <small id="minOrderAmount-msg" class="form-text text-danger">Vui lòng nhập giá trị đơn hàng tối thiểu</small>
+                    </div>
+
+                    <!-- Giới hạn lần sử dụng -->
+                    <div class="mb-3">
+                        <label class="form-label">Giới hạn lần sử dụng</label>
+                        <input type="number" class="form-control" id="usageLimit" min="0">
+                        <small id="usageLimit-msg" class="form-text text-danger">Vui lòng nhập giới hạn số lần sử dụng</small>
+                    </div>
+
+                    <!-- Ngày bắt đầu -->
+                    <div class="mb-3">
+                        <label class="form-label">Ngày bắt đầu</label>
+                        <input type="date" class="form-control" id="startDate">
+                        <small id="startDate-msg" class="form-text text-danger">Vui lòng chọn ngày bắt đầu</small>
+                    </div>
+
+                    <!-- Ngày kết thúc -->
+                    <div class="mb-3">
+                        <label class="form-label">Ngày kết thúc</label>
+                        <input type="date" class="form-control" id="endDate">
+                        <small id="endDate-msg" class="form-text text-danger">Vui lòng chọn ngày kết thúc</small>
+                    </div>
+                </form>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="submit" form="promotionForm" id="promotionModalSaveBtn" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Toast.js"></script>
+    <script src="~/js/Promotion.js"></script>
+}

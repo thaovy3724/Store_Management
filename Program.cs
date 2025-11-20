@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 
 // Inject DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
@@ -37,16 +38,47 @@ app.UseStaticFiles();
 app.UseRouting();
 app.Use(async (context, next) =>
 {
-    var path = context.Request.Path.Value?.ToLower();
+    var path = context.Request.Path.Value ?? string.Empty;
 
-    // Nếu chưa đăng nhập và không phải đang ở trang login
-    if (!path.Contains("/auth") && !path.Contains("/auth/logout"))
+    // Bỏ qua các trang login/logout và các URL thanh toán test
+    if (!path.StartsWith("/Auth", StringComparison.OrdinalIgnoreCase) &&
+        !path.Contains("momo", StringComparison.OrdinalIgnoreCase) &&
+        !path.Contains("vnpayment", StringComparison.OrdinalIgnoreCase))
     {
         var username = context.Session.GetString("Username");
+        var role = context.Session.GetString("Role");
+
+        // Nếu chưa đăng nhập
         if (string.IsNullOrEmpty(username))
         {
             context.Response.Redirect("/Auth");
             return;
+        }
+
+        // Nếu đã login
+        if (!string.IsNullOrEmpty(role))
+        {
+            switch (role)
+            {
+                case "Staff":
+                    // Staff chỉ được vào /OrderStaff
+                    if (!path.StartsWith("/OrderStaff", StringComparison.OrdinalIgnoreCase) &&
+                        !path.StartsWith("/Customer", StringComparison.OrdinalIgnoreCase))
+                    {
+                        context.Response.Redirect("/OrderStaff");
+                        return;
+                    }
+                    break;
+
+                case "Admin":
+                    // Admin không được vào /OrderStaff
+                    if (path.StartsWith("/OrderStaff", StringComparison.OrdinalIgnoreCase))
+                    {
+                        context.Response.Redirect("/Statistic");
+                        return;
+                    }
+                    break;
+            }
         }
     }
 

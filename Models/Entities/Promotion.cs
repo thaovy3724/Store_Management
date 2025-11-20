@@ -46,7 +46,7 @@ public class Promotion
 
     [Column("status")]
     [StringLength(10)]
-    public PromotionStatus Status { get; set; } = PromotionStatus.Active; //Active, Inactive
+    public PromotionStatus Status { get; set; }
     
     // Navigation Properties
     // 1 promotion - n orders

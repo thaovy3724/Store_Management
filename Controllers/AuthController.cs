@@ -46,7 +46,7 @@ public class AuthController(ApplicationDbContext _dbContext) : Controller
         string redirectUrl = user.Role switch
         {
             Role.Admin => Url.Action("Index", "Statistic"),
-            Role.Staff => Url.Action("Index", "Orders"),
+            Role.Staff => Url.Action("Index", "OrderStaff"),
             _ => Url.Action("Index", "Home")
         };
 
@@ -58,4 +58,5 @@ public class AuthController(ApplicationDbContext _dbContext) : Controller
     {
         HttpContext.Session.Clear();
         return RedirectToAction("Index");
-    }}
+    }
+}
