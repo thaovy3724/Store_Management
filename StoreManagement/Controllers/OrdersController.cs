@@ -20,7 +20,7 @@ namespace StoreManagement.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(
             int page = 1,
-            int pageSize = 2,
+            int pageSize = 5,
             string search = "",
             int? status = null,
             decimal? priceFrom = null,

@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BarcodeLib;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
 using StoreManagement.Models.Pages.Product;
 using StoreManagement.Utils;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using BarcodeLib;
 
 namespace StoreManagement.Controllers
 {
@@ -123,7 +124,7 @@ namespace StoreManagement.Controllers
 
             // Upload image file
             var newFileName = UploadImage(model.ImageFile);
-            if(newFileName == null)
+            if (newFileName == null)
             {
                 return Json(new { success = false, message = "Lỗi khi tải lên hình ảnh sản phẩm." });
             }
@@ -214,7 +215,7 @@ namespace StoreManagement.Controllers
                 product = new
                 {
                     barcode = product.Barcode,
-                    image = product.ProductImage, 
+                    image = product.ProductImage,
                     name = product.ProductName,
                     price = product.Price,
                     unit = product.Unit
@@ -225,7 +226,7 @@ namespace StoreManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(String barcode)
         {
-            if(String.IsNullOrEmpty(barcode))
+            if (String.IsNullOrEmpty(barcode))
             {
                 return Json(new { success = false, message = "Mã vạch không được để trống." });
             }
@@ -233,7 +234,7 @@ namespace StoreManagement.Controllers
             // *** Business logic to delete product by barcode ***
             // Find product
             var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Barcode == barcode);
-            if(product == null)
+            if (product == null)
             {
                 return Json(new { success = false, message = "Sản phẩm không tồn tại." });
             }
@@ -244,9 +245,10 @@ namespace StoreManagement.Controllers
                 {
                     return Json(new { success = false, message = "Sản phẩm đã được bán, không thể xóa." });
                 }
-                else {
+                else
+                {
                     // Check if product exists in inventory and has quantity > 0
-                    if( await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
+                    if (await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
                     {
                         return Json(new { success = false, message = "Sản phẩm còn tồn kho, không thể xóa." });
                     }
@@ -255,8 +257,8 @@ namespace StoreManagement.Controllers
 
             // If checks pass, delete product
             dbContext.Products.Remove(product);
-            await dbContext.SaveChangesAsync(); 
-            return Json(new { success = true, message = "Xóa sản phẩm thành công" }); 
+            await dbContext.SaveChangesAsync();
+            return Json(new { success = true, message = "Xóa sản phẩm thành công" });
         }
 
         [HttpGet]
@@ -277,7 +279,7 @@ namespace StoreManagement.Controllers
             {
                 return Json(new { success = false, message = "Sản phẩm không tồn tại." });
             }
-            
+
             // Map from entity to AddProductViewModel
             var viewModel = new AddProductViewModel
             {
@@ -290,7 +292,7 @@ namespace StoreManagement.Controllers
                 Barcode = product.Barcode,
                 InventoryQuantity = product.Inventory != null ? product.Inventory.Quantity : 0
             };
-            return Json(new { success = true,viewModel});
+            return Json(new { success = true, viewModel });
         }
         [HttpGet]
         public IActionResult GetBarcodeImage(string barcode)

@@ -10,7 +10,6 @@
             icon.classList.replace("bi-eye", "bi-eye-slash");
         }
     });
-
     const loginForm = document.getElementById("loginForm");
     const overlay = document.getElementById("loadingOverlay");
 

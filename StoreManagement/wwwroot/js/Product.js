@@ -42,7 +42,7 @@
         uploadBtn.style.display = "inline-block";
         imagePreview.style.pointerEvents = "auto";
         imagePreview.style.opacity = "1";
-        imagePreview.innerHTML ="<span>Click để tải ảnh</span>"
+        imagePreview.innerHTML = "<span>Click để tải ảnh</span>"
         saveBtn.style.display = "inline-block";
     };
 
@@ -199,7 +199,7 @@
             try {
                 const res = await fetch("/Product/Add", {
                     method: "POST",
-                    body: formData  
+                    body: formData
                 });
                 const data = await res.json();
 
@@ -207,7 +207,7 @@
                     showAlert(data.message, 'success');
                     // có thể load lại danh sách sản phẩm tại đây nếu cần
                     await new Promise(resolve => setTimeout(resolve, 1800));
-                    window.location.href ="/Product/Index?page=1"
+                    window.location.href = "/Product/Index?page=1"
                     const modalEl = document.getElementById('productModal');
                     const modal = bootstrap.Modal.getInstance(modalEl);
                     modal.hide(); // Đóng modal đúng chuẩn Bootstrap
@@ -376,7 +376,7 @@
     }
 
     // Bấm nút tìm kiếm
-    document.getElementById("btnSearch").addEventListener("click",applyFilter);
+    document.getElementById("btnSearch").addEventListener("click", applyFilter);
     document.getElementById("searchInput").addEventListener("keypress", e => {
         if (e.key === "Enter") {
             e.preventDefault();
@@ -431,24 +431,24 @@
     });
 
     document.getElementById('btnPrintBarcode').addEventListener('click', () => {
-    const container = document.getElementById('barcodeImageContainer');
-    const img = container.querySelector('img');
+        const container = document.getElementById('barcodeImageContainer');
+        const img = container.querySelector('img');
 
-    if (!img) {
-        alert("Chưa có barcode để in!");
-        return;
-    }
+        if (!img) {
+            alert("Chưa có barcode để in!");
+            return;
+        }
 
-    const width = 500;
-    const height = 600;
+        const width = 500;
+        const height = 600;
 
-    const left = (screen.width / 2) - (width / 2);
-    const top = (screen.height / 2) - (height / 2) - 150;
+        const left = (screen.width / 2) - (width / 2);
+        const top = (screen.height / 2) - (height / 2) - 150;
 
-    const printWindow = window.open('', '_blank',
-        `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no,status=no`);
+        const printWindow = window.open('', '_blank',
+            `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no,status=no`);
 
-    printWindow.document.write(`
+        printWindow.document.write(`
         <!DOCTYPE html>
         <html lang="vi">
         <head>

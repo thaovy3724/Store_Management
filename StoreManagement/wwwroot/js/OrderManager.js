@@ -67,13 +67,13 @@
 
                 switch (order.paymentMethod) {
                     case 0:
-                        paymentText = "Chuyển khoản";
+                        paymentText = "Tiền mặt";
                         break;
                     case 1:
                         paymentText = "Thẻ";
                         break;
                     case 2:
-                        paymentText = "Tiền mặt";
+                        paymentText = "Chuyển khoản";
                         break;
                     case 3:
                         paymentText = "Ví điện tử";
@@ -152,9 +152,9 @@
                     // Phương thức thanh toán
                     let paymentText;
                     switch (order.paymentMethod) {
-                        case 0: paymentText = "Chuyển khoản"; break;
+                        case 0: paymentText = "Tiền mặt"; break;
                         case 1: paymentText = "Thẻ"; break;
-                        case 2: paymentText = "Tiền mặt"; break;
+                        case 2: paymentText = "Chuyển khoản"; break;
                         case 3: paymentText = "Ví điện tử"; break;
                         default: paymentText = "Không xác định"; break;
                     }
@@ -196,7 +196,7 @@
                 <body>
                     <div class="invoice-box">
                         <div class="invoice-header">
-                            <h2>StoreManagement</h2>
+                            <h2>FUFOGO</h2>
                             <p>Địa chỉ: 256 An Dương Vương, phường 3, quận 5, TP.HCM</p>
                             <p>Hotline: 0123 456 789</p>
                             <hr/>
