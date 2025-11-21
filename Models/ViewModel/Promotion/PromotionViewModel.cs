@@ -1,23 +1,34 @@
-﻿using System;
+﻿using StoreManagement.Models.Entities;
 
 namespace StoreManagement.Models.ViewModels
 {
     public class PromotionViewModel
     {
-        public int Id { get; set; }
-        public string Code { get; set; } = string.Empty;
-        public string Type { get; set; } = string.Empty; // "percent" hoặc "fixed"
-        public decimal Value { get; set; }
+        public int PromoId { get; set; }
+        public string PromoCode { get; set; } = string.Empty;
+        public DiscountType DiscountType { get; set; }
+        public string? Description { get; set; }
+        public decimal DiscountValue { get; set; }
         public decimal MinOrderAmount { get; set; }
         public int UsageLimit { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public PromotionStatus Status { get; set; }
 
-        // Format để hiển thị đẹp trên View (optional)
+        // Hiển thị giá trị đẹp
         public string ValueDisplay =>
-            Type == "percent" ? $"{Value}%" : $"{Value:N0} đ";
+            DiscountType == DiscountType.Percent ? $"{DiscountValue}%" : $"{DiscountValue:N0} đ";
 
+        // Hiển thị khoảng thời gian
         public string PeriodDisplay =>
-            $"{StartDate:yyyy-MM-dd} → {EndDate:yyyy-MM-dd}";
+            $"{StartDate:dd/MM/yyyy} → {EndDate:dd/MM/yyyy}";
+
+        public string StatusText =>
+            Status switch
+            {
+                PromotionStatus.Active => "Hoạt động",
+                PromotionStatus.Inactive => "Kết thúc",
+                _ => "Khác"
+            };
     }
 }
