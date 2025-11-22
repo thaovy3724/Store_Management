@@ -223,41 +223,35 @@ namespace StoreManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(String barcode)
+        public async Task<IActionResult> Delete(string barcode)
         {
-            if (String.IsNullOrEmpty(barcode))
-            {
+            if (string.IsNullOrEmpty(barcode))
                 return Json(new { success = false, message = "Mã vạch không được để trống." });
-            }
 
-            // *** Business logic to delete product by barcode ***
-            // Find product
+            // Tìm sản phẩm
             var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Barcode == barcode);
             if (product == null)
-            {
                 return Json(new { success = false, message = "Sản phẩm không tồn tại." });
-            }
-            else
-            {
-                // Check if product exists in order item
-                if (await dbContext.OrderItems.AnyAsync(oi => oi.ProductId == product.ProductId))
-                {
-                    return Json(new { success = false, message = "Sản phẩm đã được bán, không thể xóa." });
-                }
-                else
-                {
-                    // Check if product exists in inventory and has quantity > 0
-                    if (await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
-                    {
-                        return Json(new { success = false, message = "Sản phẩm còn tồn kho, không thể xóa." });
-                    }
-                }
-            }
 
-            // If checks pass, delete product
-            dbContext.Products.Remove(product);
-            await dbContext.SaveChangesAsync();
-            return Json(new { success = true, message = "Xóa sản phẩm thành công" });
+            // Kiểm tra các bảng quan trọng
+            if (await dbContext.OrderItems.AnyAsync(oi => oi.ProductId == product.ProductId))
+                return Json(new { success = false, message = "Sản phẩm đã được bán, không thể xóa." });
+
+            if (await dbContext.Inventories.AnyAsync(i => i.ProductId == product.ProductId && i.Quantity > 0))
+                return Json(new { success = false, message = "Sản phẩm còn tồn kho, không thể xóa." });
+
+            // Thử xóa, bắt lỗi FK khác nếu có
+            try
+            {
+                dbContext.Products.Remove(product);
+                await dbContext.SaveChangesAsync();
+                return Json(new { success = true, message = "Xóa sản phẩm thành công" });
+            }
+            catch (DbUpdateException ex)
+            {
+                // Có FK khác đang dùng
+                return Json(new { success = false, message = "Sản phẩm đang được sử dụng ở nơi khác, không thể xóa." });
+            }
         }
 
         [HttpGet]

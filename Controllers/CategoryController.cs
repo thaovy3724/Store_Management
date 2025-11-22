@@ -2,20 +2,46 @@
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
+using StoreManagement.Models.ViewModel.Category;
+using StoreManagement.Models.ViewModel.Utils;
 
 namespace StoreManagement.Controllers;
 
 public class CategoryController(ApplicationDbContext _dbContext) : Controller
 {
     // GET: Category - Hiển thị trang chính
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public async Task<IActionResult> Index(int page = 1, int pageSize = 5, string search = "")
     {
-        var categories = await _dbContext.Categories
+        var query = _dbContext.Categories.AsQueryable();
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(c => c.CategoryName.Contains(search));
+        }
+
+        var list = await query
             .OrderBy(c => c.CategoryId)
+            .Select(c => new CategoryViewTableModel
+            {
+                CategoryId = c.CategoryId,
+                CategoryName = c.CategoryName
+            })
             .ToListAsync();
-        return View(categories);
+
+        var paged = Pagination<CategoryViewTableModel>.Create(list, page, pageSize);
+
+        var vm = new CategoryPageViewModel
+        {
+            Categories = paged.Items,
+            CurrentPage = paged.CurrentPage,
+            TotalPages = paged.TotalPages,
+            Search = search
+        };
+
+        return View(vm);
     }
-    
+
     // GET: Categories
     [HttpGet]
     public async Task<IActionResult> GetCategories()

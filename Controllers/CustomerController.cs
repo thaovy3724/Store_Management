@@ -2,18 +2,74 @@
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
+using StoreManagement.Models.ViewModel.Customer;
+using StoreManagement.Models.ViewModel.Utils;
 
 namespace StoreManagement.Controllers;
 
 public class CustomerController(ApplicationDbContext _dbContext) : Controller
 {
-    // GET
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public async Task<IActionResult> Index(
+    int page = 1,
+    int pageSize = 2,
+    string search = "",
+    DateTime? dateFrom = null,
+    DateTime? dateTo = null)
     {
-        var customers = await _dbContext.Customers.ToListAsync();
-        return View(customers);
+        // Query cơ bản
+        var query = _dbContext.Customers.AsQueryable();
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(c =>
+                c.Name.Contains(search) ||
+                c.CustomerId.ToString().Contains(search) ||
+                (c.Phone != null && c.Phone.Contains(search)) ||
+                (c.Email != null && c.Email.Contains(search))
+            );
+        }
+
+        // Lọc theo ngày tạo (from)
+        if (dateFrom.HasValue)
+            query = query.Where(c => c.CreatedAt >= dateFrom.Value);
+
+        // Lọc theo ngày tạo (to)
+        if (dateTo.HasValue)
+            query = query.Where(c => c.CreatedAt <= dateTo.Value);
+
+        // Select ra ViewModel
+        var customerList = await query
+            .OrderByDescending(c => c.CreatedAt)
+            .Select(c => new CustomerViewTableModel
+            {
+                CustomerId = c.CustomerId,
+                Name = c.Name,
+                Phone = c.Phone,
+                Email = c.Email,
+                Address = c.Address,
+                CreatedAt = c.CreatedAt
+            })
+            .ToListAsync();
+
+        // Phân trang
+        var pagedCustomers = Pagination<CustomerViewTableModel>.Create(customerList, page, pageSize);
+
+        // Gom vào PageViewModel
+        var viewModel = new CustomerPageViewModel
+        {
+            Customers = pagedCustomers.Items,
+            CurrentPage = pagedCustomers.CurrentPage,
+            TotalPages = pagedCustomers.TotalPages,
+            Search = search,
+            DateFrom = dateFrom,
+            DateTo = dateTo
+        };
+
+        return View(viewModel);
     }
-    
+
+
     // GET - Customer/GetCustomers
     [HttpGet]
     public async Task<IActionResult> GetCustomers()

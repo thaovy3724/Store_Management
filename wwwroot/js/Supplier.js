@@ -1,6 +1,3 @@
-// Load danh sách nhà cung cấp
-loadSuppliers();
-
 document.addEventListener("DOMContentLoaded", function () {
        
     const modalTitle = document.getElementById("supplierModalTitle");
@@ -148,99 +145,74 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Tìm kiếm nhà cung cấp
         // Mỗi lần thay đổi ô input#search thì gọi ajax (không muốn gọi ajax liên tục -> bỏ)
-    $(document).on('change', '#search', function() {
-        loadSuppliers();
-    });
-    $(document).on('click', ".btn-search", function() {
-        loadSuppliers();
-    });
-});
+    // Lấy element
+    const searchInput = document.getElementById("search");
+    const searchBtn = document.querySelector(".btn-search");
 
-// Load suppliers
-function loadSuppliers() {
-    const kyw = $('#search').val().trim();
-    
-    $.ajax({
-        url: "/Supplier/GetSuppliers",
-        type: "GET",
-        data: { search: kyw },
-        success: function(response) {
-            if(response.success) {
-                renderTable(response.data);
-            } else {
-                showAlert("Xin lỗi, có lỗi khi lấy dữ liệu nhà cung cấp!")
+    // Hàm search + refresh trang
+    function applyFilter() {
+        const search = searchInput.value.trim();
+
+        const params = new URLSearchParams({
+            search: search || "",
+            page: 1
+        });
+
+        window.location.href = `/Supplier/Index?${params.toString()}`;
+    }
+
+    // Nhấn nút Search
+    if (searchBtn) {
+        searchBtn.addEventListener("click", function () {
+            applyFilter();
+        });
+    }
+
+    // Nhấn Enter
+    if (searchInput) {
+        searchInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                applyFilter();
             }
-        }
-    });
+        });
+    }
+    // Event delegation
+    $(document).on("click", ".btn-delete", function () {
+        const id = $(this).data("id");
 
-    // Nút xóa
-    $(document).on('click', '.btn-delete', function() {
-        const id = parseInt($(this).data('id'));
         Swal.fire({
             title: 'Bạn có chắc muốn xóa?',
             text: "Hành động này sẽ không thể hoàn tác!",
-            icon: 'question',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#6c757d',
             confirmButtonText: 'Xóa',
             cancelButtonText: 'Hủy'
-        }).then((result) => {
+        }).then(result => {
             if (result.isConfirmed) {
                 $.ajax({
                     url: "/Supplier/DeleteSupplier",
                     type: "POST",
                     data: { id: id },
-                    success: function(res) {
-                       if(res.success) {
-                           showAlert(res.message, "success");
-                           loadSuppliers();
-                       } else {
-                           showAlert(res.message, "error");
-                       }
-                   } 
+                    success: function (res) {
+                        if (res.success) {
+                            showAlert(res.message, "success");
+                            // Reload lại trang Index giữ nguyên search hiện tại
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 700);
+                        } else {
+                            showAlert(res.message, "error");
+                        }
+                    }
                 });
             }
         });
-    })
-}
-
-function renderTable(suppliers) {
-    const body = $('#tableBody');
-    body.empty();
-    if (suppliers.length === 0) {
-        body.append(`
-            <tr>
-                <td colspan="5" class="text-center">Không có dữ liệu</td>
-            </tr>
-        `);
-        return;
-    }
-    
-    suppliers.forEach(s => {
-        body.append(
-            `
-            <tr class="text-center">
-                <td class="text-center">${s.supplierId}</td>
-                <td>${s.name}</td>
-                <td>${s.phone}</td>
-                <td>${s.address}</td>
-                <td class="text-center">
-                    <button class="btn btn-sm btn-light border me-1 btn-view" data-id=${s.supplierId} title="Xem" data-bs-toggle="modal" data-bs-target="#supplierModal">
-                        <i class="bi bi-eye text-primary"></i>
-                    </button>
-                    <button class="btn btn-sm btn-light border me-1 btn-edit" data-id=${s.supplierId} title="Sửa" data-bs-toggle="modal" data-bs-target="#supplierModal">
-                        <i class="bi bi-pencil text-success"></i>
-                    </button>
-                    <button class="btn btn-sm btn-light border btn-delete" data-id=${s.supplierId} title="Xóa">
-                        <i class="bi bi-trash text-danger"></i>
-                    </button>
-                </td>
-            </tr>
-            `
-        );
     });
-}
+
+});
 
 // Validate Form
 function formValidateSupplier(name, email, phone, address) {

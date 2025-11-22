@@ -309,48 +309,29 @@
         }
     }
     
-    // Search & Filter
-    const searchAndFilter = async () => {
-        const keyword = searchInput.value.trim();
-        const role = roleFilter.value;
-        
-        const url = `/Account/SearchAndFilter?keyword=${encodeURIComponent(keyword)}&role=${encodeURIComponent(role)}`;
+    function searchAndFilter() {
+        const search = document.getElementById("searchInput").value.trim();
+        const role = document.getElementById("roleFilter").value;
 
-        try {
-            const response = await fetch(url);
-            const result = await response.json();
+        const params = new URLSearchParams({
+            search: search || "",
+            role: role !== "-1" ? role : ""
+        });
 
-            if (result.success) {
-                renderTable(result.data);
-            } else {
-                showAlert("Có lỗi xảy ra lấy dữ liệu", "error");
-            }
-        } catch (error) {
-            console.error(error);
-            showAlert("Lỗi kết nối đến server", "error");
+        window.location.href = `/Account/Index?${params.toString()}`;
+    }
+
+    // Bấm nút Search
+    document.getElementById("searchBtn").addEventListener("click", searchAndFilter);
+
+    // Nhấn Enter trong ô input tìm kiếm
+    document.getElementById("searchInput").addEventListener("keypress", e => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            searchAndFilter();
         }
-    }
+    });
 
-    // Sự kiện khi nhấn nút Search
-    if (searchBtn) {
-        searchBtn.addEventListener("click", async function() {
-            await searchAndFilter();
-        });
-    }
-
-    // Sự kiện khi nhấn Enter trong ô input tìm kiếm
-    if (searchInput) {
-        searchInput.addEventListener("keyup", async function(event) {
-            if (event.key === "Enter") {
-                await searchAndFilter();
-            }
-        });
-    }
-
-    // Sự kiện khi thay đổi Dropdown lọc quyền (Role)
-    if (roleFilter) {
-        roleFilter.addEventListener("change", async function() {
-            await searchAndFilter();
-        });
-    }
+    // Thay đổi Role Filter
+    document.getElementById("roleFilter").addEventListener("change", searchAndFilter);
 });

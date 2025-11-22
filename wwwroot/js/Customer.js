@@ -271,26 +271,21 @@
             });
         }
     });
-    
-    // Tìm kiếm
-    const performSearch = async () => {
-        const searchTerm = searchInput.value.trim();
-        try {
-            const response = await fetch(`/Customer/Search?searchTerm=${encodeURIComponent(searchTerm)}`);
-            const result = await response.json();
+    function applyFilter() {
+        const search = document.getElementById("searchInput").value.trim();
 
-            if (result.success) {
-                renderTable(result.data);
-            }
-        } catch (error) {
-            console.error('Search error:', error);
-        }
+        const params = new URLSearchParams({
+            page: 1,
+            search: search || "",
+        });
+
+        window.location.href = `/Customer/Index?${params.toString()}`;
     }
     
-    searchBtn.addEventListener("click", performSearch);
+    searchBtn.addEventListener("click", applyFilter);
     searchInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
-            performSearch();
+            applyFilter();
         }
     });
 });

@@ -2,17 +2,62 @@
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
+using StoreManagement.Models.ViewModel.Supplier;
+using StoreManagement.Models.ViewModel.Utils;
 
 namespace StoreManagement.Controllers;
 
 public class SupplierController(ApplicationDbContext _dbContext) : Controller
 {
-    
+
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index(
+        int page = 1,
+        int pageSize = 5,
+        string search = ""
+    )
     {
-        return View();
+        // --- 1. Query cơ bản ---
+        var query = _dbContext.Suppliers.AsQueryable();
+
+        // --- 2. Áp dụng filter tìm kiếm ---
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(s =>
+                s.Name.Contains(search) ||
+                (s.Email != null && s.Email.Contains(search)) ||
+                (s.Phone != null && s.Phone.Contains(search))
+            );
+        }
+
+        // --- 3. Lấy danh sách SupplierViewTableModel ---
+        var allSuppliers = await query
+            .OrderBy(s => s.SupplierId)
+            .Select(s => new SupplierViewTableModel
+            {
+                SupplierId = s.SupplierId,
+                Name = s.Name,
+                Phone = s.Phone,
+                Email = s.Email,
+                Address = s.Address
+            })
+            .ToListAsync();
+
+        // --- 4. Phân trang ---
+        var paged = Pagination<SupplierViewTableModel>.Create(allSuppliers, page, pageSize);
+
+        // --- 5. Tạo ViewModel trả ra View ---
+        var viewModel = new SupplierPageViewModel
+        {
+            Suppliers = paged.Items,
+            CurrentPage = paged.CurrentPage,
+            TotalPages = paged.TotalPages,
+            Search = search
+        };
+
+        return View(viewModel);
     }
+
 
     // GET Suppliers
     [HttpGet]

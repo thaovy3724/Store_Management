@@ -2,20 +2,69 @@
 using Microsoft.EntityFrameworkCore;
 using StoreManagement.Data;
 using StoreManagement.Models.Entities;
+using StoreManagement.Models.ViewModel.User;
+using StoreManagement.Models.ViewModel.Utils;
 
 namespace StoreManagement.Controllers;
 
 public class AccountController(ApplicationDbContext _dbContext) : Controller
 {
     // GET
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public async Task<IActionResult> Index(
+    int page = 1,
+    int pageSize = 5,
+    string search = "",
+    Role? role = null)
     {
-        var accounts = await _dbContext.Users
-            .OrderBy(a => a.UserId)
+        // Query cơ bản
+        var query = _dbContext.Users.AsQueryable();
+
+        // Search theo username hoặc full name
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(u =>
+                u.Username.Contains(search) ||
+                (u.FullName != null && u.FullName.Contains(search))
+            );
+        }
+
+        // Lọc theo Role
+        if (role.HasValue)
+        {
+            query = query.Where(u => u.Role == role.Value);
+        }
+
+        // Select ra ViewModel (nếu bạn muốn dùng ViewModel)
+        var userList = await query
+            .OrderBy(u => u.UserId)
+            .Select(u => new UserViewTableModel
+            {
+                UserId = u.UserId,
+                Username = u.Username,
+                FullName = u.FullName,
+                Role = u.Role,
+                CreatedAt = u.CreatedAt
+            })
             .ToListAsync();
-        return View(accounts);
+
+        // Phân trang
+        var pagedUsers = Pagination<UserViewTableModel>.Create(userList, page, pageSize);
+
+        // Gộp vào PageViewModel
+        var viewModel = new UserPageViewModel
+        {
+            Users = pagedUsers.Items,
+            CurrentPage = pagedUsers.CurrentPage,
+            TotalPages = pagedUsers.TotalPages,
+            Search = search,
+            Role = role
+        };
+
+        return View(viewModel);
     }
-    
+
+
     [HttpGet]
     public async Task<IActionResult> GetAccounts()
     {

@@ -27,7 +27,7 @@ namespace StoreManagement.Models.ViewModels
             Status switch
             {
                 PromotionStatus.Active => "Hoạt động",
-                PromotionStatus.Inactive => "Kết thúc",
+                PromotionStatus.Inactive => "Đã khóa",
                 _ => "Khác"
             };
     }
