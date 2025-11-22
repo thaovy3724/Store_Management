@@ -276,6 +276,9 @@
                             <button class="btn btn-sm btn-light border btn-delete" data-barcode="${data.product.barcode}" title="Xóa" data-action="delete">
                                 <i class="bi bi-trash text-danger"></i>
                             </button>
+                            <button class="btn btn-sm btn-light border me-1 btn-barcode" title="Xem Barcode" data-barcode="${data.product.barcode}">
+                                <i class="bi bi-upc text-warning"></i>
+                            </button>
                         </td>
                     `;
                     }
