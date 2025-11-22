@@ -12,7 +12,7 @@ using StoreManagement.Data;
 namespace StoreManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251120050520_initial")]
+    [Migration("20251121131454_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -503,7 +503,7 @@ namespace StoreManagement.Migrations
                     b.HasOne("StoreManagement.Models.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");

@@ -125,7 +125,7 @@ namespace StoreManagement.Migrations
                         column: x => x.supplier_id,
                         principalTable: "suppliers",
                         principalColumn: "SupplierId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
