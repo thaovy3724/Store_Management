@@ -27,6 +27,8 @@ namespace StoreManagement.Controllers
             DateTime? fromDate = null,
             DateTime? toDate = null)
         {
+            ViewBag.StatusList = Enum.GetValues(typeof(PromotionStatus));
+
             var query = db.Promotions.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))

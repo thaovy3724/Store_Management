@@ -170,7 +170,7 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
         }
         catch (Exception e)
         {
-            return Json(new { success = false, message = $"Xóa khách hàng có id {id} thất bại. Lỗi: {e.Message}" });
+            return Json(new { success = false, message = $"Khách hàng ID {id} đã có đơn hàng. Không thể xóa! " });
         }
     }
     

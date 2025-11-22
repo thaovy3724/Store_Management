@@ -884,12 +884,17 @@ D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\kzf304pr7d-qghhx
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\y3af6hv9xj-b9sayid5wm.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\zt3sk4zrfk-rxtsv3awgo.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\xay7e4300w-61n19gt1b8.gz
+D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\8n2gs5r4cg-vp2ca4a0do.gz
+D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\uk8311lpr9-vgcd0s5sui.gz
+D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\ayez5z89l4-2oapo2lod5.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\g1dfktenqh-jexfy4z5iu.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\kb72g76nus-lzy8ca29ae.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\50ex45p2to-7y1lh8nzge.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\90pacsmdfu-lokl1ubu82.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\64ruo2c28t-wccvsc7gi0.gz
+D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\huwg6iuptv-ojfblpntts.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\jpr857iica-nhg2n3lwqp.gz
+D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\rp5zxccm95-opy6xvzh02.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\yn835j70bh-j6qiqobnkb.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\qytw2xjyzb-t1cqhe9u97.gz
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\5liokxt3hr-c2jlpeoesf.gz
@@ -965,8 +970,3 @@ D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\refint\StoreManagement.dll
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\StoreManagement.pdb
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\StoreManagement.genruntimeconfig.cache
 D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\ref\StoreManagement.dll
-D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\ayez5z89l4-2oapo2lod5.gz
-D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\8n2gs5r4cg-vp2ca4a0do.gz
-D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\uk8311lpr9-vgcd0s5sui.gz
-D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\rp5zxccm95-opy6xvzh02.gz
-D:\Hocki1nam4\.NET\Store_Management\obj\Debug\net9.0\compressed\huwg6iuptv-ojfblpntts.gz
