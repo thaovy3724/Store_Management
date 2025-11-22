@@ -52,7 +52,15 @@ public class ApplicationDbContext : DbContext
             .HasConversion<string>()
             .HasMaxLength(10)
             .HasColumnName("status");
-        
+
+        // Supplier ↔ Product : 1 - N
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.Supplier)
+            .WithMany(s => s.Products)
+            .HasForeignKey(p => p.SupplierId)
+            .OnDelete(DeleteBehavior.Restrict);   
+
+
         base.OnModelCreating(modelBuilder);
     }
 

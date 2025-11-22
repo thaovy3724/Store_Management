@@ -147,7 +147,7 @@ public class SupplierController(ApplicationDbContext _dbContext) : Controller
         }
         catch (Exception e)
         {
-            return Json(new { success = false, message = "Lỗi: " + e.Message });
+            return Json(new { success = false, message = "Đã nhập sản phẩm của nhà cung cấp này. Không thể xóa!"});
         }
             
     }

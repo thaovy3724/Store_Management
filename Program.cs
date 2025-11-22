@@ -63,7 +63,8 @@ app.Use(async (context, next) =>
                 case "Staff":
                     // Staff chỉ được vào /OrderStaff
                     if (!path.StartsWith("/OrderStaff", StringComparison.OrdinalIgnoreCase) &&
-                        !path.StartsWith("/Customer", StringComparison.OrdinalIgnoreCase))
+                        !path.StartsWith("/Customer", StringComparison.OrdinalIgnoreCase) &&
+                        !path.StartsWith("/PersonalInfo", StringComparison.OrdinalIgnoreCase))
                     {
                         context.Response.Redirect("/OrderStaff");
                         return;

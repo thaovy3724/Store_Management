@@ -500,7 +500,7 @@ namespace StoreManagement.Migrations
                     b.HasOne("StoreManagement.Models.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
