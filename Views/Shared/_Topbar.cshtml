@@ -7,7 +7,7 @@
         @* TODO: Sửa bằng tên hiển thị trong session  *@
         <span class="user-info me-2">Xin chào, 
             <a asp-controller="PersonalInfo" asp-action="Index" class="fw-bold text-decoration-none" style="color:#0d6efd">
-                @(HttpContextAccessor.HttpContext.Session.GetString("Username") ?? "Khách")
+                @(HttpContextAccessor.HttpContext.Session.GetString("Fullname") ?? "Khách")
             </a>
         </span>
         <span class="text-muted mx-2">|</span>
