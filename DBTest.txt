@@ -1,0 +1,109 @@
+USE [store_management]
+GO
+SET IDENTITY_INSERT [dbo].[categories] ON 
+GO
+INSERT [dbo].[categories] ([category_id], [category_name]) VALUES (1, N'Đồ uống')
+GO
+INSERT [dbo].[categories] ([category_id], [category_name]) VALUES (2, N'Bánh kẹo')
+GO
+INSERT [dbo].[categories] ([category_id], [category_name]) VALUES (3, N'Gia vị')
+GO
+INSERT [dbo].[categories] ([category_id], [category_name]) VALUES (4, N'Đồ hộp')
+GO
+INSERT [dbo].[categories] ([category_id], [category_name]) VALUES (5, N'Nhu yếu phẩm')
+GO
+SET IDENTITY_INSERT [dbo].[categories] OFF
+GO
+SET IDENTITY_INSERT [dbo].[suppliers] ON 
+GO
+INSERT [dbo].[suppliers] ([SupplierId], [name], [phone], [email], [address]) VALUES (1, N'Công ty TNHH Nước Giải Khát Tân Hiệp Phát', N'0908000001', N'info@thp.vn', N'Bình Dương')
+GO
+INSERT [dbo].[suppliers] ([SupplierId], [name], [phone], [email], [address]) VALUES (2, N'Công ty Cổ phần Sữa Vinamilk', N'0908000002', N'contact@vinamilk.com.vn', N'TP. Hồ Chí Minh')
+GO
+INSERT [dbo].[suppliers] ([SupplierId], [name], [phone], [email], [address]) VALUES (3, N'Công ty Ajinomoto Việt Nam', N'0908000003', N'info@ajinomoto.com.vn', N'Biên Hòa')
+GO
+INSERT [dbo].[suppliers] ([SupplierId], [name], [phone], [email], [address]) VALUES (4, N'Công ty CP Acecook Việt Nam', N'0908000004', N'support@acecook.vn', N'HCM')
+GO
+INSERT [dbo].[suppliers] ([SupplierId], [name], [phone], [email], [address]) VALUES (5, N'Công ty Dầu thực vật Cái Lân', N'0908000005', N'info@calofic.com.vn', N'Bà Rịa - Vũng Tàu')
+GO
+SET IDENTITY_INSERT [dbo].[suppliers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[products] ON 
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (1, N'Trà xanh 0 độ chai 455ml', N'SP_2577b44d52004619b75dd96cf1c4cb8e.jpg', 1, 1, CAST(10000.00 AS Decimal(18, 2)), N'chai', N'3122410382', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (2, N'Nước tăng lực Number One 330ml', N'SP_fd88947d6a774b53a4a5a959a8909033.jpg', 1, 1, CAST(9000.00 AS Decimal(18, 2)), N'lon', N'8934868100014', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (3, N'Sữa tươi Vinamilk 180ml', N'SP_202accebda9e4d4ba70a81edba8c1672.png', 1, 2, CAST(7000.00 AS Decimal(18, 2)), N'hộp', N'4563576', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (4, N'Mì Hảo Hảo tôm chua cay', N'SP_e387c94774214147a196fd0aa373639c.jpg', 4, 4, CAST(4500.00 AS Decimal(18, 2)), N'gói', N'754635', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (5, N'Nước mắm Nam Ngư 500ml', N'SP_5dc72aaade184bd08863b19d11415e8f.jpg', 3, 1, CAST(25000.00 AS Decimal(18, 2)), N'chai', N'975846', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (6, N'Đường trắng Biên Hòa 1kg', N'SP_636ad2082e424a4da17a0d8d3538d1f0.jpg', 5, 3, CAST(22000.00 AS Decimal(18, 2)), N'gói', N'314556', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (7, N'Dầu ăn Neptune 1L', N'SP_d8ec5752aaaa4c5aa3959f717146667e.webp', 5, 5, CAST(48000.00 AS Decimal(18, 2)), N'chai', N'658443', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (8, N'Bánh Oreo 133g', N'SP_6ae8ebb1ce05412ca870f34f7f2fd3f6.webp', 2, 2, CAST(15000.00 AS Decimal(18, 2)), N'gói', N'57364358', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+INSERT [dbo].[products] ([product_id], [product_name], [product_image], [category_id], [supplier_id], [price], [unit], [barcode], [created_at]) VALUES (9, N'Nước suối Aquafina 500ml', N'SP_d712c0223f494394af25407f75bb3d8e.jpg', 1, 1, CAST(7000.00 AS Decimal(18, 2)), N'chai', N'574643', CAST(N'2025-11-11T17:35:28.0200000' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[products] OFF
+GO
+SET IDENTITY_INSERT [dbo].[customers] ON 
+GO
+INSERT [dbo].[customers] ([customer_id], [name], [phone], [email], [address], [created_at]) VALUES (1, N'Nguyễn Văn A', N'0909000001', N'vana@gmail.com', N'Quận 1, TP.HCM', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+INSERT [dbo].[customers] ([customer_id], [name], [phone], [email], [address], [created_at]) VALUES (2, N'Trần Thị B', N'0909000002', N'thib@gmail.com', N'Quận Bình Thạnh, TP.HCM', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+INSERT [dbo].[customers] ([customer_id], [name], [phone], [email], [address], [created_at]) VALUES (3, N'Lê Văn C', N'0909000003', N'vanc@gmail.com', N'Quận 3, TP.HCM', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+INSERT [dbo].[customers] ([customer_id], [name], [phone], [email], [address], [created_at]) VALUES (4, N'Phạm Thị D', N'0909000004', N'thid@gmail.com', N'Quận Gò Vấp, TP.HCM', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[customers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[promotions] ON 
+GO
+INSERT [dbo].[promotions] ([promo_id], [promo_code], [description], [discount_type], [discount_value], [start_date], [end_date], [min_order_amount], [usage_limit], [used_count], [status]) VALUES (1, N'KM5', N'Giảm 5% cho đơn hàng trên 100.000đ', N'Percent', CAST(5.00 AS Decimal(10, 2)), CAST(N'2025-11-01' AS Date), CAST(N'2025-12-31' AS Date), CAST(100000.00 AS Decimal(10, 2)), 100, 17, N'Active')
+GO
+INSERT [dbo].[promotions] ([promo_id], [promo_code], [description], [discount_type], [discount_value], [start_date], [end_date], [min_order_amount], [usage_limit], [used_count], [status]) VALUES (2, N'KM20', N'Giảm 20.000đ cho đơn hàng trên 200.000đ', N'Fixed', CAST(20000.00 AS Decimal(10, 2)), CAST(N'2025-11-01' AS Date), CAST(N'2025-12-31' AS Date), CAST(200000.00 AS Decimal(10, 2)), 50, 7, N'Inactive')
+GO
+SET IDENTITY_INSERT [dbo].[promotions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[users] ON 
+GO
+INSERT [dbo].[users] ([UserId], [username], [password], [full_name], [role], [created_at]) VALUES (1, N'admin', N'$2a$12$OWRzaomcMZZDXIAyNFkmIehe0.Xdwe1907TCCKFrszJ03OESVzYzK', N'Quản trị hệ thống', N'Admin', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+INSERT [dbo].[users] ([UserId], [username], [password], [full_name], [role], [created_at]) VALUES (2, N'nhanvien1', N'$2a$12$OWRzaomcMZZDXIAyNFkmIehe0.Xdwe1907TCCKFrszJ03OESVzYzK', N'Nguyễn Thị Hoa', N'Staff', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+INSERT [dbo].[users] ([UserId], [username], [password], [full_name], [role], [created_at]) VALUES (3, N'nhanvien2', N'$2a$12$OWRzaomcMZZDXIAyNFkmIehe0.Xdwe1907TCCKFrszJ03OESVzYzK', N'Lê Văn Long', N'Staff', CAST(N'2025-11-11T17:35:28.0233333' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[users] OFF
+GO
+SET IDENTITY_INSERT [dbo].[inventory] ON 
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (1, 1, 114, CAST(N'2025-11-23T12:17:41.9457806' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (2, 2, 1055, CAST(N'2025-11-23T12:17:55.8711011' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (3, 3, 169, CAST(N'2025-11-23T12:18:08.2391598' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (4, 4, 500, CAST(N'2025-11-23T12:18:18.6509949' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (5, 5, 228, CAST(N'2025-11-23T12:18:32.0296095' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (6, 6, 334, CAST(N'2025-11-23T12:19:02.9154215' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (7, 7, 350, CAST(N'2025-11-23T12:19:15.7891571' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (8, 8, 150, CAST(N'2025-11-23T12:19:27.6935445' AS DateTime2))
+GO
+INSERT [dbo].[inventory] ([inventory_id], [product_id], [quantity], [updated_at]) VALUES (9, 9, 599, CAST(N'2025-11-23T12:19:37.2833726' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[inventory] OFF
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20251122154632_initial', N'9.0.10')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20251123051418_initial', N'9.0.10')
+GO
+
