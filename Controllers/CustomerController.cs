@@ -12,7 +12,7 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
     [HttpGet]
     public async Task<IActionResult> Index(
     int page = 1,
-    int pageSize = 2,
+    int pageSize = 5,
     string search = "",
     DateTime? dateFrom = null,
     DateTime? dateTo = null)

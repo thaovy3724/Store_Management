@@ -12,8 +12,8 @@ using StoreManagement.Data;
 namespace StoreManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251121072042_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251123051418_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -503,7 +503,7 @@ namespace StoreManagement.Migrations
                     b.HasOne("StoreManagement.Models.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
