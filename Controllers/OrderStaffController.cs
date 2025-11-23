@@ -25,7 +25,7 @@ namespace StoreManagement.Controllers
         [HttpGet]
         public IActionResult Index(
             int page = 1,
-            int pageSize = 5,
+            int pageSize = 6,
             int? categoryId = null,
             string search = "")
         {
