@@ -264,7 +264,7 @@
                             <img src="/uploads/${data.product.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">
                         </td>
                         <td class="text-center">${data.product.name}</td>
-                        <td class="text-center">${data.product.price}</td>
+                        <td class="text-center">${Number(data.product.price).toLocaleString("en-US")} đ</td>
                         <td class="text-center">${data.product.unit}</td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-light border me-1 btn-view" title="Xem" data-bs-toggle="modal" data-bs-target="#productModal" data-action="view" data-barcode="${data.product.barcode}">

@@ -5,6 +5,8 @@
     ViewData["Title"] = "Quản lý Tài khoản";
 }
 
+<input type="hidden" id="currentUserId" value="@Context.Session.GetString("UserId")" />
+
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="fw-bold">Quản lý Tài khoản</h3>   
@@ -95,7 +97,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="5">Không có dữ liệu.</td>
+                            <td colspan="5" class="text-center">Không có dữ liệu.</td>
                         </tr>
                     }
                     

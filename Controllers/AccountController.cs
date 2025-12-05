@@ -185,6 +185,24 @@ public class AccountController(ApplicationDbContext _dbContext) : Controller
                 return Json(new { success = true, message = $"Lỗi tìm thấy tài khoản có id {id}" });
             }
 
+            var userIdString = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                return Json(new { success = false, message = "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!" });
+            }
+
+            if (!int.TryParse(userIdString, out int currentUserId))
+            {
+                return Json(new { success = false, message = "ID người dùng không hợp lệ!" });
+            }
+
+            if (id == currentUserId)
+            {
+                return Json(new { success = false, message = "Bạn không thể tự xóa tài khoản đang đăng nhập!" });
+            }
+
+
             _dbContext.Users.Remove(account);
             await _dbContext.SaveChangesAsync();
 
