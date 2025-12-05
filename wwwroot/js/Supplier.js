@@ -221,7 +221,7 @@ function formValidateSupplier(name, email, phone, address) {
 
     let isValid = true;
 
-    let phoneRegex = /^0[0-9]{9}$/;
+    let phoneRegex = /^(03|05|07|08|09|01[2689])[0-9]{8}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
     let soNhaRegex = /^(\d+(\/\d+)?(\/\d*[A-Z]?\d*)?|[A-Z]\d+(\s[A-Z]\d+)?)\s[\p{L}]+([\s\p{L}\d\.,\-]+)*$/u;
     

@@ -17,6 +17,8 @@
 
     const inputs = document.querySelectorAll("#userForm input, #userForm select");
 
+    const currentUserId = parseInt(document.getElementById("currentUserId").value);
+
     // Reset modal
     const resetModal = () => {
         userForm.reset();
@@ -126,6 +128,13 @@
     document.addEventListener("click", function(e) {
         if (e.target.closest(".btn-delete")) {
             const id = e.target.closest(".btn-delete").getAttribute("data-id");
+
+            if (parseInt(id) === parseInt(currentUserId)) {
+                showAlert("Bạn không thể xóa tài khoản đang đăng nhập!", "error");
+                return;
+            }
+
+
             Swal.fire({
                 title: 'Bạn có chắc muốn xóa?',
                 text: "Hành động này sẽ không thể hoàn tác!",
@@ -186,7 +195,12 @@
             fullnameMsg.textContent = "Họ tên không nhiều hơn 100 ký tự";
             fullnameInput.classList.add("is-invalid");
             isValid = false;
-        }
+        } else if (!/^[A-Za-zÀ-Ỹà-ỹ\s]+$/.test(fullname)) {
+            fullnameMsg.textContent = "Họ tên không được chứa số hoặc ký tự đặc biệt";
+            fullnameInput.classList.add("is-invalid");
+            isValid = false;
+
+        } 
 
         if (username.trim() === "") {
             usernameMsg.textContent = "Tên đăng nhập không để trống";

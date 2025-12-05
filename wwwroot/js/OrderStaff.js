@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $("#addCustomerForm .invalid-feedback").remove();
 
-        const phoneRegex = /^0[0-9]{9}$/;
+        let phoneRegex = /^(03|05|07|08|09|01[2689])[0-9]{8}$/;
         const emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
         const addressRegex = /^(\d+(\/\d+)?(\/\d*[A-Z]?\d*)?|[A-Z]\d+(\s[A-Z]\d+)?)\s[\p{L}]+([\s\p{L}\d\.,\-]+)*$/u;
 

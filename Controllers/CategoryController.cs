@@ -169,6 +169,18 @@ public class CategoryController(ApplicationDbContext _dbContext) : Controller
                 return Json(new { success = false, message = "Không tìm thấy loại sản phẩm!" });
             }
 
+            // Kiểm tra xem loại sản phẩm có đang được sử dụng trong Product không
+            bool hasProducts = await _dbContext.Products.AnyAsync(p => p.CategoryId == id);
+
+            if (hasProducts)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Không thể xóa! Loại sản phẩm này đang được sử dụng trong sản phẩm."
+                });
+            }
+
             _dbContext.Categories.Remove(category);
             await _dbContext.SaveChangesAsync();
 

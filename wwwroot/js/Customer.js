@@ -63,13 +63,19 @@
 
         let isValid = true;
 
-        let phoneRegex = /^0[0-9]{9}$/;
+        let phoneRegex = /^(03|05|07|08|09|01[2689])[0-9]{8}$/;
         let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
         let addressRegex = /^(\d+(\/\d+)?(\/\d*[A-Z]?\d*)?|[A-Z]\d+(\s[A-Z]\d+)?)\s[\p{L}]+([\s\p{L}\d\.,\-]+)*$/u;
+        let fullnameRegex = /^[\p{L}\s]+$/u;
+
 
         // Validate name
         if(fullname.trim() === "") {
             fullnameMsg.textContent = "Họ tên không để trống";
+            cusomterFullname.classList.add("is-invalid");
+            isValid = false;
+        } else if (!fullnameRegex.test(fullname)) {
+            fullnameMsg.textContent = "Họ tên không được chứa số hoặc ký tự đặc biệt";
             cusomterFullname.classList.add("is-invalid");
             isValid = false;
         }

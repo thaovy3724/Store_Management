@@ -40,7 +40,7 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
 
         // Select ra ViewModel
         var customerList = await query
-            .OrderByDescending(c => c.CreatedAt)
+            .OrderByDescending(c => c.CustomerId)
             .Select(c => new CustomerViewTableModel
             {
                 CustomerId = c.CustomerId,
@@ -75,7 +75,7 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
     public async Task<IActionResult> GetCustomers()
     {
         var customers = await _dbContext.Customers
-            .OrderBy(c => c.CustomerId)
+            .OrderByDescending(c => c.CustomerId)
             .ToListAsync();
         return Json(new { success = true, data = customers });
     }
@@ -99,16 +99,25 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
     public async Task<IActionResult> Create(Customer model)
     {
 
-        
-        // Kiểm tra customer đã tồn tại chưa
-        var existingCustomer = await _dbContext.Customers.FirstOrDefaultAsync(c =>
-            c.Phone == model.Phone
-        );
 
-        if (existingCustomer != null)
+        // Kiểm tra trùng số điện thoại
+        var existingPhone = await _dbContext.Customers
+            .FirstOrDefaultAsync(c => c.Phone == model.Phone);
+
+        if (existingPhone != null)
         {
-            return Json(new { success = false, message = "Khách hàng đã tồn tại!" });
+            return Json(new { success = false, message = "Số điện thoại đã tồn tại!" });
         }
+
+        // Kiểm tra trùng email
+        var existingEmail = await _dbContext.Customers
+            .FirstOrDefaultAsync(c => c.Email == model.Email);
+
+        if (existingEmail != null)
+        {
+            return Json(new { success = false, message = "Email đã tồn tại!" });
+        }
+
 
         _dbContext.Customers.Add(model);
         await _dbContext.SaveChangesAsync();
@@ -137,9 +146,24 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
 
         if (existingCustomer != null)
         {
-            return Json(new { success = false, message = "Thông tin khách hàng bị trùng!" });
+            return Json(new { success = false, message = "Số điện thoại đã được khách hàng khác sử dụng!" });
         }
-        
+
+        if (!string.IsNullOrEmpty(model.Email))
+        {
+            var existingCustomerEmail = await _dbContext.Customers
+                .FirstOrDefaultAsync(c =>
+                    c.Email != null &&
+                    c.Email == model.Email &&
+                    c.CustomerId != id
+                );
+
+            if (existingCustomerEmail != null)
+            {
+                return Json(new { success = false, message = "Email đã được khách hàng khác sử dụng!" });
+            }
+        }
+
         // Cập nhật thông tin
         customer.Name = model.Name;
         customer.Phone = model.Phone;
