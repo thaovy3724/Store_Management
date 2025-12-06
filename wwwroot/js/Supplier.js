@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("#supplierForm input, #supplierForm select, #supplierForm textarea");
     
     
-    
     // Reset modal mỗi lần mở
     const resetModal = () => {
         document.getElementById('supplierForm').reset();
@@ -47,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     let supplier = res.data;
                     
+                    // server now returns `id` (lowercase) — matches existing JS expectation
                     $('#supplierId').val(supplier.id);
                     $('#fullname').val(supplier.name).attr('readonly', true);
                     $('#phonenumber').val(supplier.phone).attr('readonly', true);
@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let supplier = res.data;
 
+                    // server returns `id`
                     $('#supplierId').val(supplier.id);
                     $('#fullname').val(supplier.name);
                     $('#phonenumber').val(supplier.phone);
@@ -109,13 +110,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             
+            // Use property name `SupplierId` so server model binding maps to Supplier.SupplierId
+            // and ensure we don't produce NaN by falling back to 0
+            const supplierIdValue = parseInt($('#supplierId').val());
             const data = {
-              Id: parseInt($('#supplierId').val()),
+              SupplierId: Number.isFinite(supplierIdValue) ? supplierIdValue : 0,
               Name: fullname,
               Phone: phonenumber,
               Email: email,
               Address: address  
             };
+
+            console.log("Data gửi đi:", data);
 
             // Lấy token từ form
             var token = $('#supplierForm input[name="__RequestVerificationToken"]').val();
@@ -134,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                         // Tắt modal và tự động load lại table
                         $('#supplierModal').modal('hide');
-                        loadSuppliers();
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
                     } else {
                         showAlert(response.message, "error");
                     }

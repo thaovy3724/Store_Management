@@ -189,7 +189,7 @@
                 // Đóng modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
                 modal.hide();
-                
+                location.reload();
                 await loadCustomers();
                 
                 showAlert(result.message, "success");
@@ -262,13 +262,14 @@
                 cancelButtonText: 'Hủy'
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const response = await fetch(`Customer/Delete/${id}`, {
+                    const response = await fetch(`/Customer/Delete/${id}`, {
                         method: 'POST'
                     });
                     const result = await response.json();
 
                     if (result.success) {
                         showAlert(result.message, "success");
+                        location.reload();
                         await loadCustomers();
                     } else {
                         showAlert(result.message, "error");

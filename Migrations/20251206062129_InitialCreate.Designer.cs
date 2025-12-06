@@ -12,8 +12,8 @@ using StoreManagement.Data;
 namespace StoreManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251123051418_initial")]
-    partial class initial
+    [Migration("20251206062129_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

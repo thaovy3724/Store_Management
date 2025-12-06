@@ -120,7 +120,7 @@ public class SupplierController(ApplicationDbContext _dbContext) : Controller
                 });
             }
 
-            if (model.SupplierId == 0) // Thêm mới
+            if (model.SupplierId <= 0) // Thêm mới
             {
                 _dbContext.Suppliers.Add(model);
                 await _dbContext.SaveChangesAsync();
@@ -165,7 +165,19 @@ public class SupplierController(ApplicationDbContext _dbContext) : Controller
                 return Json(new { success = false, message = "Không tìm thấy nhà cung cấp" });
             }
 
-            return Json(new { success = true, data = supplier });
+            // Return a simple object with camelCase / lowercase property names
+            // so the existing client JS (which expects `id`, `name`, `phone`, `email`, `address`)
+            // receives the correct fields and can set #supplierId value properly.
+            var dto = new
+            {
+                id = supplier.SupplierId,
+                name = supplier.Name,
+                phone = supplier.Phone,
+                email = supplier.Email,
+                address = supplier.Address
+            };
+
+            return Json(new { success = true, data = dto });
         }
         catch (Exception e)
         {

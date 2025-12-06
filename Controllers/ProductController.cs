@@ -39,7 +39,7 @@ namespace StoreManagement.Controllers
                 query = query.Where(p => p.CategoryId == categoryId);
 
             if (!string.IsNullOrEmpty(search))
-                query = query.Where(p => p.ProductName.Contains(search));
+                query = query.Where(p => p.ProductName.Contains(search) || p.Barcode.Contains(search));
 
             if (priceFrom.HasValue)
                 query = query.Where(p => p.Price >= priceFrom.Value);

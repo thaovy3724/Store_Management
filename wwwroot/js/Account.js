@@ -18,7 +18,7 @@
     const inputs = document.querySelectorAll("#userForm input, #userForm select");
 
     const currentUserId = parseInt(document.getElementById("currentUserId").value);
-
+    
     // Reset modal
     const resetModal = () => {
         userForm.reset();
@@ -146,7 +146,7 @@
                 cancelButtonText: 'Hủy'
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const response = await fetch(`Account/Delete/${id}`, {
+                    const response = await fetch(`/Account/Delete/${id}`, {
                         method: 'POST'
                     });
                     const result = await response.json();

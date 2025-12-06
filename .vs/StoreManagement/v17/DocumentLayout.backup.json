@@ -3,12 +3,52 @@
   "WorkspaceRootPath": "D:\\Hocki1nam4\\.NET\\Store_Management\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\supplier.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\supplier.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\toast.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\account.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\account.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\views\\promotion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,10 +59,6 @@
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\promotion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:wwwroot\\js\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\promotioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\promotioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,12 +67,12 @@
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:models\\entities\\promotionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\models\\viewmodel\\promotion\\promotionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:models\\viewmodel\\promotion\\promotionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|d:\\hocki1nam4\\.net\\store_management\\migrations\\20251206062129_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4915AA63-22C5-DA20-1657-99ACFAB2F7CB}|StoreManagement.csproj|solutionrelative:migrations\\20251206062129_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,32 +95,147 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Supplier.js",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Supplier.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Supplier.js",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Supplier.js",
+              "RelativeToolTip": "wwwroot\\js\\Supplier.js",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAIkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-06T06:48:38.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Toast.js",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Toast.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Toast.js",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Toast.js",
+              "RelativeToolTip": "wwwroot\\js\\Toast.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-06T06:48:37.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MoMoController.cs",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\MoMoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MoMoController.cs",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\MoMoController.cs",
+              "RelativeToolTip": "Controllers\\MoMoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:44:56.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:44:58.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:44:56.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Customer.js",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Customer.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Customer.js",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Customer.js",
+              "RelativeToolTip": "wwwroot\\js\\Customer.js",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAK8AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-06T06:36:11.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Account.js",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Account.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Account.js",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Account.js",
+              "RelativeToolTip": "wwwroot\\js\\Account.js",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAAAIsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-06T06:25:05.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20251206062129_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Migrations\\20251206062129_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251206062129_InitialCreate.cs",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Migrations\\20251206062129_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20251206062129_InitialCreate.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T06:21:30.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-06T06:19:41.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
               "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAkwOoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T11:27:17.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Models\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Entities\\Product.cs",
               "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Models\\Entities\\Product.cs",
               "RelativeToolTip": "Models\\Entities\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T11:27:14.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "PromotionViewModel.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Models\\ViewModel\\Promotion\\PromotionViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModel\\Promotion\\PromotionViewModel.cs",
@@ -92,25 +243,24 @@
               "RelativeToolTip": "Models\\ViewModel\\Promotion\\PromotionViewModel.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAwwB0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T11:22:42.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T11:22:42.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "SupplierController.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\SupplierController.cs",
               "RelativeDocumentMoniker": "Controllers\\SupplierController.cs",
               "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\SupplierController.cs",
               "RelativeToolTip": "Controllers\\SupplierController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAAASwKoAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T11:07:59.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "PromotionStatus.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Models\\Entities\\PromotionStatus.cs",
               "RelativeDocumentMoniker": "Models\\Entities\\PromotionStatus.cs",
@@ -118,12 +268,11 @@
               "RelativeToolTip": "Models\\Entities\\PromotionStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T11:07:07.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T11:07:07.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "PromotionController.cs",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Controllers\\PromotionController.cs",
               "RelativeDocumentMoniker": "Controllers\\PromotionController.cs",
@@ -131,25 +280,24 @@
               "RelativeToolTip": "Controllers\\PromotionController.cs",
               "ViewState": "AgIAAHoAAAAAAAAAAAAIwJMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T10:33:28.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T10:33:28.973Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Product.js",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Product.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Product.js",
               "ToolTip": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Product.js",
               "RelativeToolTip": "wwwroot\\js\\Product.js",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAFsAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAGABAAAAAAAAAAAqwFsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-22T10:10:11.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\Views\\Promotion\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Promotion\\Index.cshtml",
@@ -157,12 +305,11 @@
               "RelativeToolTip": "Views\\Promotion\\Index.cshtml",
               "ViewState": "AgIAAH4AAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-22T09:43:08.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T09:43:08.445Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "Promotion.js",
               "DocumentMoniker": "D:\\Hocki1nam4\\.NET\\Store_Management\\wwwroot\\js\\Promotion.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Promotion.js",
@@ -170,8 +317,7 @@
               "RelativeToolTip": "wwwroot\\js\\Promotion.js",
               "ViewState": "AgIAAPcAAAAAAAAAAAAAAAsBAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-22T09:43:04.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T09:43:04.479Z"
             }
           ]
         }

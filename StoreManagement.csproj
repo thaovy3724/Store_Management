@@ -26,10 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Migrations\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Include="wwwroot\lib\node_modules\html5-qrcode\cjs\camera\core-impl.js" />
       <None Include="wwwroot\lib\node_modules\html5-qrcode\cjs\camera\core-impl.js.map" />
       <None Include="wwwroot\lib\node_modules\html5-qrcode\cjs\camera\core.js" />
@@ -338,6 +334,10 @@
       <TypeScriptCompile Include="wwwroot\lib\node_modules\html5-qrcode\ui\scanner\torch-button.d.ts" />
       <TypeScriptCompile Include="wwwroot\lib\node_modules\html5-qrcode\utils.d.ts" />
       <TypeScriptCompile Include="wwwroot\lib\node_modules\html5-qrcode\zxing-html5-qrcode-decoder.d.ts" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\" />
     </ItemGroup>
 
 </Project>
