@@ -43,7 +43,7 @@ app.Use(async (context, next) =>
     // Bỏ qua các trang login/logout và các URL thanh toán test
     if (!path.StartsWith("/Auth", StringComparison.OrdinalIgnoreCase) &&
         !path.Contains("momo", StringComparison.OrdinalIgnoreCase) &&
-        !path.Contains("vnpayment", StringComparison.OrdinalIgnoreCase))
+        !path.Contains("vnpay", StringComparison.OrdinalIgnoreCase))
     {
         var username = context.Session.GetString("Username");
         var role = context.Session.GetString("Role");

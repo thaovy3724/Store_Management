@@ -1029,7 +1029,7 @@ function updatePaymentContent(optionId) {
                     const orderInfo = "Thanh toán đơn hàng " + orderId;
 
                     // 2. Gọi tiếp sang backend tạo URL VNPay
-                    fetch(`/OrderStaff/VNPayPaymentUrl?orderId=${orderId}&amount=${amount}&orderInfo=${encodeURIComponent(orderInfo)}`)
+                    fetch(`/vnpay-payment?orderId=${orderId}&amount=${amount}&orderInfo=${encodeURIComponent(orderInfo)}`)
                         .then(res => res.json())
                         .then(data => {
                             if (data.paymentUrl) {
