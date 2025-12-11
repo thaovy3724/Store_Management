@@ -85,7 +85,6 @@ namespace StoreManagement.Controllers
                 var txnRef = vnpay.GetResponseData("vnp_TxnRef");
                 var transactionNo = vnpay.GetResponseData("vnp_TransactionNo");
                 var responseCode = vnpay.GetResponseData("vnp_ResponseCode");
-                var orderInfo = vnpay.GetResponseData("vnp_OrderInfo");
                 var secureHash = Request.Query["vnp_SecureHash"].ToString();
 
                 // Verify signature
@@ -122,6 +121,9 @@ namespace StoreManagement.Controllers
                 {
                     Console.WriteLine($"❌ Thanh toán thất bại - OrderId: {txnRef}, ResponseCode: {responseCode}");
                     
+                    // Thêm logic hoàn lại tồn kho
+                    RestoreInventory(order.OrderId);
+
                     order.Status = OrderStatus.Cancelled;
                     _context.SaveChanges();
 
@@ -148,6 +150,27 @@ namespace StoreManagement.Controllers
                 returnUrl = _config["VnPay:PaymentBackReturnUrl"],
                 message = "VNPay configuration loaded"
             });
+        }
+
+        // 🔹 Phục hồi tồn kho cho đơn hàng
+        private void RestoreInventory(int orderId)
+        {
+            var orderItems = _context.OrderItems
+                .Where(oi => oi.OrderId == orderId)
+                .ToList();
+
+            foreach (var item in orderItems)
+            {
+                var inventory = _context.Inventories
+                    .FirstOrDefault(i => i.ProductId == item.ProductId);
+
+                if (inventory != null)
+                {
+                    inventory.Quantity += item.Quantity;
+                    inventory.UpdatedAt = DateTime.Now;
+                    Console.WriteLine($"✅ Hoàn kho: ProductId={item.ProductId}, Quantity=+{item.Quantity}");
+                }
+            }
         }
     }
 }

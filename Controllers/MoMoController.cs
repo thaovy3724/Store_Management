@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using StoreManagement.Data;
 using System;
@@ -62,6 +63,27 @@ namespace StoreManagement.Controllers
             catch
             {
                 return "127.0.0.1";
+            }
+        }
+
+        // 🔹 Hoàn lại tồn kho khi thanh toán thất bại
+        private void RestoreInventory(int orderId)
+        {
+            var orderItems = _context.OrderItems
+                .Where(oi => oi.OrderId == orderId)
+                .ToList();
+
+            foreach (var item in orderItems)
+            {
+                var inventory = _context.Inventories
+                    .FirstOrDefault(i => i.ProductId == item.ProductId);
+
+                if (inventory != null)
+                {
+                    inventory.Quantity += item.Quantity;
+                    inventory.UpdatedAt = DateTime.Now;
+                    Console.WriteLine($"✅ Hoàn kho: ProductId={item.ProductId}, Quantity=+{item.Quantity}");
+                }
             }
         }
 
@@ -224,24 +246,40 @@ namespace StoreManagement.Controllers
                     return BadRequest("Chữ ký không hợp lệ!");
                 }
 
+                int orderIdInt = int.Parse(orderId);
+                var order = _context.Orders.FirstOrDefault(o => o.OrderId == orderIdInt);
+
+                if (order == null)
+                {
+                    Console.WriteLine($"❌ Không tìm thấy đơn hàng #{orderId}");
+                    return BadRequest("Không tìm thấy đơn hàng.");
+                }
+
                 // Kiểm tra kết quả thanh toán
                 if (resultCode == "0")
                 {
-                    // TODO: Cập nhật database
-                    var order = _context.Orders.FirstOrDefault(o => o.OrderId == int.Parse(orderId));
-                    order.Status = (Models.Entities.OrderStatus)1;
+                    // Thanh toán thành công
+                    order.Status = Models.Entities.OrderStatus.Paid;
                     _context.SaveChanges();
+
+                    Console.WriteLine($"✅ Thanh toán MoMo thành công - OrderId: {orderId}");
+                    Console.WriteLine("=== END CALLBACK ===\n");
 
                     return Redirect($"/OrderStaff?paymentSuccess=true&orderId={orderId}");
                 }
                 else
                 {
-                    // TODO: Cập nhật database
-                    var order = _context.Orders.FirstOrDefault(o => o.OrderId == int.Parse(orderId));
-                    order.Status = (Models.Entities.OrderStatus)2;
+                    // Thanh toán thất bại - Hoàn lại tồn kho
+                    Console.WriteLine($"❌ Thanh toán MoMo thất bại - OrderId: {orderId}, ResultCode: {resultCode}");
+
+                    RestoreInventory(orderIdInt);
+
+                    order.Status = Models.Entities.OrderStatus.Cancelled;
                     _context.SaveChanges();
 
-                    return Redirect($"/OrderStaff?paymentSuccess=false");
+                    Console.WriteLine("=== END CALLBACK ===\n");
+
+                    return Redirect($"/OrderStaff?paymentSuccess=false&orderId={orderId}");
                 }
             }
             catch (Exception ex)
