@@ -33,7 +33,7 @@
         }
 
         // Hiện overlay
-        overlay.classList.remove("d-none");
+        overlay.classList.remove("d-none"); 
 
         const formData = new FormData(this);
 

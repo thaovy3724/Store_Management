@@ -16,12 +16,6 @@ public class AuthController(ApplicationDbContext _dbContext) : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Login([FromForm] string username, [FromForm] string password)
     {
-        // 1. Kiểm tra rỗng
-        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-        {
-            return Json(new { success = false, message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu." });
-        }
-
         // 2. Tìm người dùng
         var user = _dbContext.Users.FirstOrDefault(u => u.Username == username);
         if (user == null)

@@ -126,7 +126,7 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
     }
     
     // POST - Customer/Edit/{id}
-    [HttpPost]
+    [HttpPut]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, Customer model)
     {
