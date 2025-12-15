@@ -67,10 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var $form = $("#addCustomerForm");
         var formData = $form.serialize();
-        var addCustomerUrl = $form.data("url"); 
+        var addCustomerUrl = $form.data("url");
+
+        // ✅ Khai báo phone TRƯỚC khi sử dụng
+        var customerPhone = $form.find('input[name="Phone"]').val();
+
         console.log("Form data:", formData);
         console.log("Gửi đến:", addCustomerUrl);
-
 
         $.ajax({
             url: addCustomerUrl,
@@ -81,14 +84,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     const newCustomer = {
                         id: res.customerId,
                         name: res.customerName,
-                        phone: phone
+                        phone: customerPhone
                     };
                     localStorage.setItem("selectedCustomer", JSON.stringify(newCustomer));
                     showAlert('Đã thêm khách hàng: ' + res.customerName, 'success');
                     window.selectedCustomerId = res.customerId;
                     console.log("==> Gán selectedCustomerId khi thêm khách:", window.selectedCustomerId);
-                    const phone = $form.find('input[name="Phone"]').val();
-                    document.getElementById("customerPhoneInput").value = phone;
+
+                    document.getElementById("customerPhoneInput").value = customerPhone;
 
                     var modalEl = document.getElementById('modalThemKhach');
                     var modal = bootstrap.Modal.getInstance(modalEl);
@@ -108,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         modalEl.removeEventListener('hidden.bs.modal', handler);
                     });
 
+                    document.getElementById("customerInfo").innerText = `Tên: ${res.customerName}, SĐT: ${customerPhone}`;
+
                     modal.hide();
                     $form[0].reset();
                 } else {
@@ -124,12 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else if (xhr.statusText) {
                     errorMsg = xhr.statusText;
                 }
-                showAlert('Lỗi' + errorMsg, 'erro');
+                showAlert('Lỗi: ' + errorMsg, 'error');
 
                 console.error('Chi tiết lỗi:', xhr);
             }
         });
-
     }
     // Validate Form thêm khách hàng
     function validateCustomerForm() {
@@ -247,7 +251,7 @@ function renderSuggestions(data) {
         item.textContent = `${c.name} - ${c.phone}`;
 
         item.addEventListener("click", (e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             selectCustomer(c);
         });
 
@@ -334,6 +338,7 @@ document.addEventListener("mousedown", (e) => {
 phoneInput.addEventListener("click", (e) => e.stopPropagation());
 
 
+
 // -------------------------------------------------------- Camera quét barcode
 let scannerInstance = null;
 let isCameraOn = false;
@@ -381,7 +386,7 @@ function error(err) {
 }
 //----------------------------------------------Giỏ hàng---------------------
 
-const cartBody = document.querySelector("#cart-body"); 
+const cartBody = document.querySelector("#cart-body");
 
 // Lấy giỏ hàng từ localStorage
 function getCart() {
@@ -664,7 +669,7 @@ document.addEventListener("blur", function (e) {
         if (isNaN(val) || val < 1 || e.target.value === '') {
             item.quantity = 1;
             e.target.value = 1;
-            
+
         }
         saveCart(cart);
         renderCart();
@@ -1178,7 +1183,7 @@ function validateCard() {
 
 // Xác nhận thanh toán (gọi API AddOrder)
 async function confirmPayment(method) {
-    const customerId = window.selectedCustomerId;  
+    const customerId = window.selectedCustomerId;
     const currentUserId = parseInt(document.getElementById("userId").dataset.userId);
     const cart = getCart();
 
@@ -1212,7 +1217,7 @@ async function confirmPayment(method) {
         OrderItems: cart.map(p => ({
             ProductId: parseInt(p.productId),
             Quantity: parseInt(p.quantity),
-            Price: parseFloat(p.price)  
+            Price: parseFloat(p.price)
         }))
     };
     console.log(input);
@@ -1246,18 +1251,3 @@ async function confirmPayment(method) {
         Swal.fire("Lỗi", result.message, "error");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

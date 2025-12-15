@@ -23,28 +23,28 @@ namespace StoreManagement.Controllers
             int? categoryId = null,
             string search = "")
         {
-            // Lấy danh mục (để hiển thị combobox lọc)
+            // 1️⃣ Lấy danh mục (để hiển thị combobox lọc)
             var categories = _context.Categories.ToList();
 
-            // 2Tạo query cơ bản
+            // 2️⃣ Tạo query cơ bản
             var query = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Inventory)
                 .AsQueryable();
 
-            // Lọc theo tên sản phẩm (search)
+            // 3️⃣ Lọc theo tên sản phẩm (search)
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(p => p.ProductName.Contains(search));
             }
 
-            // Lọc theo danh mục
+            // 4️⃣ Lọc theo danh mục
             if (categoryId.HasValue && categoryId.Value > 0)
             {
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             }
 
-            // Truy vấn danh sách sản phẩm (chưa phân trang)
+            // 5️⃣ Truy vấn danh sách sản phẩm (chưa phân trang)
             var productsList = query
                 .OrderBy(p => p.ProductId)
                 .Select(p => new OrderStaffLoadProductModel
@@ -58,10 +58,10 @@ namespace StoreManagement.Controllers
                 })
                 .ToList();
 
-            // Phân trang bằng lớp Pagination<T>
+            // 6️⃣ Phân trang bằng lớp Pagination<T>
             var pagedProducts = Pagination<OrderStaffLoadProductModel>.Create(productsList, page, pageSize);
 
-            // Tạo ViewModel tổng hợp
+            // 7️⃣ Tạo ViewModel tổng hợp
             var viewModel = new OrderStaffLoadViewPageModel
             {
                 Categories = categories,
@@ -128,6 +128,7 @@ namespace StoreManagement.Controllers
 
             return Json(customers);
         }
+
         // Lấy khuyến mãi phù hợp với giá trị đơn hàng
         [HttpGet]
         public IActionResult GetApplicablePromotionsValid(decimal orderTotal)
@@ -151,6 +152,7 @@ namespace StoreManagement.Controllers
 
             return Json(promotions);
         }
+
         [HttpGet]
         public IActionResult GetApplicablePromotionsInValid(decimal orderTotal)
         {
@@ -173,6 +175,7 @@ namespace StoreManagement.Controllers
 
             return Json(promotions);
         }
+
         // Thêm Order
         [HttpPost]
         public async Task<IActionResult> AddOrder([FromBody] AddOrderInputModel input)
@@ -270,6 +273,53 @@ namespace StoreManagement.Controllers
             {
                 await transaction.RollbackAsync();
                 return Json(new { success = false, message = "Lỗi khi tạo đơn hàng: " + ex.Message });
+            }
+        }
+
+        // Thêm khách hàng mới
+        [HttpPost]
+        public async Task<IActionResult> AddCustomer(string Name, string Phone, string Email, string Address)
+        {
+            try
+            {
+                // Kiểm tra dữ liệu đầu vào
+                if (string.IsNullOrWhiteSpace(Name))
+                    return Json(new { success = false, message = "Tên khách hàng không được để trống." });
+
+                if (string.IsNullOrWhiteSpace(Phone))
+                    return Json(new { success = false, message = "Số điện thoại không được để trống." });
+
+                // Kiểm tra số điện thoại đã tồn tại chưa
+                var existingCustomer = await _context.Customers
+                    .FirstOrDefaultAsync(c => c.Phone == Phone);
+
+                if (existingCustomer != null)
+                    return Json(new { success = false, message = "Số điện thoại này đã được đăng ký." });
+
+                // Tạo khách hàng mới
+                var customer = new Customer
+                {
+                    Name = Name,
+                    Phone = Phone,
+                    Email = Email,
+                    Address = Address,
+                    CreatedAt = DateTime.Now
+                };
+
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    customerId = customer.CustomerId,
+                    customerName = customer.Name,
+                    message = "Thêm khách hàng thành công!"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Lỗi: " + ex.Message });
             }
         }
     }
