@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hocki1nam4\\.NET\\Store_Management\\StoreManagement.csproj": {}
+    "A:\\FixBugDiEm\\dotNET\\Demo\\Store_Management\\StoreManagement.csproj": {}
   },
   "projects": {
-    "D:\\Hocki1nam4\\.NET\\Store_Management\\StoreManagement.csproj": {
+    "A:\\FixBugDiEm\\dotNET\\Demo\\Store_Management\\StoreManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hocki1nam4\\.NET\\Store_Management\\StoreManagement.csproj",
+        "projectUniqueName": "A:\\FixBugDiEm\\dotNET\\Demo\\Store_Management\\StoreManagement.csproj",
         "projectName": "StoreManagement",
-        "projectPath": "D:\\Hocki1nam4\\.NET\\Store_Management\\StoreManagement.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Hocki1nam4\\.NET\\Store_Management\\obj\\",
+        "projectPath": "A:\\FixBugDiEm\\dotNET\\Demo\\Store_Management\\StoreManagement.csproj",
+        "packagesPath": "C:\\Users\\huonglamcoder\\.nuget\\packages\\",
+        "outputPath": "A:\\FixBugDiEm\\dotNET\\Demo\\Store_Management\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\huonglamcoder\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,7 +40,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -94,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

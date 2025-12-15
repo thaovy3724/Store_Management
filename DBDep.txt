@@ -93,6 +93,6 @@ INSERT INTO users (userId, username, password, full_name, role, created_at) VALU
 (4, 'ngkietbaby19@gmail.com', '$2a$11$5jkidy.m2G1xMGUyVdVu4eSMZDO6qzFoCp6z/I3isZ1WK1dXZab2W', N'Nguyễn Hoàng Tuấn Kiệt', 'Admin', '2025-12-09 22:13:08.867961'),
 (13, 'admin', '$2a$11$DFa45erFP8K2hQ9qQDAq8eNG6SZFEbWMYFSiRdLhnxmo47vchnX2q', N'Quản trị viên', 'Admin', '2025-12-14 16:32:33.486944'),
 (14, 'staff', '$2a$11$Giq5bA.xHnZjszphhAZgiuHtcSAfWrqvF4vf29nzS1T53B2wZ6P9i', N'Nhân viên', 'Staff', '2025-12-14 16:34:27.777072'),
-(15, 'nguyenvanb@sv.sgu.edu.vn', '$2a$08$VqKZynLKVJG1MWQRjeft6efrnePWkYY8xp1HIAm7IOY1cuoaW0syC', N'Nguyễn Văn B', 'Customer', '2025-12-14 16:40:12.393756');
+(15, 'nguyenvanb@sv.sgu.edu.vn', '$2a$08$VqKZynLKVJG1MWQRjeft6efrnePWkYY8xp1HIAm7IOY1cuoaW0syC', N'Nguyễn Văn B', 'Staff', '2025-12-14 16:40:12.393756');
 
 SET IDENTITY_INSERT users OFF;

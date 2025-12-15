@@ -336,8 +336,4 @@
       <TypeScriptCompile Include="wwwroot\lib\node_modules\html5-qrcode\zxing-html5-qrcode-decoder.d.ts" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Migrations\" />
-    </ItemGroup>
-
 </Project>

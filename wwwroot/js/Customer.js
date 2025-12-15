@@ -189,10 +189,11 @@
                 // Đóng modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
                 modal.hide();
-                location.reload();
-                await loadCustomers();
                 
-                showAlert(result.message, "success");
+                showAlert(result.message, "success", 400);
+                await new Promise(resolve => setTimeout(resolve, 500));
+                window.location.href = "/Customer/Index?page=1"
+                
             } else {
                 showAlert(result.message, "error");
             }
@@ -268,9 +269,9 @@
                     const result = await response.json();
 
                     if (result.success) {
-                        showAlert(result.message, "success");
-                        location.reload();
-                        await loadCustomers();
+                        showAlert(result.message, "success", 400);
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        window.location.href = "/Customer/Index?page=1"
                     } else {
                         showAlert(result.message, "error");
                     }

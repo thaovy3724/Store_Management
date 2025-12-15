@@ -136,13 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 success: function (response) {
                     if(response.success) {
-                        showAlert(response.message, "success");
+                        showAlert(response.message, "success", 400);
                         
                         // Tắt modal và tự động load lại table
                         $('#supplierModal').modal('hide');
                         setTimeout(() => {
                             location.reload();
-                        }, 2000);
+                        }, 500);
                     } else {
                         showAlert(response.message, "error");
                     }
@@ -206,11 +206,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     data: { id: id },
                     success: function (res) {
                         if (res.success) {
-                            showAlert(res.message, "success");
+                            showAlert(res.message, "success", 400);
                             // Reload lại trang Index giữ nguyên search hiện tại
                             setTimeout(() => {
                                 window.location.reload();
-                            }, 700);
+                            }, 500);
                         } else {
                             showAlert(res.message, "error");
                         }

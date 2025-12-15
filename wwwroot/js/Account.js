@@ -114,9 +114,11 @@
                 modal.hide();
 
                 // Hiển thị thông báo
-                showAlert(result.message, 'success')
+                showAlert(result.message, 'success', 500)
 
-                await searchAndFilter();
+                // await searchAndFilter();
+                await new Promise(resolve => setTimeout(resolve, 500));
+                window.location.href = "/Account/Index?page=1"
             } else {
                 showAlert(result.message, 'error')
             }
@@ -152,8 +154,10 @@
                     const result = await response.json();
 
                     if (result.success) {
-                        showAlert(result.message, "success");
-                        await searchAndFilter();
+                        showAlert(result.message, "success", 400);
+                        // await searchAndFilter();
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        window.location.href = "/Account/Index?page=1"
                     } else {
                         showAlert(result.message, "error");
                     }
@@ -263,65 +267,6 @@
 
         return isValid;
     };
-
-    // Load lại danh sách account
-    const loadAccounts = async () => {
-        const response = await fetch("Account/GetAccounts");
-        const result = await response.json();
-        const accounts = result.data;
-
-        if (result.success) {
-            renderTable(accounts);
-        } else {
-            showAlert("Có lỗi xảy ra lấy dữ liệu", "error");
-        }
-    }
-
-    const renderTable = (accounts) => {
-        tableBody.innerHTML = '';
-        if (accounts.length === 0) {
-            tableBody.innerHTML = `
-                <tr><td colspan="5" class="text-center">Không có dữ liệu</td></tr>
-            `;
-        } else {
-            accounts.forEach(account => {
-                const roleBgColor = account.role === "Admin" ? "#0d6efd1a" : "#ffc1071a";
-                const roleTxtColor = account.role === "Admin" ? "#0d6efd" : "#ffc107";
-                const row = `
-                <tr class="text-center">
-                    <td class="text-center">${account.userId}</td>
-                    <td>${account.username}</td>
-                    <td>${account.fullname}</td>
-                    <td>
-                        <span 
-                            class="badge rounded-pill px-3 py-2 fw-semibold"
-                            style="background-color:${roleBgColor}; color:${roleTxtColor}; border:1px solid ${roleTxtColor};">
-                            ${account.role}
-                        </span>
-                    </td>
-                    <td class="text-center">
-                        <button 
-                            class="btn btn-sm btn-light border me-1 btn-edit" 
-                            data-id=${account.userId}
-                            title="Sửa" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#userModal">
-                            <i class="bi bi-pencil text-success"></i>
-                        </button>
-                        <button 
-                            class="btn btn-sm btn-light border btn-delete" 
-                            title="Xóa"
-                            data-id=${account.userId}
-                            >
-                            <i class="bi bi-trash text-danger"></i>
-                        </button>
-                    </td>
-                </tr>
-               `;
-                tableBody.innerHTML += row;
-            });
-        }
-    }
     
     function searchAndFilter() {
         const search = document.getElementById("searchInput").value.trim();
