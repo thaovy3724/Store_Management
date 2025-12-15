@@ -276,5 +276,52 @@ namespace StoreManagement.Controllers
                 return Json(new { success = false, message = "Lỗi khi tạo đơn hàng: " + ex.Message });
             }
         }
+
+        // Thêm khách hàng mới
+        [HttpPost]
+        public async Task<IActionResult> AddCustomer(string Name, string Phone, string Email, string Address)
+        {
+            try
+            {
+                // Kiểm tra dữ liệu đầu vào
+                if (string.IsNullOrWhiteSpace(Name))
+                    return Json(new { success = false, message = "Tên khách hàng không được để trống." });
+
+                if (string.IsNullOrWhiteSpace(Phone))
+                    return Json(new { success = false, message = "Số điện thoại không được để trống." });
+
+                // Kiểm tra số điện thoại đã tồn tại chưa
+                var existingCustomer = await _context.Customers
+                    .FirstOrDefaultAsync(c => c.Phone == Phone);
+
+                if (existingCustomer != null)
+                    return Json(new { success = false, message = "Số điện thoại này đã được đăng ký." });
+
+                // Tạo khách hàng mới
+                var customer = new Customer
+                {
+                    Name = Name,
+                    Phone = Phone,
+                    Email = Email,
+                    Address = Address,
+                    CreatedAt = DateTime.Now
+                };
+
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    customerId = customer.CustomerId,
+                    customerName = customer.Name,
+                    message = "Thêm khách hàng thành công!"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Lỗi: " + ex.Message });
+            }
+        }
     }
 }
