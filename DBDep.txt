@@ -1,0 +1,98 @@
+-- Insert data for SQL Server
+-- Sử dụng SET IDENTITY_INSERT để insert giá trị vào cột IDENTITY
+
+-- Categories
+SET IDENTITY_INSERT categories ON;
+
+INSERT INTO categories (category_id, category_name) VALUES
+(2, N'Thức ăn nhanh'),
+(3, N'Nước uống'),
+(4, N'Đồ gia dụng');
+
+SET IDENTITY_INSERT categories OFF;
+
+-- Customers
+SET IDENTITY_INSERT customers ON;
+
+INSERT INTO customers (customer_id, name, phone, email, address, created_at) VALUES
+(2, N'Nguyễn Văn A', '0933599080', 'nguyenvana@gmail.com', N'132 Đoàn Văn Bơ, quận 4, TP. Hồ Chí Minh', '2025-12-09 22:13:08.746443'),
+(9, N'Nguyễn Văn B', '0909349679', 'nguyenvanb@sv.sgu.edu.vn', N'217B Nguyễn Văn Cừ, Quận 5, TP. Hồ Chí Minh', '2025-12-14 16:40:12.392903');
+
+SET IDENTITY_INSERT customers OFF;
+
+-- Suppliers
+SET IDENTITY_INSERT suppliers ON;
+
+INSERT INTO suppliers (SupplierId, name, phone, email, address) VALUES
+(2, N'Công ty TNHH Nước uống', '0798980217', 'nuocuong@gmail.com', N'2086 Huỳnh Tấn Phát, Nhà Bè, TP. Hồ Chí Minh'),
+(3, N'Công ty TNHH Thức ăn nhanh', '0798980218', 'thucannhanh@gmail.com', N'Số 1 Nguyễn Bỉnh Khiêm, Quận 1, TP. Hồ Chí Minh'),
+(4, N'Công ty TNHH Đồ gia dụng', '0798980219', 'dogiadung@gmail.com', N'Số 5 An Dương Vương, Quận 5, TP. Hồ Chí Minh');
+
+SET IDENTITY_INSERT suppliers OFF;
+
+-- Products
+SET IDENTITY_INSERT products ON;
+
+INSERT INTO products (product_id, product_name, product_image, category_id, supplier_id, price, unit, barcode, created_at) VALUES
+(3, N'Xúc xích Mỹ', '43694fb1-2ec8-4b70-8401-36203be3609f.jpg', 2, 3, 35000.00, N'gói', '2', '2025-12-09 22:54:40.616486'),
+(4, N'Nồi đất', 'de299436-9d88-4249-9402-b52127f7d573.jpg', 4, 4, 200000.00, N'cái', '32222', '2025-12-09 22:55:17.972812'),
+(5, 'Pepsi', '72053152-ec71-460f-b0ad-a66b1e99fdc8.jpg', 3, 2, 35000.00, N'chai', '1121', '2025-12-09 23:03:34.521363'),
+(6, 'Sprite', 'e9bb4fd7-961f-4885-86ae-5335d8d47b68.jpg', 3, 2, 10000.00, N'chai', '123123', '2025-12-09 23:04:15.690496'),
+(8, N'Cá viên chiên', 'a9400d70-f8fb-4ccf-b95c-8c70ba2aac52.jpg', 2, 3, 50000.00, N'gói', '1222213', '2025-12-09 23:05:48.978272'),
+(9, N'Há cảo hải sản', '9a3279ce-eb1f-42f2-99c6-7171382c919a.jpg', 2, 3, 100000.00, N'gói', '23431', '2025-12-09 23:06:19.672106'),
+(10, N'Khoai tây chiên', '0a719230-498b-4ea5-9ce8-4ee2537f14ea.jpg', 2, 3, 80000.00, N'gói', '5132', '2025-12-09 23:06:51.230173'),
+(11, N'Nồi cơm điện nắp gài', 'c3337c1d-f6b5-4357-9202-41ad47637e27.jpg', 4, 4, 500000.00, N'cái', '2413', '2025-12-09 23:07:33.101614'),
+(14, 'Sting', '3e900795-8964-4252-8db8-bb8257f96d0c.jpg', 3, 2, 35000.00, N'chai', '11231231', '2025-12-10 04:14:32.047629'),
+(15, N'Nước suối', '19704c60-2852-4349-9853-423bc51e468a.jpg', 3, 2, 15000.00, N'chai', '1231211111', '2025-12-10 04:15:49.414865'),
+(16, 'Redbull', '80f7054f-f91b-4dc8-b240-a8f8758cc4a0.jpg', 3, 2, 50000.00, N'lon', '12312332', '2025-12-14 16:07:03.156470'),
+(17, N'Bánh bao hấp nhân thịt', '60fa3d6f-3ef6-470a-b290-20010145b287.jpg', 2, 3, 120000.00, N'gói', '362516', '2025-12-14 16:16:37.424523'),
+(18, N'Bộ 10 đôi đũa Inox', 'b14b55c2-587c-441d-b9e2-bf28c3407f0e.jpg', 4, 4, 125000.00, N'bộ', '321312', '2025-12-14 16:24:46.135060'),
+(19, N'Bộ 5 thìa(muỗng) inox', '362f90fd-5614-4454-a85d-39e18347631c.jpg', 4, 4, 120000.00, N'bộ', '321322', '2025-12-14 16:26:28.988466'),
+(20, N'Chảo chống dính 20cm', 'c100395f-31a2-48c9-9597-d2b9202e5e3e.jpg', 4, 4, 99000.00, N'cái', '42113', '2025-12-14 16:27:45.183135');
+
+SET IDENTITY_INSERT products OFF;
+
+-- Inventory
+SET IDENTITY_INSERT inventory ON;
+
+INSERT INTO inventory (inventory_id, product_id, quantity, updated_at) VALUES
+(3, 3, 100, '2025-12-14 18:59:51.279114'),
+(4, 4, 100, '2025-12-14 16:23:28.680914'),
+(5, 5, 100, '2025-12-14 16:06:17.941476'),
+(6, 6, 100, '2025-12-14 16:06:12.064727'),
+(8, 8, 100, '2025-12-14 18:59:56.827047'),
+(9, 9, 100, '2025-12-14 18:59:43.687942'),
+(10, 10, 100, '2025-12-14 18:59:37.412327'),
+(11, 11, 100, '2025-12-14 16:21:52.907467'),
+(14, 14, 100, '2025-12-14 16:05:57.360827'),
+(15, 15, 100, '2025-12-14 16:05:48.341868'),
+(16, 16, 100, '2025-12-14 16:07:03.156469'),
+(17, 17, 100, '2025-12-14 18:59:29.527249'),
+(18, 18, 100, '2025-12-14 16:24:46.135059'),
+(19, 19, 100, '2025-12-14 16:26:28.988464'),
+(20, 20, 100, '2025-12-14 16:27:45.183134');
+
+SET IDENTITY_INSERT inventory OFF;
+
+-- Promotions
+SET IDENTITY_INSERT promotions ON;
+
+INSERT INTO promotions (promo_id, promo_code, description, discount_type, discount_value, start_date, end_date, min_order_amount, usage_limit, used_count, status) VALUES
+(1, 'KM10', N'Giảm 10% cho đơn hàng từ 10.000đ', 'Percent', 10.00, '2025-12-08', '2025-12-12', 10000.00, 10, 0, 'Active'),
+(2, 'KM20', N'Giảm 2000đ cho đơn hàng từ 20.000đ', 'Fixed', 20.00, '2025-12-09', '2025-12-12', 20000.00, 10, 0, 'Active'),
+(3, 'KM30', N'Giảm 30% cho đơn hàng tự 30.000đ', 'Percent', 30.00, '2025-12-09', '2025-12-19', 30000.00, 10, 0, 'Active'),
+(4, 'KM40', N'Giảm 40.000đ cho đơn hàng từ 200.000đ', 'Fixed', 40.00, '2025-12-08', '2025-12-20', 200000.00, 10, 0, 'Active'),
+(5, 'KM50', N'Giảm 20% cho đơn hàng tự 50.000đ', 'Percent', 20.00, '2025-12-11', '2025-12-20', 50000.00, 10, 0, 'Active');
+
+SET IDENTITY_INSERT promotions OFF;
+
+-- Users
+SET IDENTITY_INSERT users ON;
+
+INSERT INTO users (userId, username, password, full_name, role, created_at) VALUES
+(4, 'ngkietbaby19@gmail.com', '$2a$11$5jkidy.m2G1xMGUyVdVu4eSMZDO6qzFoCp6z/I3isZ1WK1dXZab2W', N'Nguyễn Hoàng Tuấn Kiệt', 'Admin', '2025-12-09 22:13:08.867961'),
+(13, 'admin', '$2a$11$DFa45erFP8K2hQ9qQDAq8eNG6SZFEbWMYFSiRdLhnxmo47vchnX2q', N'Quản trị viên', 'Admin', '2025-12-14 16:32:33.486944'),
+(14, 'staff', '$2a$11$Giq5bA.xHnZjszphhAZgiuHtcSAfWrqvF4vf29nzS1T53B2wZ6P9i', N'Nhân viên', 'Staff', '2025-12-14 16:34:27.777072'),
+(15, 'nguyenvanb@sv.sgu.edu.vn', '$2a$08$VqKZynLKVJG1MWQRjeft6efrnePWkYY8xp1HIAm7IOY1cuoaW0syC', N'Nguyễn Văn B', 'Customer', '2025-12-14 16:40:12.393756');
+
+SET IDENTITY_INSERT users OFF;
