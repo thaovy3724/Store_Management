@@ -4,10 +4,6 @@ using StoreManagement.Data;
 using StoreManagement.Models.Entities;
 using StoreManagement.Models.ViewModel.OrderStaff;
 using StoreManagement.Models.ViewModel.Utils;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.Json;
-using System.Web;
 
 namespace StoreManagement.Controllers
 {
@@ -27,28 +23,28 @@ namespace StoreManagement.Controllers
             int? categoryId = null,
             string search = "")
         {
-            // 1️⃣ Lấy danh mục (để hiển thị combobox lọc)
+            // Lấy danh mục (để hiển thị combobox lọc)
             var categories = _context.Categories.ToList();
 
-            // 2️⃣ Tạo query cơ bản
+            // 2Tạo query cơ bản
             var query = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Inventory)
                 .AsQueryable();
 
-            // 3️⃣ Lọc theo tên sản phẩm (search)
+            // Lọc theo tên sản phẩm (search)
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(p => p.ProductName.Contains(search));
             }
 
-            // 4️⃣ Lọc theo danh mục
+            // Lọc theo danh mục
             if (categoryId.HasValue && categoryId.Value > 0)
             {
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             }
 
-            // 5️⃣ Truy vấn danh sách sản phẩm (chưa phân trang)
+            // Truy vấn danh sách sản phẩm (chưa phân trang)
             var productsList = query
                 .OrderBy(p => p.ProductId)
                 .Select(p => new OrderStaffLoadProductModel
@@ -62,10 +58,10 @@ namespace StoreManagement.Controllers
                 })
                 .ToList();
 
-            // 6️⃣ Phân trang bằng lớp Pagination<T>
+            // Phân trang bằng lớp Pagination<T>
             var pagedProducts = Pagination<OrderStaffLoadProductModel>.Create(productsList, page, pageSize);
 
-            // 7️⃣ Tạo ViewModel tổng hợp
+            // Tạo ViewModel tổng hợp
             var viewModel = new OrderStaffLoadViewPageModel
             {
                 Categories = categories,

@@ -1,16 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using StoreManagement.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-
 namespace StoreManagement.Controllers
 {
 
@@ -101,44 +93,41 @@ namespace StoreManagement.Controllers
                 string ipnUrl = _config["MoMo:IpnUrl"];
                 string requestType = _config["MoMo:RequestType"] ?? "captureWallet";
 
-                // Validate config
                 if (string.IsNullOrEmpty(partnerCode) || string.IsNullOrEmpty(secretKey))
                 {
                     return BadRequest(new { error = "MoMo configuration missing" });
                 }
 
-                // Tạo request data
                 string requestId = Guid.NewGuid().ToString();
-                string orderIdStr = orderId.ToString();
+                
+                // ✅ MoMo orderId = "1_20251216153045" (duy nhất mỗi lần gọi)
+                // ✅ Database orderId vẫn là 1, 2, 3, 4, 5, 6...
+                string momoOrderId = $"{orderId}_{DateTime.Now:yyyyMMddHHmmss}";
+                
                 string amountStr = ((long)amount).ToString();
                 string orderInfoStr = orderInfo ?? $"Thanh toan don hang {orderId}";
-                string extraData = ""; // Có thể để trống hoặc base64 encode JSON
-                string ipAddr = GetIpAddress();
+                string extraData = ""; // Để trống, lấy orderId từ momoOrderId
 
-                // Tạo rawSignature theo thứ tự alphabet (quan trọng!)
                 string rawSignature = $"accessKey={accessKey}" +
                                     $"&amount={amountStr}" +
                                     $"&extraData={extraData}" +
                                     $"&ipnUrl={ipnUrl}" +
-                                    $"&orderId={orderIdStr}" +
+                                    $"&orderId={momoOrderId}" +
                                     $"&orderInfo={orderInfoStr}" +
                                     $"&partnerCode={partnerCode}" +
                                     $"&redirectUrl={returnUrl}" +
                                     $"&requestId={requestId}" +
                                     $"&requestType={requestType}";
 
-
-                // Tạo signature
                 string signature = CreateSignature(secretKey, rawSignature);
 
-                // Tạo request body
                 var requestData = new
                 {
                     partnerCode,
                     accessKey,
                     requestId,
                     amount = amountStr,
-                    orderId = orderIdStr,
+                    orderId = momoOrderId,
                     orderInfo = orderInfoStr,
                     redirectUrl = returnUrl,
                     ipnUrl,
@@ -149,14 +138,14 @@ namespace StoreManagement.Controllers
                 };
 
                 var jsonContent = JsonSerializer.Serialize(requestData);
+                
+                Console.WriteLine($"✅ MoMo: DB OrderId={orderId}, MoMo OrderId={momoOrderId}");
 
-                // Gửi request đến MoMo
                 var httpClient = _httpClientFactory.CreateClient();
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(endpoint, content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                // Parse response
                 var momoResponse = JsonSerializer.Deserialize<JsonElement>(responseContent);
 
                 if (momoResponse.TryGetProperty("resultCode", out var resultCode) && 
@@ -202,15 +191,13 @@ namespace StoreManagement.Controllers
                 string secretKey = _config["MoMo:SecretKey"];
                 var momoData = Request.Query;
 
-                // Log tất cả params
                 foreach (var key in momoData.Keys)
                 {
                     Console.WriteLine($"{key} = {momoData[key]}");
                 }
 
-                // Lấy thông tin từ query
                 string partnerCode = momoData["partnerCode"];
-                string orderId = momoData["orderId"];
+                string momoOrderId = momoData["orderId"];  // VD: "5_20251216153045"
                 string requestId = momoData["requestId"];
                 string amount = momoData["amount"];
                 string orderInfo = momoData["orderInfo"];
@@ -223,12 +210,11 @@ namespace StoreManagement.Controllers
                 string extraData = momoData["extraData"];
                 string receivedSignature = momoData["signature"];
 
-                // Tạo signature để verify
                 string rawSignature = $"accessKey={_config["MoMo:AccessKey"]}" +
                                     $"&amount={amount}" +
                                     $"&extraData={extraData}" +
                                     $"&message={message}" +
-                                    $"&orderId={orderId}" +
+                                    $"&orderId={momoOrderId}" +
                                     $"&orderInfo={orderInfo}" +
                                     $"&orderType={orderType}" +
                                     $"&partnerCode={partnerCode}" +
@@ -240,51 +226,51 @@ namespace StoreManagement.Controllers
 
                 string calculatedSignature = CreateSignature(secretKey, rawSignature);
 
-                // Verify signature
                 if (calculatedSignature != receivedSignature)
                 {
+                    Console.WriteLine("❌ Chữ ký không hợp lệ!");
                     return BadRequest("Chữ ký không hợp lệ!");
                 }
 
-                int orderIdInt = int.Parse(orderId);
-                var order = _context.Orders.FirstOrDefault(o => o.OrderId == orderIdInt);
+                // ✅ Lấy orderId gốc từ momoOrderId: "5_20251216153045" → 5
+                int dbOrderId = int.Parse(momoOrderId.Split('_')[0]);
+                Console.WriteLine($"✅ DB OrderId: {dbOrderId}");
+
+                var order = _context.Orders.FirstOrDefault(o => o.OrderId == dbOrderId);
 
                 if (order == null)
                 {
-                    Console.WriteLine($"❌ Không tìm thấy đơn hàng #{orderId}");
+                    Console.WriteLine($"❌ Không tìm thấy đơn hàng #{dbOrderId}");
                     return BadRequest("Không tìm thấy đơn hàng.");
                 }
 
-                // Kiểm tra kết quả thanh toán
                 if (resultCode == "0")
                 {
-                    // Thanh toán thành công
                     order.Status = Models.Entities.OrderStatus.Paid;
                     _context.SaveChanges();
 
-                    Console.WriteLine($"✅ Thanh toán MoMo thành công - OrderId: {orderId}");
+                    Console.WriteLine($"✅ Thanh toán thành công - OrderId: {dbOrderId}");
                     Console.WriteLine("=== END CALLBACK ===\n");
 
-                    return Redirect($"/OrderStaff?paymentSuccess=true&orderId={orderId}");
+                    return Redirect($"/OrderStaff?paymentSuccess=true&orderId={dbOrderId}");
                 }
                 else
                 {
-                    // Thanh toán thất bại - Hoàn lại tồn kho
-                    Console.WriteLine($"❌ Thanh toán MoMo thất bại - OrderId: {orderId}, ResultCode: {resultCode}");
+                    Console.WriteLine($"❌ Thanh toán thất bại - OrderId: {dbOrderId}");
 
-                    RestoreInventory(orderIdInt);
+                    RestoreInventory(dbOrderId);
 
                     order.Status = Models.Entities.OrderStatus.Cancelled;
                     _context.SaveChanges();
 
                     Console.WriteLine("=== END CALLBACK ===\n");
 
-                    return Redirect($"/OrderStaff?paymentSuccess=false&orderId={orderId}");
+                    return Redirect($"/OrderStaff?paymentSuccess=false&orderId={dbOrderId}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Error processing return: {ex.Message}");
+                Console.WriteLine($"❌ Error: {ex.Message}");
                 Console.WriteLine("=== END CALLBACK ===\n");
                 return StatusCode(500, "Internal server error");
             }
