@@ -186,13 +186,8 @@
             const result = await response.json(); 
             
             if(result.success) {
-                // Đóng modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
-                modal.hide();
-                location.reload();
-                await loadCustomers();
-                
                 showAlert(result.message, "success");
+                setTimeout(() => { applyFilter(); }, 2000);
             } else {
                 showAlert(result.message, "error");
             }

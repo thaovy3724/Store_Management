@@ -109,15 +109,6 @@ public class CustomerController(ApplicationDbContext _dbContext) : Controller
             return Json(new { success = false, message = "Số điện thoại đã tồn tại!" });
         }
 
-        // Kiểm tra trùng email
-        var existingEmail = await _dbContext.Customers
-            .FirstOrDefaultAsync(c => c.Email == model.Email);
-
-        if (existingEmail != null)
-        {
-            return Json(new { success = false, message = "Email đã tồn tại!" });
-        }
-
 
         _dbContext.Customers.Add(model);
         await _dbContext.SaveChangesAsync();

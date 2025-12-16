@@ -51,14 +51,10 @@
             const result = await response.json();
 
             if (result.success) {
-                // Đóng modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('categoryModal'));
-                modal.hide();
-
                 // Hiển thị thông báo
                 showAlert(result.message, 'success')
 
-                await loadCategories();
+                setTimeout(() => { applyFilter(); }, 2000);
             } else {
                 typename.classList.add("is-invalid");
                 document.getElementById("typename-msg").textContent = result.message;
@@ -185,7 +181,7 @@
 
                         if (data.success) {
                             showAlert(data.message, "success");
-                            await loadCategories();
+                            setTimeout(() => { applyFilter(); }, 2000);
                         } else {
                             showAlert(data.message, "error");
                         }

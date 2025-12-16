@@ -109,14 +109,10 @@
             const result = await response.json();
 
             if (result.success) {
-                // Đóng modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('userModal'));
-                modal.hide();
-
                 // Hiển thị thông báo
                 showAlert(result.message, 'success')
 
-                await searchAndFilter();
+                setTimeout(() => { searchAndFilter(); }, 2000);
             } else {
                 showAlert(result.message, 'error')
             }
